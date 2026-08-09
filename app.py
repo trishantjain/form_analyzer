@@ -95,6 +95,63 @@ def get_selected_template() -> Optional[Dict[str, Any]]:
     return {"slug": slug, "config": config, "info": info}
 
 
+def validate_template_config(config: Dict[str, Any]) -> tuple[bool, List[str]]:
+    """
+    Validate that a saved template uses the configuration
+    schema expected by the current validator.
+    """
+
+    errors: List[str] = []
+
+    required_top_level = [
+        "document_classification",
+        "format_checks",
+        "validation",
+        "scoring",
+    ]
+
+    for key in required_top_level:
+        if key not in config:
+            errors.append(
+                f"Missing required configuration section: '{key}'"
+            )
+
+    classification = config.get("document_classification")
+
+    if classification is not None:
+
+        if "required_markers" not in classification:
+            errors.append(
+                "document_classification.required_markers is missing"
+            )
+
+        if "minimum_confidence" not in classification:
+            errors.append(
+                "document_classification.minimum_confidence is missing"
+            )
+
+    format_checks = config.get("format_checks")
+
+    if format_checks is not None:
+
+        if "required_fields" not in format_checks:
+            errors.append(
+                "format_checks.required_fields is missing"
+            )
+
+        if "required_sections" not in format_checks:
+            errors.append(
+                "format_checks.required_sections is missing"
+            )
+
+        if "visual_checks" not in format_checks:
+            errors.append(
+                "format_checks.visual_checks is missing"
+            )
+
+    return len(errors) == 0, errors
+
+
 def load_reference_image(path: Path) -> Optional[Image.Image]:
     try:
         return Image.open(path).convert("RGB")
@@ -176,7 +233,49 @@ def render_template_manager() -> None:
         else:
             try:
                 if base_choice == "Blank configuration":
-                    base_config = DEFAULT_TEMPLATE
+                    base_config = {
+                        "form_name": new_name.strip(),
+                        "version": "1.0",
+
+                        "document_classification": {
+                            "marker_match_threshold": 0.72,
+                            "minimum_confidence": 0.6,
+                            "minimum_markers": 1,
+                            "required_markers": []
+                        },
+
+                        "format_checks": {
+                            "field_match_threshold": 0.72,
+                            "pass_score_threshold": 80,
+                            "required_sections": [],
+                            "required_fields": [],
+                            "visual_checks": []
+                        },
+
+                        "validation": {
+                            "field_match_threshold": 0.72,
+                            "require_all_mandatory": True
+                        },
+
+                        "scoring": {
+                            "classification_weight": 20,
+                            "format_weight": 60,
+                            "visual_weight": 20,
+                            "pass_score_threshold": 80,
+                            "require_all_mandatory_for_pass": True
+                        },
+
+                        "advanced": {
+                            "max_image_dimension": 2200,
+                            "ocr_language": "en"
+                        },
+
+                        "template_matching": {
+                            "enabled": True,
+                            "threshold": 0.3,
+                            "warning_only": True
+                        }
+                    }
                 else:
                     base_slug = next(x["slug"]
                                      for x in templates if x["name"] == base_choice)
@@ -250,7 +349,8 @@ def render_template_configuration() -> None:
     st.header("Template Configuration")
     st.caption(
         "Rules are stored per format. You can change them without editing Python code.")
-    selected = render_template_selector(widget_key="configuration_template_selector")
+    selected = render_template_selector(
+        widget_key="configuration_template_selector")
     if not selected:
         return
     manager: TemplateManager = st.session_state.template_manager
@@ -552,9 +652,32 @@ def render_upload_and_results() -> None:
     st.caption(
         "Select a saved format, upload forms, and validate them against that format's rules.")
 
-    selected = render_template_selector(widget_key="analysis_template_selector")
+    selected = render_template_selector(
+        widget_key="analysis_template_selector")
     if not selected:
         st.info("Create a format first in Template Manager.")
+        return
+
+    config = selected["config"]
+
+    config_valid, config_errors = validate_template_config(config)
+
+    if not config_valid:
+
+        st.error(
+            f"Template '{selected['info']['name']}' has an invalid "
+            "configuration."
+        )
+
+        st.warning(
+            "This format was created using the old configuration schema. "
+            "Open Template Configuration and update it to the new schema."
+        )
+
+        with st.expander("Configuration errors"):
+            for error in config_errors:
+                st.write(f"- {error}")
+
         return
 
     config = selected["config"]

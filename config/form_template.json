@@ -1,296 +1,43 @@
 {
-  "form_name": "CSR Form - Centre Sign-Off Report Biometric",
-  "version": "2.0",
+  "form_name": "New Form",
+  "version": "1.0",
+
   "document_classification": {
     "marker_match_threshold": 0.72,
     "minimum_confidence": 0.6,
-    "minimum_markers": 5,
-    "required_markers": [
-      {
-        "label": "Centre Sign-Off Report",
-        "aliases": [
-          "Centre Sign-Off Report",
-          "Centre Sign Off Report"
-        ]
-      },
-      {
-        "label": "Biometric",
-        "aliases": [
-          "Biometric"
-        ]
-      },
-      {
-        "label": "NEET",
-        "aliases": [
-          "NEET"
-        ]
-      },
-      {
-        "label": "Name & Address of Examination Center",
-        "aliases": [
-          "Name & Address of Examination Center",
-          "Name Address Examination Center",
-          "Name & Address"
-        ]
-      },
-      {
-        "label": "State / District / City",
-        "aliases": [
-          "State Name",
-          "District/City Name",
-          "State Name & District/City Name"
-        ]
-      },
-      {
-        "label": "Centre Code",
-        "aliases": [
-          "Centre Code",
-          "Center Code"
-        ]
-      },
-      {
-        "label": "Installation / Service Delivery Date",
-        "aliases": [
-          "Installation / Service Delivery Date",
-          "Service Delivery Date"
-        ]
-      },
-      {
-        "label": "Attendance table",
-        "aliases": [
-          "Shifts",
-          "Total no. of Candidates Allotted",
-          "Total no. of Candidates Present"
-        ]
-      },
-      {
-        "label": "Customer Statement",
-        "aliases": [
-          "Customer Statement",
-          "I hereby certify"
-        ]
-      },
-      {
-        "label": "Centre Superintendent",
-        "aliases": [
-          "Centre Superintendent/Rep Name & Number",
-          "Centre Superintendent",
-          "Superintendent/Rep"
-        ]
-      },
-      {
-        "label": "Agency Representative",
-        "aliases": [
-          "Name of Agency Rep",
-          "Agency Rep"
-        ]
-      }
-    ]
+    "minimum_markers": 1,
+    "required_markers": []
   },
+
   "format_checks": {
     "field_match_threshold": 0.72,
-    "pass_score_threshold": 90,
-    "required_sections": [
-      {
-        "id": "centre_information",
-        "label": "Centre information",
-        "aliases": [
-          "Name & Address of Examination Center",
-          "State Name",
-          "Centre Code",
-          "Installation / Service Delivery Date"
-        ]
-      },
-      {
-        "id": "attendance",
-        "label": "Attendance table",
-        "aliases": [
-          "Shifts",
-          "Total no. of Candidates Allotted",
-          "Total no. of Candidates Present"
-        ]
-      },
-      {
-        "id": "customer_statement",
-        "label": "Customer Statement",
-        "aliases": [
-          "Customer Statement",
-          "I hereby certify"
-        ]
-      },
-      {
-        "id": "superintendent",
-        "label": "Centre Superintendent section",
-        "aliases": [
-          "Centre Superintendent/Rep Name & Number",
-          "Centre Superintendent/Rep Signature & Seal"
-        ]
-      },
-      {
-        "id": "agency",
-        "label": "Agency Representative section",
-        "aliases": [
-          "Name of Agency Rep",
-          "Signature of Agency Rep"
-        ]
-      }
-    ],
-    "required_fields": [
-      {
-        "id": "centre_name",
-        "label": "Examination Centre name/address",
-        "aliases": [
-          "Name & Address of Examination Center",
-          "Name & Address"
-        ]
-      },
-      {
-        "id": "state_district",
-        "label": "State / District / City",
-        "aliases": [
-          "State Name",
-          "District/City Name",
-          "State Name & District/City Name"
-        ]
-      },
-      {
-        "id": "centre_code",
-        "label": "Centre Code",
-        "aliases": [
-          "Centre Code",
-          "Center Code"
-        ]
-      },
-      {
-        "id": "exam_date",
-        "label": "Date of Exam",
-        "aliases": [
-          "Date of Exam"
-        ]
-      },
-      {
-        "id": "installation_date",
-        "label": "Installation / Service Delivery Date",
-        "aliases": [
-          "Installation / Service Delivery Date",
-          "Service Delivery Date"
-        ]
-      },
-      {
-        "id": "shift",
-        "label": "Shift",
-        "aliases": [
-          "Shifts",
-          "Shift 1",
-          "Shift"
-        ]
-      },
-      {
-        "id": "candidates_allotted",
-        "label": "Candidates Allotted",
-        "aliases": [
-          "Total no. of Candidates Allotted",
-          "Candidates Allotted"
-        ]
-      },
-      {
-        "id": "candidates_present",
-        "label": "Candidates Present",
-        "aliases": [
-          "Total no. of Candidates Present",
-          "Candidates Present"
-        ]
-      },
-      {
-        "id": "remarks",
-        "label": "Remarks",
-        "aliases": [
-          "Remarks"
-        ]
-      },
-      {
-        "id": "satisfactory",
-        "label": "Satisfactory / Unsatisfactory",
-        "aliases": [
-          "Satisfactory",
-          "Unsatisfactory"
-        ]
-      },
-      {
-        "id": "superintendent_name",
-        "label": "Centre Superintendent/Rep Name & Number",
-        "aliases": [
-          "Centre Superintendent/Rep Name & Number",
-          "Centre Superintendent",
-          "Rep Name & Number"
-        ]
-      },
-      {
-        "id": "agency_name",
-        "label": "Name of Agency Rep",
-        "aliases": [
-          "Name of Agency Rep",
-          "Agency Rep"
-        ]
-      }
-    ],
-    "visual_checks": [
-      {
-        "id": "venue_rep_signature_stamp",
-        "label": "Venue Representative signature & stamp",
-        "type": "signature_and_stamp_region",
-        "required": true,
-        "region": {
-          "x": 0.64,
-          "y": 0.3,
-          "width": 0.34,
-          "height": 0.14
-        },
-        "min_ink_percentage": 1.2
-      },
-      {
-        "id": "superintendent_signature_seal",
-        "label": "Centre Superintendent signature & seal",
-        "type": "signature_and_seal_region",
-        "required": true,
-        "region": {
-          "x": 0.4,
-          "y": 0.5,
-          "width": 0.57,
-          "height": 0.12
-        },
-        "min_ink_percentage": 1.0
-      },
-      {
-        "id": "agency_signature",
-        "label": "Agency Representative signature",
-        "type": "signature",
-        "required": false,
-        "region": {
-          "x": 0.15,
-          "y": 0.67,
-          "width": 0.78,
-          "height": 0.08
-        },
-        "min_ink_percentage": 1.0
-      }
-    ]
+    "pass_score_threshold": 80,
+
+    "required_sections": [],
+
+    "required_fields": [],
+
+    "visual_checks": []
   },
+
   "validation": {
     "field_match_threshold": 0.72,
     "require_all_mandatory": true
   },
+
   "scoring": {
     "classification_weight": 20,
     "format_weight": 60,
     "visual_weight": 20,
-    "pass_score_threshold": 85,
+    "pass_score_threshold": 80,
     "require_all_mandatory_for_pass": true
   },
+
   "advanced": {
     "max_image_dimension": 2200,
     "ocr_language": "en"
   },
+
   "template_matching": {
     "enabled": true,
     "threshold": 0.3,
