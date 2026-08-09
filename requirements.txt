@@ -7,7 +7,7 @@ paddleocr==2.7.3
 paddlepaddle==2.6.2
 
 # Image / PDF processing
-opencv-python-headless>=4.9,<5.0
+opencv-python-headless==4.10.0.84
 Pillow>=10.0,<11.0
 PyMuPDF>=1.23,<2.0
 numpy>=1.24,<2.0
