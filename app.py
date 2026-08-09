@@ -106,22 +106,38 @@ def get_template_references(slug: str) -> List[Path]:
     return st.session_state.template_manager.reference_files(slug)
 
 
-def render_template_selector() -> Optional[Dict[str, Any]]:
+def render_template_selector(
+    widget_key: str = "template_selector"
+) -> Optional[Dict[str, Any]]:
     manager: TemplateManager = st.session_state.template_manager
     templates = manager.list_templates()
+
     if not templates:
         st.warning("No saved formats yet. Create one in Template Manager.")
         return None
 
     labels = [x["name"] for x in templates]
     current_slug = st.session_state.get("selected_template")
-    current_index = next((i for i, x in enumerate(
-        templates) if x["slug"] == current_slug), 0)
+    current_index = next(
+        (
+            i
+            for i, x in enumerate(templates)
+            if x["slug"] == current_slug
+        ),
+        0,
+    )
+
     selected_name = st.selectbox(
-        "Format to check", labels, index=current_index)
+        "Format to check", labels, index=current_index, key=widget_key)
+
     selected = templates[labels.index(selected_name)]
     st.session_state.selected_template = selected["slug"]
-    return {"slug": selected["slug"], "config": manager.load(selected["slug"]), "info": selected}
+
+    return {
+        "slug": selected["slug"],
+        "config": manager.load(selected["slug"]),
+        "info": selected
+    }
 
 
 def render_template_manager() -> None:
@@ -234,7 +250,7 @@ def render_template_configuration() -> None:
     st.header("Template Configuration")
     st.caption(
         "Rules are stored per format. You can change them without editing Python code.")
-    selected = render_template_selector()
+    selected = render_template_selector(widget_key="configuration_template_selector")
     if not selected:
         return
     manager: TemplateManager = st.session_state.template_manager
@@ -536,7 +552,7 @@ def render_upload_and_results() -> None:
     st.caption(
         "Select a saved format, upload forms, and validate them against that format's rules.")
 
-    selected = render_template_selector()
+    selected = render_template_selector(widget_key="analysis_template_selector")
     if not selected:
         st.info("Create a format first in Template Manager.")
         return
