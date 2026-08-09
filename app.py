@@ -1,16 +1,10 @@
-"""Professional, config-driven CSR Form Analyzer.
+"""Form Analyzer - Streamlit application entry point.
 
-Run with:
-    streamlit run app.py
+A fully local, free/open-source tool for checking whether scanned or
+photographed student forms follow a predefined format (headings, photo,
+stamp, signature, checkboxes, sections).
 
-The application deliberately separates:
-1. Document classification (CSR vs other document)
-2. CSR format/field validation
-3. Signature / stamp / seal region checks
-4. Optional reference-template layout matching
-
-All check parameters are editable in config/form_template.json and can also
-be changed from the Configuration tab without modifying Python code.
+Run with:  streamlit run app.py
 """
 
 from __future__ import annotations
@@ -24,36 +18,35 @@ from pathlib import Path
 from typing import Any, Dict, List, Optional
 
 import cv2
+import numpy as np
 import pandas as pd
 import streamlit as st
 from PIL import Image
 
-st.write("OpenCV version:", cv2.__version__)
-st.write("OpenCV location:", cv2.__file__)
-
-from modules.csr_validator import CSRValidation, validate_csr_page
+from modules.checkbox_detector import detect_checkboxes
 from modules.database import FormDatabase
+from modules.heading_validator import validate_headings
 from modules.image_preprocessing import cv2_to_pil, pil_to_cv2, preprocess_page
+from modules.layout_analysis import find_non_text_regions, group_text_lines
 from modules.ocr_engine import OCREngine, OCRProcessingError, get_full_text
 from modules.pdf_utils import PDFProcessingError, load_file_as_images
+from modules.photo_detector import detect_photo_region
 from modules.report_generator import (
     FormValidationResult,
-    build_result,
+    compute_score,
     draw_annotations,
     export_csv,
     export_json,
-    results_to_dataframe,
 )
-from modules.template_matcher import compare_to_references
+from modules.signature_detector import analyze_signature_region
+from modules.stamp_detector import detect_stamp
+from modules.template_manager import TemplateManager, DEFAULT_TEMPLATE
 
+# --------------------------------------------------------------------------
+# Logging: technical errors go to a log file, NOT the Streamlit UI.
+# --------------------------------------------------------------------------
 LOG_DIR = Path("output")
 LOG_DIR.mkdir(parents=True, exist_ok=True)
-OUTPUT_DIR = Path("output")
-DB_PATH = OUTPUT_DIR / "form_analyzer.db"
-CONFIG_PATH = Path("config/form_template.json")
-TEMPLATE_DIR = Path("templates/csr")
-TEMPLATE_DIR.mkdir(parents=True, exist_ok=True)
-
 logging.basicConfig(
     filename=LOG_DIR / "form_analyzer.log",
     level=logging.INFO,
@@ -61,318 +54,572 @@ logging.basicConfig(
 )
 logger = logging.getLogger("form_analyzer.app")
 
-st.set_page_config(page_title="CSR Form Analyzer", page_icon="📋", layout="wide")
+DEFAULT_CONFIG_PATH = Path("config/form_template.json")
+OUTPUT_DIR = Path("output")
+DB_PATH = OUTPUT_DIR / "form_analyzer.db"
+TEMPLATE_ROOT = Path("templates/profiles")
+
+st.set_page_config(page_title="Form Analyzer", layout="wide")
 
 
-def load_config() -> Dict[str, Any]:
-    try:
-        return json.loads(CONFIG_PATH.read_text(encoding="utf-8"))
-    except Exception as exc:
-        st.error(f"Could not load {CONFIG_PATH}: {exc}")
-        st.stop()
-
-
-def save_config(config: Dict[str, Any]) -> None:
-    CONFIG_PATH.write_text(json.dumps(config, indent=2), encoding="utf-8")
-
-
-def init_state() -> None:
-    if "config" not in st.session_state:
-        st.session_state.config = load_config()
+# --------------------------------------------------------------------------
+# Template/profile helpers
+# --------------------------------------------------------------------------
+def init_session_state() -> None:
+    if "template_manager" not in st.session_state:
+        st.session_state.template_manager = TemplateManager(TEMPLATE_ROOT, DEFAULT_CONFIG_PATH)
+    if "selected_template" not in st.session_state:
+        templates = st.session_state.template_manager.list_templates()
+        st.session_state.selected_template = templates[0]["slug"] if templates else None
     if "results" not in st.session_state:
-        st.session_state.results = []
+        st.session_state.results: List[FormValidationResult] = []
     if "annotated_images" not in st.session_state:
-        st.session_state.annotated_images = {}
+        st.session_state.annotated_images: Dict[str, List[Image.Image]] = {}
     if "db" not in st.session_state:
         st.session_state.db = FormDatabase(DB_PATH)
-    if "template_references" not in st.session_state:
-        st.session_state.template_references = load_reference_images()
 
 
-def load_reference_images() -> List[tuple[str, Image.Image]]:
-    refs = []
-    for path in sorted(TEMPLATE_DIR.glob("*.png")) + sorted(TEMPLATE_DIR.glob("*.jpg")) + sorted(TEMPLATE_DIR.glob("*.jpeg")):
-        try:
-            refs.append((path.name, Image.open(path).convert("RGB")))
-        except Exception:
-            logger.exception("Could not load reference image %s", path)
-    return refs
+def get_selected_template() -> Optional[Dict[str, Any]]:
+    manager: TemplateManager = st.session_state.template_manager
+    slug = st.session_state.get("selected_template")
+    if not slug:
+        return None
+    try:
+        config = manager.load(slug)
+    except Exception:
+        return None
+    info = next((x for x in manager.list_templates() if x["slug"] == slug), None)
+    return {"slug": slug, "config": config, "info": info}
 
 
-def render_configuration() -> None:
-    config = st.session_state.config
-    st.header("⚙️ Configuration")
-    st.caption("All validation rules are configuration-driven. You can edit and save them here or directly in config/form_template.json.")
+def load_reference_image(path: Path) -> Optional[Image.Image]:
+    try:
+        return Image.open(path).convert("RGB")
+    except Exception:
+        return None
 
-    c1, c2 = st.columns(2)
-    with c1:
-        config["form_name"] = st.text_input("Form name", config.get("form_name", "CSR Form"))
-        cls = config.setdefault("document_classification", {})
-        cls["marker_match_threshold"] = st.slider("Document marker match threshold", 0.40, 1.0, float(cls.get("marker_match_threshold", 0.72)), 0.01)
-        cls["minimum_confidence"] = st.slider("Minimum CSR classification confidence", 0.0, 1.0, float(cls.get("minimum_confidence", 0.60)), 0.01)
-        cls["minimum_markers"] = st.number_input("Minimum matched CSR markers", 1, 50, int(cls.get("minimum_markers", 5)))
 
-    with c2:
-        validation = config.setdefault("validation", {})
-        validation["field_match_threshold"] = st.slider("Field/section OCR match threshold", 0.40, 1.0, float(validation.get("field_match_threshold", 0.72)), 0.01)
-        fmt = config.setdefault("format_checks", {})
-        fmt["pass_score_threshold"] = st.slider("Minimum format score", 0, 100, int(fmt.get("pass_score_threshold", 90)))
-        scoring = config.setdefault("scoring", {})
-        scoring["classification_weight"] = st.number_input("Classification weight", 0, 100, int(scoring.get("classification_weight", 20)))
-        scoring["format_weight"] = st.number_input("Format weight", 0, 100, int(scoring.get("format_weight", 60)))
-        scoring["visual_weight"] = st.number_input("Signature/stamp weight", 0, 100, int(scoring.get("visual_weight", 20)))
-        scoring["pass_score_threshold"] = st.slider("Final PASS score", 0, 100, int(scoring.get("pass_score_threshold", 85)))
-        scoring["require_all_mandatory_for_pass"] = st.checkbox("Require all mandatory checks", value=bool(scoring.get("require_all_mandatory_for_pass", True)))
+def get_template_references(slug: str) -> List[Path]:
+    return st.session_state.template_manager.reference_files(slug)
 
-    st.subheader("Document classification markers")
-    st.write("Add/remove aliases in JSON for OCR variations. A marker is matched if any alias reaches the configured threshold.")
-    st.json(config.get("document_classification", {}).get("required_markers", []))
 
-    st.subheader("Required sections and fields")
-    st.json(config.get("format_checks", {}).get("required_sections", []))
-    st.json(config.get("format_checks", {}).get("required_fields", []))
+def render_template_selector() -> Optional[Dict[str, Any]]:
+    manager: TemplateManager = st.session_state.template_manager
+    templates = manager.list_templates()
+    if not templates:
+        st.warning("No saved formats yet. Create one in Template Manager.")
+        return None
 
-    st.subheader("Signature / stamp / seal regions")
-    st.caption("Regions use normalized coordinates: x/y/width/height are 0.0–1.0 of the page. This makes the rules independent of image resolution.")
-    st.json(config.get("format_checks", {}).get("visual_checks", []))
+    labels = [x["name"] for x in templates]
+    current_slug = st.session_state.get("selected_template")
+    current_index = next((i for i, x in enumerate(templates) if x["slug"] == current_slug), 0)
+    selected_name = st.selectbox("Format to check", labels, index=current_index)
+    selected = templates[labels.index(selected_name)]
+    st.session_state.selected_template = selected["slug"]
+    return {"slug": selected["slug"], "config": manager.load(selected["slug"]), "info": selected}
 
-    st.subheader("Advanced JSON editor")
-    json_text = st.text_area("Edit complete configuration", value=json.dumps(config, indent=2), height=520, key="config_json_editor")
-    col_save, col_reset = st.columns(2)
-    with col_save:
-        if st.button("💾 Save configuration", type="primary"):
+
+def render_template_manager() -> None:
+    st.header("Template Manager")
+    st.caption("Create and save reusable document formats. Each format has its own rules and reference images.")
+    manager: TemplateManager = st.session_state.template_manager
+    templates = manager.list_templates()
+
+    if templates:
+        st.subheader("Saved formats")
+        rows = [{"Format": x["name"], "Reference images": x["reference_count"], "Folder": x["slug"]} for x in templates]
+        st.dataframe(pd.DataFrame(rows), width="stretch", hide_index=True)
+
+    st.subheader("Create a new format")
+    with st.form("create_template_form"):
+        new_name = st.text_input("Format name", placeholder="e.g. Exam A, Exam B, CSR 2027")
+        base_options = ["Blank configuration"] + [x["name"] for x in templates]
+        base_choice = st.selectbox("Start configuration from", base_options)
+        reference_files = st.file_uploader(
+            "Upload known-good template/reference images",
+            type=["png", "jpg", "jpeg"],
+            accept_multiple_files=True,
+            key="new_template_refs",
+        )
+        create_clicked = st.form_submit_button("Save New Format", type="primary")
+
+    if create_clicked:
+        if not new_name.strip():
+            st.error("Enter a format name.")
+        elif manager.exists(new_name):
+            st.error("A format with this name already exists.")
+        else:
             try:
-                parsed = json.loads(json_text)
-                save_config(parsed)
-                st.session_state.config = parsed
-                st.success(f"Saved {CONFIG_PATH}")
+                if base_choice == "Blank configuration":
+                    base_config = DEFAULT_TEMPLATE
+                else:
+                    base_slug = next(x["slug"] for x in templates if x["name"] == base_choice)
+                    base_config = manager.load(base_slug)
+                slug = manager.create(new_name.strip(), base_config)
+                if reference_files:
+                    manager.add_references(slug, reference_files)
+                st.session_state.selected_template = slug
+                st.success(f"Format '{new_name.strip()}' saved successfully.")
+                st.rerun()
+            except Exception as exc:
+                st.error(f"Could not create format: {exc}")
+
+    templates = manager.list_templates()
+    if not templates:
+        return
+
+    st.subheader("Manage an existing format")
+    selected_name = st.selectbox("Format", [x["name"] for x in templates], key="manager_selected")
+    selected = next(x for x in templates if x["name"] == selected_name)
+    slug = selected["slug"]
+    config = manager.load(slug)
+
+    col1, col2, col3 = st.columns(3)
+    with col1:
+        new_name = st.text_input("Rename format", value=config.get("form_name", selected_name), key="rename_name")
+        if st.button("Rename", key="rename_btn"):
+            try:
+                new_slug = manager.rename(slug, new_name.strip())
+                st.session_state.selected_template = new_slug
+                st.success("Format renamed.")
+                st.rerun()
+            except Exception as exc:
+                st.error(str(exc))
+    with col2:
+        more_refs = st.file_uploader("Add reference images", type=["png", "jpg", "jpeg"], accept_multiple_files=True, key="more_refs")
+        if st.button("Add References", key="add_refs_btn"):
+            if not more_refs:
+                st.warning("Select at least one image.")
+            else:
+                count = manager.add_references(slug, more_refs)
+                st.success(f"Added {count} reference image(s).")
+                st.rerun()
+    with col3:
+        st.write("Danger zone")
+        if st.button("Delete Format", key="delete_template_btn", type="secondary"):
+            if len(templates) == 1:
+                st.error("Keep at least one format.")
+            else:
+                manager.delete(slug)
+                remaining = manager.list_templates()
+                st.session_state.selected_template = remaining[0]["slug"] if remaining else None
+                st.success("Format deleted.")
+                st.rerun()
+
+    refs = manager.reference_files(slug)
+    st.write(f"**{len(refs)} reference image(s)**")
+    if refs:
+        cols = st.columns(min(5, len(refs)))
+        for i, ref in enumerate(refs):
+            with cols[i % len(cols)]:
+                img = load_reference_image(ref)
+                if img is not None:
+                    st.image(img, caption=ref.name, width=150)
+
+
+def render_template_configuration() -> None:
+    st.header("Template Configuration")
+    st.caption("Rules are stored per format. You can change them without editing Python code.")
+    selected = render_template_selector()
+    if not selected:
+        return
+    manager: TemplateManager = st.session_state.template_manager
+    slug = selected["slug"]
+    config = selected["config"]
+
+    st.info(f"Editing: **{config.get('form_name', slug)}**")
+    edited = st.text_area("Template JSON", value=json.dumps(config, indent=2, ensure_ascii=False), height=600)
+    col1, col2 = st.columns(2)
+    with col1:
+        if st.button("Save Configuration", type="primary"):
+            try:
+                parsed = json.loads(edited)
+                if not isinstance(parsed, dict):
+                    raise ValueError("Configuration root must be a JSON object.")
+                parsed["form_name"] = config.get("form_name", slug)
+                manager.save(slug, parsed)
+                st.success("Configuration saved.")
                 st.rerun()
             except json.JSONDecodeError as exc:
                 st.error(f"Invalid JSON: {exc}")
-    with col_reset:
-        if st.button("↩ Reload config from disk"):
-            st.session_state.config = load_config()
+            except Exception as exc:
+                st.error(str(exc))
+    with col2:
+        if st.button("Reset to Default", type="secondary"):
+            manager.save(slug, {**DEFAULT_TEMPLATE, "form_name": config.get("form_name", slug)})
+            st.success("Configuration reset.")
             st.rerun()
 
+# --------------------------------------------------------------------------
+# Core per-file analysis pipeline
+# --------------------------------------------------------------------------
+def analyze_single_file(
+    filename: str,
+    file_bytes: bytes,
+    config: Dict[str, Any],
+    stamp_reference: Optional[Image.Image],
+    logo_reference: Optional[Image.Image],
+) -> tuple[Optional[FormValidationResult], List[Image.Image]]:
+    """Run the full detection pipeline on one uploaded file.
 
-def render_template_references() -> None:
-    st.header("🧩 CSR Template References")
-    st.caption("Upload known-good CSR pictures. They are stored locally in templates/csr and are used as optional secondary layout references.")
-    uploaded = st.file_uploader("Known-good CSR reference images", type=["png", "jpg", "jpeg"], accept_multiple_files=True, key="csr_refs")
-    if uploaded and st.button("Save reference images"):
-        for uf in uploaded:
-            (TEMPLATE_DIR / uf.name).write_bytes(uf.getvalue())
-        st.session_state.template_references = load_reference_images()
-        st.success(f"Saved {len(uploaded)} reference image(s).")
-        st.rerun()
-
-    if st.session_state.template_references:
-        cols = st.columns(min(5, len(st.session_state.template_references)))
-        for i, (name, image) in enumerate(st.session_state.template_references):
-            with cols[i % len(cols)]:
-                st.image(image, caption=name, use_container_width=True)
-    else:
-        st.info("No reference images found. OCR/structure checks will still work.")
-
-
-def analyze_single_file(filename: str, file_bytes: bytes, config: Dict[str, Any]) -> tuple[Optional[FormValidationResult], List[Image.Image]]:
-    start = time.time()
+    Returns (result, annotated_page_images). result is None if the file
+    could not be processed at all (error already shown to user).
+    """
+    start_time = time.time()
     annotated_pages: List[Image.Image] = []
+
     try:
         pages = load_file_as_images(filename, file_bytes)
     except (PDFProcessingError, ValueError) as exc:
-        st.error(f"{filename}: {exc}")
+        st.error(f"'{filename}': {exc}")
+        logger.warning("File load failed for %s: %s", filename, exc)
         return None, []
-    except Exception as exc:
-        st.error(f"{filename}: could not load file")
-        logger.error("Load error %s: %s\n%s", filename, exc, traceback.format_exc())
+    except Exception as exc:  # noqa: BLE001
+        st.error(f"'{filename}': an unexpected error occurred while loading the file.")
+        logger.error("Unexpected load error for %s: %s\n%s", filename, exc, traceback.format_exc())
         return None, []
 
-    engine = OCREngine.get_instance(config.get("advanced", {}).get("ocr_language", "en"))
-    all_blocks = []
-    ocr_parts = []
-    first_page_bgr = None
-    first_page_gray = None
+    ocr_engine = OCREngine.get_instance()
+
+    all_heading_results = []
+    all_lines_by_page: List[List[str]] = []
+    all_blocks_by_page = []
+    combined_ocr_text_parts: List[str] = []
+
+    photo_result = None
+    stamp_result = None
+    signature_result = None
+    checkbox_results = []
+
+    required_elements = config.get("required_elements", {})
+    required_checkbox_labels = [
+        c["label"] for c in config.get("checkboxes", []) if c.get("required")
+    ]
 
     try:
-        for page_index, page in enumerate(pages, start=1):
-            bgr, _binary = preprocess_page(page)
-            if first_page_bgr is None:
-                first_page_bgr = bgr
-                first_page_gray = cv2.cvtColor(bgr, cv2.COLOR_BGR2GRAY)
+        for page_index, page_image in enumerate(pages, start=1):
+            display_bgr, processed_binary = preprocess_page(page_image)
+
             try:
-                blocks = engine.run(bgr)
+                ocr_blocks = ocr_engine.run(display_bgr)
             except OCRProcessingError as exc:
-                blocks = []
-                logger.warning("OCR failed for %s page %s: %s", filename, page_index, exc)
-            all_blocks.extend(blocks)
-            ocr_parts.append(get_full_text(blocks))
-            annotated_pages.append(cv2_to_pil(bgr))
+                st.warning(f"'{filename}' page {page_index}: OCR failed ({exc}). Skipping OCR-based checks for this page.")
+                logger.error("OCR failed for %s page %s: %s", filename, page_index, exc)
+                ocr_blocks = []
 
-        if first_page_bgr is None or first_page_gray is None:
-            return None, []
+            all_blocks_by_page.append(ocr_blocks)
+            lines = group_text_lines(ocr_blocks)
+            all_lines_by_page.append(lines)
+            combined_ocr_text_parts.append(get_full_text(ocr_blocks))
 
-        validation = validate_csr_page(first_page_gray, all_blocks, config)
+            page_gray_real = cv2.cvtColor(display_bgr, cv2.COLOR_BGR2GRAY)
 
-        # Optional reference layout signal.
-        template_cfg = config.get("template_matching", {})
-        refs = [(name, pil_to_cv2(img)) for name, img in st.session_state.template_references]
-        if template_cfg.get("enabled", True) and refs:
-            match = compare_to_references(first_page_bgr, refs, float(template_cfg.get("threshold", 0.30)))
-            validation.warnings.append(
-                f"Reference layout similarity: {match.similarity * 100:.1f}% ({match.reference_name or 'none'})."
-            )
-            validation_dict = validation.to_dict()
-            validation_dict["template_match"] = {
-                "matched": match.matched,
-                "similarity": match.similarity,
-                "reference_name": match.reference_name,
-                "good_matches": match.good_matches,
-                "inlier_ratio": match.inlier_ratio,
-            }
-        else:
-            validation_dict = validation.to_dict()
+            # --- Photo detection (first page only, typically where the photo is) ---
+            if required_elements.get("student_photo", {}).get("required") and photo_result is None:
+                regions = find_non_text_regions(
+                    display_bgr.shape[:2], ocr_blocks, page_gray=page_gray_real
+                )
+                photo_cfg = required_elements["student_photo"]
+                photo_result = detect_photo_region(
+                    page_gray_real,
+                    regions,
+                    min_width=int(photo_cfg.get("minimum_width", 100)),
+                    min_height=int(photo_cfg.get("minimum_height", 100)),
+                    aspect_ratio_min=float(photo_cfg.get("expected_aspect_ratio_min", 0.6)),
+                    aspect_ratio_max=float(photo_cfg.get("expected_aspect_ratio_max", 1.2)),
+                )
 
-        result = build_result(
-            filename=filename,
-            pages=len(pages),
-            validation=validation,
-            ocr_text="\n\n".join(ocr_parts),
-            processing_duration_seconds=round(time.time() - start, 2),
+            # --- Stamp detection ---
+            if required_elements.get("stamp", {}).get("required") and stamp_reference is not None and stamp_result is None:
+                ref_cv = pil_to_cv2(stamp_reference)
+                candidate = detect_stamp(
+                    display_bgr,
+                    ref_cv,
+                    similarity_threshold=float(
+                        required_elements["stamp"].get("similarity_threshold", 0.70)
+                    ),
+                )
+                if stamp_result is None or candidate.similarity > stamp_result.similarity:
+                    stamp_result = candidate
+
+            # --- Signature detection ---
+            if required_elements.get("signature", {}).get("required") and signature_result is None:
+                # Best-effort: look for a region near a "Signature" heading;
+                # otherwise fall back to the bottom-right quadrant of the page.
+                sig_bbox = _locate_signature_region(display_bgr.shape, all_heading_results, page_index)
+                candidate_sig = analyze_signature_region(page_gray_real, sig_bbox)
+                signature_result = candidate_sig
+
+            # --- Checkbox detection ---
+            page_checkboxes = detect_checkboxes(page_gray_real, ocr_blocks)
+            checkbox_results.extend(page_checkboxes)
+
+            annotated_pages.append(cv2_to_pil(display_bgr))
+
+        # --- Heading validation across all pages ---
+        heading_results = validate_headings(
+            required_headings=config.get("required_headings", []),
+            lines_by_page=all_lines_by_page,
+            blocks_by_page=all_blocks_by_page,
+            heading_match_threshold=float(config.get("heading_match_threshold", 0.75)),
+            min_ocr_confidence=float(config.get("minimum_ocr_confidence", 0.60)),
+        )
+
+        result = compute_score(
+            heading_results=heading_results,
+            photo_result=photo_result,
+            stamp_result=stamp_result,
+            signature_result=signature_result,
+            checkbox_results=checkbox_results,
+            required_elements=required_elements,
+            required_checkbox_labels=required_checkbox_labels,
             scoring_config=config.get("scoring", {}),
         )
-        result.validation_details = validation_dict
+        result.filename = filename
+        result.pages = len(pages)
+        result.ocr_text = "\n\n".join(combined_ocr_text_parts)
+        result.processing_duration_seconds = round(time.time() - start_time, 2)
 
-        annotated = []
-        for i, page_img in enumerate(annotated_pages, start=1):
-            page_bgr = pil_to_cv2(page_img)
-            if i == 1:
-                page_bgr = draw_annotations(page_bgr, validation, i)
-            annotated.append(cv2_to_pil(page_bgr))
-        return result, annotated
-    except Exception as exc:
-        st.error(f"{filename}: processing failed. Other files will continue.")
+        # Re-draw annotations now that heading_results is final (only for page 1
+        # display simplicity; each page gets headings that belong to it).
+        final_annotated = []
+        for page_index, page_pil in enumerate(annotated_pages, start=1):
+            page_bgr = pil_to_cv2(page_pil)
+            annotated_bgr = draw_annotations(
+                page_bgr,
+                heading_results,
+                photo_result if page_index == 1 else None,
+                stamp_result if page_index == 1 else None,
+                signature_result if page_index == 1 else None,
+                [c for c in checkbox_results],
+                page_index,
+            )
+            final_annotated.append(cv2_to_pil(annotated_bgr))
+
+        return result, final_annotated
+
+    except Exception as exc:  # noqa: BLE001
+        st.error(
+            f"'{filename}': processing failed unexpectedly. The other files will "
+            "still be processed. See logs for technical details."
+        )
         logger.error("Pipeline failure for %s: %s\n%s", filename, exc, traceback.format_exc())
         return None, annotated_pages
 
 
-def render_analysis() -> None:
-    st.header("📋 Analyze CSR Forms")
-    st.caption("Upload one or hundreds of scanned/photographed forms. Each file is classified first, then validated only if it looks like the configured CSR form.")
-    uploaded = st.file_uploader("Upload CSR forms", type=["pdf", "png", "jpg", "jpeg"], accept_multiple_files=True)
-    if not uploaded:
+def _locate_signature_region(page_shape, heading_results, current_page: int):
+    """Best-effort signature region: near a matched 'Signature'/'Declaration'
+    heading if found, otherwise the bottom-right quadrant of the page.
+    """
+    height, width = page_shape[:2]
+    for hr in heading_results:
+        if hr.page == current_page and hr.bbox and (
+            "signature" in hr.heading.lower() or "declaration" in hr.heading.lower()
+        ):
+            x1, y1, x2, y2 = hr.bbox
+            region_x1 = x1
+            region_y1 = y2
+            region_x2 = min(width, x2 + 250)
+            region_y2 = min(height, y2 + 120)
+            if region_x2 > region_x1 and region_y2 > region_y1:
+                return (region_x1, region_y1, region_x2, region_y2)
+
+    # Fallback: bottom-right quadrant.
+    return (int(width * 0.55), int(height * 0.80), width, height)
+
+
+# --------------------------------------------------------------------------
+# Main page
+# --------------------------------------------------------------------------
+def render_upload_and_results() -> None:
+    st.title("📋 Form Analyzer")
+    st.caption("Select a saved format, upload forms, and validate them against that format's rules.")
+
+    selected = render_template_selector()
+    if not selected:
+        st.info("Create a format first in Template Manager.")
         return
 
-    st.write(f"**{len(uploaded)} file(s) ready for analysis.**")
-    if st.button("🚀 Analyze Forms", type="primary"):
-        results = []
-        annotated_map = {}
-        progress = st.progress(0, text="Starting...")
-        for i, uf in enumerate(uploaded):
-            progress.progress(i / len(uploaded), text=f"Analyzing {uf.name} ({i + 1}/{len(uploaded)})")
-            result, annotated = analyze_single_file(uf.name, uf.getvalue(), st.session_state.config)
-            if result:
+    config = selected["config"]
+    slug = selected["slug"]
+    refs = get_template_references(slug)
+    st.caption(f"Using **{config.get('form_name', slug)}** · {len(refs)} saved reference image(s)")
+
+    uploaded_files = st.file_uploader(
+        "Upload form(s) — PDF, PNG, JPG, JPEG",
+        type=["pdf", "png", "jpg", "jpeg"],
+        accept_multiple_files=True,
+        key=f"analysis_upload_{slug}",
+    )
+
+    if uploaded_files:
+        with st.expander("Preview uploaded files", expanded=False):
+            cols = st.columns(min(4, len(uploaded_files)))
+            for i, uf in enumerate(uploaded_files):
+                with cols[i % len(cols)]:
+                    st.write(uf.name)
+                    if uf.type in ("image/png", "image/jpeg"):
+                        st.image(uf, width=150)
+                    else:
+                        st.caption("PDF — preview after analysis")
+
+    analyze_clicked = st.button("Analyze Forms", type="primary", disabled=not uploaded_files)
+
+    if analyze_clicked and uploaded_files:
+        # Use the first saved reference as the optional stamp reference for legacy stamp matching.
+        stamp_reference = None
+        logo_reference = None
+        for ref in refs:
+            if ref.suffix.lower() in {".png", ".jpg", ".jpeg"}:
+                img = load_reference_image(ref)
+                if img is not None:
+                    # Reference images are whole forms, not stamp/logo crops, so do not treat them as stamp/logo.
+                    pass
+
+        results: List[FormValidationResult] = []
+        annotated_map: Dict[str, List[Image.Image]] = {}
+        progress = st.progress(0.0, text="Starting analysis...")
+        for i, uf in enumerate(uploaded_files):
+            progress.progress(i / len(uploaded_files), text=f"Analyzing {uf.name}...")
+            try:
+                file_bytes = uf.getvalue()
+            except Exception as exc:
+                st.error(f"Could not read uploaded file '{uf.name}': {exc}")
+                continue
+            result, annotated_pages = analyze_single_file(uf.name, file_bytes, config, stamp_reference, logo_reference)
+            if result is not None:
                 results.append(result)
-                annotated_map[result.filename] = annotated
+                annotated_map[uf.name] = annotated_pages
                 st.session_state.db.insert_result(
                     filename=result.filename,
                     status=result.overall_status,
                     score=result.score,
                     ocr_text=result.ocr_text,
-                    missing_items=result.missing_elements,
+                    missing_items=result.missing_headings + result.missing_elements,
                     warnings=result.warnings,
                     result_dict=result.to_dict(),
                     processing_duration_seconds=result.processing_duration_seconds,
                 )
-        progress.progress(1.0, text="Analysis complete")
+        progress.progress(1.0, text="Analysis complete.")
         st.session_state.results = results
         st.session_state.annotated_images = annotated_map
+        st.session_state.last_analysis_template = config.get("form_name", slug)
 
     render_results()
 
 
 def render_results() -> None:
-    results: List[FormValidationResult] = st.session_state.results
+    results: List[FormValidationResult] = st.session_state.get("results", [])
     if not results:
         return
-    st.subheader("Results")
+
+    st.header("Results")
+
+    from modules.report_generator import results_to_dataframe
+
     df = results_to_dataframe(results)
-    st.dataframe(df, use_container_width=True, hide_index=True)
+    st.dataframe(df, width="stretch")
 
-    summary = pd.DataFrame([
-        {"Metric": "Total files", "Value": len(results)},
-        {"Metric": "CSR forms", "Value": sum(r.document_type != "Other Document" for r in results)},
-        {"Metric": "PASS", "Value": sum(r.overall_status == "PASS" for r in results)},
-        {"Metric": "FAIL", "Value": sum(r.overall_status == "FAIL" for r in results)},
-    ])
-    st.dataframe(summary, hide_index=True, use_container_width=False)
+    col_csv, col_json = st.columns(2)
+    with col_csv:
+        csv_path = export_csv(results, OUTPUT_DIR / "results.csv")
+        st.download_button(
+            "Download CSV",
+            data=csv_path.read_bytes(),
+            file_name="form_analysis_results.csv",
+            mime="text/csv",
+        )
+    with col_json:
+        json_path = export_json(results, OUTPUT_DIR / "results.json")
+        st.download_button(
+            "Download JSON",
+            data=json_path.read_bytes(),
+            file_name="form_analysis_results.json",
+            mime="application/json",
+        )
 
-    c1, c2 = st.columns(2)
-    with c1:
-        path = export_csv(results, OUTPUT_DIR / "results.csv")
-        st.download_button("Download CSV", path.read_bytes(), "csr_analysis_results.csv", "text/csv")
-    with c2:
-        path = export_json(results, OUTPUT_DIR / "results.json")
-        st.download_button("Download JSON", path.read_bytes(), "csr_analysis_results.json", "application/json")
+    st.subheader("Per-form detail")
+    for result in results:
+        status_emoji = "✅" if result.overall_status == "PASS" else "❌"
+        with st.expander(f"{status_emoji} {result.filename} — {result.overall_status} ({result.score}%)"):
+            c1, c2, c3 = st.columns(3)
+            c1.metric("Score", f"{result.score}%")
+            c2.metric("Pages", result.pages)
+            c3.metric("Processing time", f"{result.processing_duration_seconds}s")
 
-    for r in results:
-        emoji = "✅" if r.overall_status == "PASS" else "❌"
-        with st.expander(f"{emoji} {r.filename} — {r.overall_status} ({r.score}%)"):
-            a, b, c, d = st.columns(4)
-            a.metric("Document", r.document_type)
-            b.metric("Format", f"{r.format_score}%")
-            c.metric("Signature", r.signatures_status)
-            d.metric("Stamp / Seal", r.stamps_status)
-            st.write(f"**Required structural checks:** {r.required_fields_passed}/{r.required_fields_total}")
-            if r.missing_elements:
-                st.error("Missing / failed: " + ", ".join(r.missing_elements))
-            if r.warnings:
-                for warning in r.warnings:
-                    st.warning(warning)
-            if r.validation_details.get("classification"):
-                st.write("**Classification details**")
-                st.json(r.validation_details["classification"])
-            st.write("**Check details**")
-            st.dataframe(pd.DataFrame(r.checks), use_container_width=True, hide_index=True)
+            if result.missing_headings:
+                st.write("**Missing headings:**", ", ".join(result.missing_headings))
+            if result.missing_elements:
+                st.write("**Missing elements:**", ", ".join(result.missing_elements))
+            if result.low_confidence_items:
+                st.write("**Low-confidence items:**", ", ".join(result.low_confidence_items))
+            if result.warnings:
+                st.write("**Warnings:**")
+                for w in result.warnings:
+                    st.write(f"- {w}")
 
-            for idx, image in enumerate(st.session_state.annotated_images.get(r.filename, []), start=1):
-                st.image(image, caption=f"Annotated page {idx}", use_container_width=True)
-                buf = io.BytesIO(); image.save(buf, format="PNG")
-                st.download_button(f"Download annotated page {idx}", buf.getvalue(), f"{Path(r.filename).stem}_page{idx}.png", "image/png", key=f"ann_{r.filename}_{idx}")
+            annotated_pages = st.session_state.annotated_images.get(result.filename, [])
+            if annotated_pages:
+                st.write("**Annotated pages** (green=found, red=missing, orange=low confidence, blue=info)")
+                for idx, page_img in enumerate(annotated_pages, start=1):
+                    st.image(page_img, caption=f"Page {idx}", width="stretch")
+                    buf = io.BytesIO()
+                    page_img.save(buf, format="PNG")
+                    st.download_button(
+                        f"Download annotated page {idx}",
+                        data=buf.getvalue(),
+                        file_name=f"{Path(result.filename).stem}_page{idx}_annotated.png",
+                        mime="image/png",
+                        key=f"dl_{result.filename}_{idx}",
+                    )
 
-            with st.expander("OCR text"):
-                st.text(r.ocr_text or "No OCR text")
-            with st.expander("Full machine-readable validation"):
-                st.json(r.to_dict())
+            with st.expander("OCR extracted text"):
+                st.text(result.ocr_text or "(no text extracted)")
+
+            with st.expander("Heading match details"):
+                st.json(result.heading_details)
+
+            with st.expander("Checkbox detection details"):
+                st.json(result.checkbox_details)
 
 
-def render_history() -> None:
-    st.header("🗃️ History")
-    history = st.session_state.db.fetch_history()
+def render_history_page() -> None:
+    st.header("Analysis History")
+    db: FormDatabase = st.session_state.db
+    history = db.fetch_history()
+
     if not history:
         st.info("No analysis history yet.")
         return
-    st.dataframe(pd.DataFrame(history), use_container_width=True, hide_index=True)
-    selected = st.number_input("Result ID", min_value=0, step=1, value=0)
-    if selected:
-        detail = st.session_state.db.fetch_result_detail(int(selected))
+
+    st.dataframe(pd.DataFrame(history), width="stretch")
+
+    selected_id = st.number_input("View full detail for result ID", min_value=0, step=1, value=0)
+    if selected_id:
+        detail = db.fetch_result_detail(int(selected_id))
         if detail:
             st.json(detail)
+        else:
+            st.warning("No record found with that ID.")
 
 
+# --------------------------------------------------------------------------
+# Entry point
+# --------------------------------------------------------------------------
 def main() -> None:
-    init_state()
-    st.title("📋 CSR Form Analyzer")
-    st.caption("Local, configurable document classification and CSR validation")
-    tab1, tab2, tab3, tab4 = st.tabs(["Analyze", "Template References", "Configuration", "History"])
-    with tab1:
-        render_analysis()
-    with tab2:
-        render_template_references()
-    with tab3:
-        render_configuration()
-    with tab4:
-        render_history()
+    init_session_state()
+
+    tab_analyze, tab_templates, tab_config, tab_history = st.tabs([
+        "Analyze Forms", "Template Manager", "Template Configuration", "History"
+    ])
+    with tab_analyze:
+        render_upload_and_results()
+    with tab_templates:
+        render_template_manager()
+    with tab_config:
+        render_template_configuration()
+    with tab_history:
+        render_history_page()
 
 
 if __name__ == "__main__":
