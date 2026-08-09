@@ -41,7 +41,8 @@ from modules.report_generator import (
 from modules.signature_detector import analyze_signature_region
 from modules.stamp_detector import detect_stamp
 from modules.template_manager import TemplateManager, DEFAULT_TEMPLATE
-from modules.csr_validator import validate_csr_page
+from modules.template_analyzer import learn_template_profile
+from modules.template_validator import validate_document, GenericValidation
 
 # --------------------------------------------------------------------------
 # Logging: technical errors go to a log file, NOT the Streamlit UI.
@@ -96,58 +97,24 @@ def get_selected_template() -> Optional[Dict[str, Any]]:
 
 
 def validate_template_config(config: Dict[str, Any]) -> tuple[bool, List[str]]:
-    """
-    Validate that a saved template uses the configuration
-    schema expected by the current validator.
-    """
-
+    """Validate the generic learned-template schema."""
     errors: List[str] = []
+    if not isinstance(config, dict):
+        return False, ["Template configuration must be a JSON object."]
 
-    required_top_level = [
-        "document_classification",
-        "format_checks",
-        "validation",
-        "scoring",
-    ]
+    if "structure" not in config:
+        errors.append("Missing 'structure' section.")
+    elif not isinstance(config.get("structure", {}).get("anchors", []), list):
+        errors.append("'structure.anchors' must be a list.")
 
-    for key in required_top_level:
-        if key not in config:
-            errors.append(
-                f"Missing required configuration section: '{key}'"
-            )
+    if "visual_checks" not in config:
+        errors.append("Missing 'visual_checks' section.")
 
-    classification = config.get("document_classification")
+    if "validation" not in config:
+        errors.append("Missing 'validation' section.")
 
-    if classification is not None:
-
-        if "required_markers" not in classification:
-            errors.append(
-                "document_classification.required_markers is missing"
-            )
-
-        if "minimum_confidence" not in classification:
-            errors.append(
-                "document_classification.minimum_confidence is missing"
-            )
-
-    format_checks = config.get("format_checks")
-
-    if format_checks is not None:
-
-        if "required_fields" not in format_checks:
-            errors.append(
-                "format_checks.required_fields is missing"
-            )
-
-        if "required_sections" not in format_checks:
-            errors.append(
-                "format_checks.required_sections is missing"
-            )
-
-        if "visual_checks" not in format_checks:
-            errors.append(
-                "format_checks.visual_checks is missing"
-            )
+    if "scoring" not in config:
+        errors.append("Missing 'scoring' section.")
 
     return len(errors) == 0, errors
 
@@ -200,149 +167,413 @@ def render_template_selector(
 def render_template_manager() -> None:
     st.header("Template Manager")
     st.caption(
-        "Create and save reusable document formats. Each format has its own rules and reference images.")
+        "Create and save reusable document formats. "
+        "Each format has its own rules and reference images."
+    )
+
     manager: TemplateManager = st.session_state.template_manager
     templates = manager.list_templates()
 
+    # ------------------------------------------------------------------
+    # Saved formats
+    # ------------------------------------------------------------------
     if templates:
         st.subheader("Saved formats")
-        rows = [{"Format": x["name"], "Reference images": x["reference_count"],
-                 "Folder": x["slug"]} for x in templates]
-        st.dataframe(pd.DataFrame(rows), width="stretch", hide_index=True)
 
+        rows = [
+            {
+                "Format": x["name"],
+                "Reference images": x["reference_count"],
+                "Folder": x["slug"],
+            }
+            for x in templates
+        ]
+
+        st.dataframe(
+            pd.DataFrame(rows),
+            width="stretch",
+            hide_index=True,
+        )
+
+    # ------------------------------------------------------------------
+    # Create new format
+    # ------------------------------------------------------------------
     st.subheader("Create a new format")
+
     with st.form("create_template_form"):
         new_name = st.text_input(
-            "Format name", placeholder="e.g. Exam A, Exam B, CSR 2027")
-        base_options = ["Blank configuration"] + [x["name"] for x in templates]
-        base_choice = st.selectbox("Start configuration from", base_options)
+            "Format name",
+            placeholder="e.g. Exam A, Exam B, CSR 2027",
+        )
+
+        base_options = ["Blank configuration"] + [
+            x["name"] for x in templates
+        ]
+
+        base_choice = st.selectbox(
+            "Start configuration from",
+            base_options,
+        )
+
         reference_files = st.file_uploader(
             "Upload known-good template/reference images",
             type=["png", "jpg", "jpeg"],
             accept_multiple_files=True,
             key="new_template_refs",
         )
+
         create_clicked = st.form_submit_button(
-            "Save New Format", type="primary")
+            "Save New Format",
+            type="primary",
+        )
 
     if create_clicked:
         if not new_name.strip():
             st.error("Enter a format name.")
+
         elif manager.exists(new_name):
             st.error("A format with this name already exists.")
+
         else:
             try:
+                # ------------------------------------------------------
+                # Get base configuration
+                # ------------------------------------------------------
                 if base_choice == "Blank configuration":
-                    base_config = {
-                        "form_name": new_name.strip(),
-                        "version": "1.0",
+                    base_config = json.loads(
+                        json.dumps(DEFAULT_TEMPLATE)
+                    )
+                    base_config["form_name"] = new_name.strip()
 
-                        "document_classification": {
-                            "marker_match_threshold": 0.72,
-                            "minimum_confidence": 0.6,
-                            "minimum_markers": 1,
-                            "required_markers": []
-                        },
-
-                        "format_checks": {
-                            "field_match_threshold": 0.72,
-                            "pass_score_threshold": 80,
-                            "required_sections": [],
-                            "required_fields": [],
-                            "visual_checks": []
-                        },
-
-                        "validation": {
-                            "field_match_threshold": 0.72,
-                            "require_all_mandatory": True
-                        },
-
-                        "scoring": {
-                            "classification_weight": 20,
-                            "format_weight": 60,
-                            "visual_weight": 20,
-                            "pass_score_threshold": 80,
-                            "require_all_mandatory_for_pass": True
-                        },
-
-                        "advanced": {
-                            "max_image_dimension": 2200,
-                            "ocr_language": "en"
-                        },
-
-                        "template_matching": {
-                            "enabled": True,
-                            "threshold": 0.3,
-                            "warning_only": True
-                        }
-                    }
                 else:
-                    base_slug = next(x["slug"]
-                                     for x in templates if x["name"] == base_choice)
-                    base_config = manager.load(base_slug)
-                slug = manager.create(new_name.strip(), base_config)
-                if reference_files:
-                    manager.add_references(slug, reference_files)
-                st.session_state.selected_template = slug
-                st.success(f"Format '{new_name.strip()}' saved successfully.")
-                st.rerun()
-            except Exception as exc:
-                st.error(f"Could not create format: {exc}")
+                    base_slug = next(
+                        x["slug"]
+                        for x in templates
+                        if x["name"] == base_choice
+                    )
 
+                    base_config = manager.load(base_slug)
+
+                # ------------------------------------------------------
+                # Create template
+                # ------------------------------------------------------
+                slug = manager.create(
+                    new_name.strip(),
+                    config=base_config,
+                )
+
+                # ------------------------------------------------------
+                # Save reference images
+                # ------------------------------------------------------
+                if reference_files:
+                    manager.add_references(
+                        slug,
+                        reference_files,
+                    )
+
+                    # --------------------------------------------------
+                    # Automatically learn template
+                    # --------------------------------------------------
+                    try:
+                        manager.learn_from_references(slug)
+
+                    except Exception as learn_exc:
+                        logger.warning(
+                            "Initial template learning failed for %s: %s",
+                            slug,
+                            learn_exc,
+                        )
+
+                        st.warning(
+                            "Template was created, but automatic "
+                            "learning failed. You can use "
+                            "'Learn / Rebuild Template From References' "
+                            "below."
+                        )
+
+                st.session_state.selected_template = slug
+
+                st.success(
+                    f"Format '{new_name.strip()}' saved successfully."
+                )
+
+                st.rerun()
+
+            except Exception as exc:
+                logger.error(
+                    "Template creation failed: %s\n%s",
+                    exc,
+                    traceback.format_exc(),
+                )
+
+                st.error(
+                    f"Could not create format: {exc}"
+                )
+
+    # ------------------------------------------------------------------
+    # Refresh template list after creation
+    # ------------------------------------------------------------------
     templates = manager.list_templates()
+
     if not templates:
         return
 
+    # ------------------------------------------------------------------
+    # Manage existing format
+    # ------------------------------------------------------------------
     st.subheader("Manage an existing format")
+
     selected_name = st.selectbox(
-        "Format", [x["name"] for x in templates], key="manager_selected")
-    selected = next(x for x in templates if x["name"] == selected_name)
+        "Format",
+        [x["name"] for x in templates],
+        key="manager_selected",
+    )
+
+    selected = next(
+        x for x in templates
+        if x["name"] == selected_name
+    )
+
     slug = selected["slug"]
     config = manager.load(slug)
 
+    st.divider()
+
+    # ==================================================================
+    # THREE COLUMN MANAGEMENT AREA
+    # ==================================================================
+
     col1, col2, col3 = st.columns(3)
+
+    # ------------------------------------------------------------------
+    # Rename
+    # ------------------------------------------------------------------
     with col1:
-        new_name = st.text_input("Rename format", value=config.get(
-            "form_name", selected_name), key="rename_name")
-        if st.button("Rename", key="rename_btn"):
-            try:
-                new_slug = manager.rename(slug, new_name.strip())
-                st.session_state.selected_template = new_slug
-                st.success("Format renamed.")
-                st.rerun()
-            except Exception as exc:
-                st.error(str(exc))
-    with col2:
-        more_refs = st.file_uploader("Add reference images", type=[
-                                     "png", "jpg", "jpeg"], accept_multiple_files=True, key="more_refs")
-        if st.button("Add References", key="add_refs_btn"):
-            if not more_refs:
-                st.warning("Select at least one image.")
+        st.write("Rename format")
+
+        new_name = st.text_input(
+            "New name",
+            value=config.get(
+                "form_name",
+                selected_name,
+            ),
+            key="rename_name",
+        )
+
+        if st.button(
+            "Rename",
+            key="rename_btn",
+        ):
+            if not new_name.strip():
+                st.error("Enter a format name.")
+
+            elif (
+                new_name.strip().lower()
+                != selected_name.lower()
+                and manager.exists(new_name.strip())
+            ):
+                st.error(
+                    "A format with this name already exists."
+                )
+
             else:
-                count = manager.add_references(slug, more_refs)
-                st.success(f"Added {count} reference image(s).")
-                st.rerun()
+                try:
+                    new_slug = manager.rename(
+                        slug,
+                        new_name.strip(),
+                    )
+
+                    st.session_state.selected_template = new_slug
+
+                    st.success(
+                        "Format renamed successfully."
+                    )
+
+                    st.rerun()
+
+                except Exception as exc:
+                    st.error(str(exc))
+
+    # ------------------------------------------------------------------
+    # Add references
+    # ------------------------------------------------------------------
+    with col2:
+        st.write("Reference images")
+
+        more_refs = st.file_uploader(
+            "Add reference images",
+            type=["png", "jpg", "jpeg"],
+            accept_multiple_files=True,
+            key="more_refs",
+        )
+
+        if st.button(
+            "Add References",
+            key="add_refs_btn",
+        ):
+            if not more_refs:
+                st.warning(
+                    "Select at least one image."
+                )
+
+            else:
+                try:
+                    count = manager.add_references(
+                        slug,
+                        more_refs,
+                    )
+
+                    st.success(
+                        f"Added {count} reference image(s)."
+                    )
+
+                    st.rerun()
+
+                except Exception as exc:
+                    logger.error(
+                        "Failed to add references: %s\n%s",
+                        exc,
+                        traceback.format_exc(),
+                    )
+
+                    st.error(
+                        f"Could not add references: {exc}"
+                    )
+
+    # ------------------------------------------------------------------
+    # Delete
+    # ------------------------------------------------------------------
     with col3:
         st.write("Danger zone")
-        if st.button("Delete Format", key="delete_template_btn", type="secondary"):
+
+        if st.button(
+            "🗑️ Delete Format",
+            key="delete_template_btn",
+            type="secondary",
+        ):
+            # Don't allow the application to have zero templates.
             if len(templates) == 1:
-                st.error("Keep at least one format.")
+                st.error(
+                    "You cannot delete the only remaining format. "
+                    "Create another format first."
+                )
+
             else:
-                manager.delete(slug)
-                remaining = manager.list_templates()
-                st.session_state.selected_template = remaining[0]["slug"] if remaining else None
-                st.success("Format deleted.")
+                try:
+                    manager.delete(slug)
+
+                    # Get remaining templates
+                    remaining = manager.list_templates()
+
+                    # Select another template automatically
+                    if remaining:
+                        st.session_state.selected_template = (
+                            remaining[0]["slug"]
+                        )
+                    else:
+                        st.session_state.selected_template = None
+
+                    st.success(
+                        f"Format '{selected_name}' deleted successfully."
+                    )
+
+                    st.rerun()
+
+                except Exception as exc:
+                    logger.error(
+                        "Failed to delete template %s: %s\n%s",
+                        slug,
+                        exc,
+                        traceback.format_exc(),
+                    )
+
+                    st.error(
+                        f"Failed to delete template: {exc}"
+                    )
+
+    # ------------------------------------------------------------------
+    # Reference images / learning
+    # ------------------------------------------------------------------
+    refs = manager.reference_files(slug)
+
+    st.divider()
+
+    st.write(
+        f"**{len(refs)} reference image(s)**"
+    )
+
+    if len(refs) < 3:
+        st.info(
+            "Add at least 3 known-good reference images. "
+            "5+ is recommended."
+        )
+
+    # ------------------------------------------------------------------
+    # Learn / rebuild template
+    # ------------------------------------------------------------------
+    if st.button(
+        "Learn / Rebuild Template From References",
+        key=f"learn_{slug}",
+        type="primary",
+    ):
+        try:
+            if not refs:
+                st.error(
+                    "Add at least one reference image first."
+                )
+
+            else:
+                with st.spinner(
+                    "Analyzing reference forms and "
+                    "learning their common structure..."
+                ):
+                    learned = manager.learn_from_references(
+                        slug
+                    )
+
+                st.success(
+                    f"Template learned from "
+                    f"{learned.get('reference_count', len(refs))} "
+                    f"reference image(s). "
+                    f"Found "
+                    f"{len(learned.get('structure', {}).get('anchors', []))} "
+                    f"common structural anchors."
+                )
+
                 st.rerun()
 
-    refs = manager.reference_files(slug)
-    st.write(f"**{len(refs)} reference image(s)**")
+        except Exception as exc:
+            logger.error(
+                "Template learning failed for %s: %s\n%s",
+                slug,
+                exc,
+                traceback.format_exc(),
+            )
+
+            st.error(
+                f"Template learning failed: {exc}"
+            )
+
+    # ------------------------------------------------------------------
+    # Show saved reference images
+    # ------------------------------------------------------------------
     if refs:
-        cols = st.columns(min(5, len(refs)))
+        st.subheader("Saved reference images")
+
+        cols = st.columns(
+            min(5, len(refs))
+        )
+
         for i, ref in enumerate(refs):
             with cols[i % len(cols)]:
                 img = load_reference_image(ref)
+
                 if img is not None:
-                    st.image(img, caption=ref.name, width=150)
+                    st.image(
+                        img,
+                        caption=ref.name,
+                        width=150,
+                    )
 
 
 def render_template_configuration() -> None:
@@ -392,234 +623,168 @@ def analyze_single_file(
     filename: str,
     file_bytes: bytes,
     config: Dict[str, Any],
-    # stamp_reference: Optional[Image.Image] = None,
-    # logo_reference: Optional[Image.Image] = None,
 ) -> tuple[Optional[FormValidationResult], List[Image.Image]]:
-    """
-    Analyze one uploaded document using the selected saved template.
-
-    Pipeline:
-        File
-          ↓
-        Image/PDF pages
-          ↓
-        OCR
-          ↓
-        CSR classification
-          ↓
-        Required field/section checks
-          ↓
-        Signature / stamp checks
-          ↓
-        Score
-          ↓
-        PASS / FAIL
-    """
-
+    """Analyze one document against the selected generic template profile."""
     start_time = time.time()
     annotated_pages: List[Image.Image] = []
 
-    # ---------------------------------------------------------
-    # 1. Load PDF / image
-    # ---------------------------------------------------------
     try:
         pages = load_file_as_images(filename, file_bytes)
-
-    except (PDFProcessingError, ValueError) as exc:
-        st.error(f"'{filename}': {exc}")
-        logger.warning("File load failed for %s: %s", filename, exc)
-        return None, []
-
     except Exception as exc:
-        st.error(
-            f"'{filename}': an unexpected error occurred while loading the file."
-        )
-        logger.error(
-            "Unexpected load error for %s: %s\n%s",
-            filename,
-            exc,
-            traceback.format_exc(),
-        )
+        logger.error("File load failed for %s: %s", filename, exc)
+        st.error(f"'{filename}': could not load file: {exc}")
         return None, []
 
     if not pages:
         st.error(f"'{filename}': no pages found.")
         return None, []
 
-    # ---------------------------------------------------------
-    # 2. Initialize OCR
-    # ---------------------------------------------------------
     ocr_engine = OCREngine.get_instance()
-
-    all_blocks = []
     all_blocks_by_page = []
-    combined_ocr_text_parts: List[str] = []
-
-    first_page_gray = None
+    combined_text = []
 
     try:
+        first_page_gray = None
 
-        # -----------------------------------------------------
-        # 3. OCR every page
-        # -----------------------------------------------------
         for page_index, page_image in enumerate(pages, start=1):
+            display_bgr, _ = preprocess_page(page_image)
 
-            display_bgr, _processed_binary = preprocess_page(page_image)
-
-            # We use the first page for visual region checks.
             if page_index == 1:
-                first_page_gray = cv2.cvtColor(
-                    display_bgr,
-                    cv2.COLOR_BGR2GRAY
-                )
+                first_page_gray = cv2.cvtColor(display_bgr, cv2.COLOR_BGR2GRAY)
 
             try:
-                ocr_blocks = ocr_engine.run(display_bgr)
-
+                blocks = ocr_engine.run(display_bgr)
             except OCRProcessingError as exc:
-                logger.error(
-                    "OCR failed for %s page %s: %s",
-                    filename,
-                    page_index,
-                    exc,
-                )
+                logger.error("OCR failed for %s page %s: %s",
+                             filename, page_index, exc)
+                blocks = []
+                st.warning(f"'{filename}' page {page_index}: OCR failed.")
 
-                st.warning(
-                    f"'{filename}' page {page_index}: "
-                    f"OCR failed. OCR-based checks may fail."
-                )
-
-                ocr_blocks = []
-
-            all_blocks.extend(ocr_blocks)
-            all_blocks_by_page.append(ocr_blocks)
-
-            combined_ocr_text_parts.append(
-                get_full_text(ocr_blocks)
-            )
-
-            annotated_pages.append(
-                cv2_to_pil(display_bgr)
-            )
+            all_blocks_by_page.append(blocks)
+            combined_text.append(get_full_text(blocks))
+            annotated_pages.append(cv2_to_pil(display_bgr))
 
         if first_page_gray is None:
-            raise ValueError("Could not process the first page.")
+            raise ValueError("Could not process first page.")
 
-        # -----------------------------------------------------
-        # 4. CSR validation
-        # -----------------------------------------------------
-        #
-        # This is the important new pipeline.
-        #
-        # OCR blocks + selected template configuration
-        #                   ↓
-        #          validate_csr_page()
-        #                   ↓
-        #             CSRValidation
-        #
-        first_page_blocks = all_blocks_by_page[0] if all_blocks_by_page else []
+        first_blocks = all_blocks_by_page[0] if all_blocks_by_page else []
 
-        validation = validate_csr_page(
+        validation = validate_document(
             first_page_gray,
-            first_page_blocks,
+            first_blocks,
             config,
         )
-        # -----------------------------------------------------
-        # 5. Build final result
-        # -----------------------------------------------------
-        #
-        # CSRValidation
-        #       ↓
-        # build_result()
-        #       ↓
-        # FormValidationResult
-        #
+
+        # Adapt generic validation to the existing report structure.
+        class _Classification:
+            document_type = validation.document_type
+            confidence = validation.classification_confidence
+            passed = validation.classification_confidence >= float(
+                config.get("validation", {}).get("require_anchor_ratio", 0.70)
+            )
+            matched_markers = validation.matched_anchors
+            missing_markers = validation.missing_anchors
+            details = f"Matched {len(validation.matched_anchors)} template anchors."
+
+        class _Compat:
+            classification = _Classification()
+            checks = validation.checks
+            missing_items = validation.missing_items
+            warnings = validation.warnings
+            format_passed = validation.structure_score >= float(
+                config.get("scoring", {}).get("pass_score_threshold", 75)
+            )
+            format_score = validation.structure_score
+
+            def to_dict(self):
+                return validation.to_dict()
+
+        compat = _Compat()
+
         result = build_result(
             filename=filename,
             pages=len(pages),
-            validation=validation,
-            ocr_text="\n\n".join(combined_ocr_text_parts),
-            processing_duration_seconds=round(
-                time.time() - start_time,
-                2,
-            ),
-            scoring_config=config.get("scoring", {}),
+            validation=compat,
+            ocr_text="\n\n".join(combined_text),
+            processing_duration_seconds=round(time.time() - start_time, 2),
+            scoring_config={
+                "classification_weight": 0,
+                "format_weight": config.get("scoring", {}).get("structure_weight", 70),
+                "visual_weight": config.get("scoring", {}).get("visual_weight", 30),
+                "pass_score_threshold": config.get("scoring", {}).get("pass_score_threshold", 75),
+                "require_all_mandatory_for_pass": False,
+            },
         )
 
-        # -----------------------------------------------------
-        # 6. Store complete validation information
-        # -----------------------------------------------------
-        result.validation_details = validation.to_dict()
-
-        # -----------------------------------------------------
-        # 7. Draw annotations
-        # -----------------------------------------------------
-        #
-        # IMPORTANT:
-        # The new draw_annotations() expects:
-        #
-        #     image
-        #     validation
-        #     page_number
-        #
-        # It does NOT use the old heading/photo/stamp/signature
-        # arguments.
-        #
-        final_annotated_pages: List[Image.Image] = []
-
-        for page_number, page_image in enumerate(
-            annotated_pages,
-            start=1,
-        ):
-
-            page_bgr = pil_to_cv2(page_image)
-
-            # The CSR validator currently validates visual regions
-            # against the first page, so annotate the first page.
-            if page_number == 1:
-
-                annotated_bgr = draw_annotations(
-                    page_bgr,
-                    validation,
-                    page_number,
-                )
-
-            else:
-                annotated_bgr = page_bgr
-
-            final_annotated_pages.append(
-                cv2_to_pil(annotated_bgr)
+        # Use the generic score as the authoritative score.
+        result.score = validation.overall_score
+        result.max_score = 100.0
+        result.overall_status = (
+            "PASS"
+            if validation.overall_score >= float(
+                config.get("scoring", {}).get("pass_score_threshold", 75)
             )
-
-        # -----------------------------------------------------
-        # 8. Final metadata
-        # -----------------------------------------------------
-        result.filename = filename
-        result.pages = len(pages)
-        result.ocr_text = "\n\n".join(
-            combined_ocr_text_parts
-        )
-        result.processing_duration_seconds = round(
-            time.time() - start_time,
-            2,
+            and (
+                validation.classification_confidence
+                >= float(config.get("validation", {}).get("require_anchor_ratio", 0.70))
+                if validation.matched_anchors
+                else False
+            )
+            else "FAIL"
         )
 
-        return result, final_annotated_pages
+        result.document_type = validation.document_type
+        result.document_confidence = round(
+            validation.classification_confidence * 100, 2)
+        result.format_score = validation.structure_score
+        result.format_status = "PASS" if validation.structure_score >= float(
+            config.get("scoring", {}).get("pass_score_threshold", 75)
+        ) else "FAIL"
+        result.required_fields_passed = len(validation.matched_anchors)
+        result.required_fields_total = len(
+            config.get("structure", {}).get("anchors", [])
+        )
+        result.missing_elements = validation.missing_items
+        result.warnings = validation.warnings
+        result.ocr_text = "\n\n".join(combined_text)
+        result.validation_details = validation.to_dict()
+        result.processing_duration_seconds = round(time.time() - start_time, 2)
+
+        # Visual annotation.
+        final_pages = []
+        for page_no, page_img in enumerate(annotated_pages, start=1):
+            if page_no == 1:
+                bgr = pil_to_cv2(page_img)
+                # Draw generic check boxes.
+                for check in validation.checks:
+                    if check.bbox:
+                        color = (0, 170, 0) if check.passed else (0, 0, 220)
+                        x1, y1, x2, y2 = check.bbox
+                        cv2.rectangle(bgr, (x1, y1), (x2, y2), color, 2)
+                        cv2.putText(
+                            bgr,
+                            check.label[:30],
+                            (x1, max(18, y1 - 5)),
+                            cv2.FONT_HERSHEY_SIMPLEX,
+                            0.45,
+                            color,
+                            1,
+                            cv2.LINE_AA,
+                        )
+                final_pages.append(cv2_to_pil(bgr))
+            else:
+                final_pages.append(page_img)
+
+        return result, final_pages
 
     except Exception as exc:
-
-        st.error(
-            f"'{filename}': processing failed unexpectedly. "
-            "The other files will still be processed."
-        )
-
         logger.error(
             "Pipeline failure for %s: %s\n%s",
             filename,
             exc,
             traceback.format_exc(),
         )
-
+        st.error(f"'{filename}': processing failed: {exc}")
         return None, annotated_pages
 
 
@@ -670,8 +835,7 @@ def render_upload_and_results() -> None:
         )
 
         st.warning(
-            "This format was created using the old configuration schema. "
-            "Open Template Configuration and update it to the new schema."
+            "This format has not learned its structure yet. Add reference images and use Learn Template."
         )
 
         with st.expander("Configuration errors"):

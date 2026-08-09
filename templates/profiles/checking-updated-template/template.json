@@ -1,0 +1,256 @@
+{
+  "form_name": "checking_updated_template",
+  "template_version": "2.0",
+  "template_type": "generic",
+  "reference_count": 5,
+  "structure": {
+    "anchors": [
+      {
+        "id": "sub_centre_no_q_r_0",
+        "label": "Sub-centre No.Q.R.0.",
+        "aliases": [
+          "Sub-centre No-...",
+          "Sub-centre No.Q.R.0.",
+          "Sub-centre No1.0.2",
+          "Sub-centre No:-"
+        ],
+        "reference_count": 4,
+        "x": 0.734,
+        "y": 0.0998,
+        "position_tolerance": 0.1
+      },
+      {
+        "id": "this_is_certified_that_impersonation_control_mechanism_through_iris_and_facial_r",
+        "label": "This is certified that Impersonation Control Mechanism through IRIS and Facial recognition Procedure",
+        "aliases": [
+          "Service Certificate for Impersonation Control Mechanism through IRIS and Facial",
+          "This is certified that Impersonation Control Mechanism through IRIS and Facial recognition Procedure",
+          "recognition Procedure"
+        ],
+        "reference_count": 4,
+        "x": 0.4997,
+        "y": 0.1469,
+        "position_tolerance": 0.1
+      },
+      {
+        "id": "3no_of_admitted_candidates_2_8_8",
+        "label": "3No.of Admitted Candidates:2.8.8..",
+        "aliases": [
+          "3No.of Admitted Candidates.2.",
+          "3No.of Admitted Candidates:2.8.8..",
+          "3No.ofAdmitted Candidates-..",
+          "3No.ofAdmitted Candidates.",
+          "No.ofAdmitted Candidates-.88."
+        ],
+        "reference_count": 5,
+        "x": 0.3072,
+        "y": 0.2233,
+        "position_tolerance": 0.1
+      },
+      {
+        "id": "was_provided_by_the_authorised_agency_m_s_innovatiview_during_assistant_town_pla",
+        "label": "was provided by the Authorised Agency (M/s Innovatiview) during Assistant Town Planner Screening Test",
+        "aliases": [
+          "was provided by the Authorised Agency (M/s Innovativicw) during Assistant Town Planner Sereening Test",
+          "was provided by the Authorised Agency (M/s Innovatiview during Assistant Town Planner Sereening Test",
+          "was provided by the Authorised Agency (M/s Innovatiview) during Assistant Town Planner Screening Test"
+        ],
+        "reference_count": 4,
+        "x": 0.4986,
+        "y": 0.2918,
+        "position_tolerance": 0.1
+      },
+      {
+        "id": "2022_conducted_by_maharashtra_public_service_commission_at_the_above_mentioned_s",
+        "label": "2022, conducted by Maharashtra Public Service Commission at the above mentioned Sub-Centre on 20h",
+        "aliases": [
+          "2022 conducted by Maharashtra Public Service Commission at the above mentioned Sub-Centre on 20th",
+          "2022 conducted by Maharashtra Public Service Conmission at the above mentioned Sub-Centre on 20h",
+          "2022, conducted by Maharashtra Public Service Commission at the above mentioned Sub-Centre on 20",
+          "2022, conducted by Maharashtra Public Service Commission at the above mentioned Sub-Centre on 20h"
+        ],
+        "reference_count": 4,
+        "x": 0.4991,
+        "y": 0.3096,
+        "position_tolerance": 0.1
+      },
+      {
+        "id": "november_2022",
+        "label": "November.2022.",
+        "aliases": [
+          "November,2022.",
+          "November.2022",
+          "November.2022."
+        ],
+        "reference_count": 5,
+        "x": 0.1813,
+        "y": 0.3336,
+        "position_tolerance": 0.1
+      },
+      {
+        "id": "2_during_the_verification_process_all_the_devices_were_found_to_be_working_and_t",
+        "label": "2.During the verification process all the devices were found to be working and the performance of the",
+        "aliases": [
+          "2.During the verification process all the devices were found to be working and the performance of the"
+        ],
+        "reference_count": 4,
+        "x": 0.523,
+        "y": 0.3506,
+        "position_tolerance": 0.1
+      },
+      {
+        "id": "devices_deployed_was_found_to_be_satisfactory_verification_and_attendance_markin",
+        "label": "devices deployed was found to be satisfactory.Verification and Attendance Marking of all present candidates has",
+        "aliases": [
+          "4No.of Present Candidates 5",
+          "4No.of Present Candidates...",
+          "devices deployed was found to be satisfactory.Verification and Aendance Marking of all present candidates has",
+          "devices deployed was found to be satisfactory.Verification and Attendance Marking of all present candidates has",
+          "devices deployed was found to be satisfactory.Verification and Attndance Marking of all present candidates has"
+        ],
+        "reference_count": 5,
+        "x": 0.4784,
+        "y": 0.3613,
+        "position_tolerance": 0.1
+      },
+      {
+        "id": "been_done_properly_and_not_a_single_candidate_missed_the_verification_process_af",
+        "label": "been done properly and not a single candidate missed the verification process. After completign of Examination",
+        "aliases": [
+          "been donc properly and not a single candidate missed the yerification process.After complction of Examination",
+          "been done properly and not a single candidate missed the verification process. After completign of Examination",
+          "been done properly and not a single candidate missed the verification process.After completion of Examination"
+        ],
+        "reference_count": 4,
+        "x": 0.4988,
+        "y": 0.3895,
+        "position_tolerance": 0.1
+      },
+      {
+        "id": "found_missing",
+        "label": "found missing.",
+        "aliases": [
+          "found missing",
+          "found missing."
+        ],
+        "reference_count": 5,
+        "x": 0.1724,
+        "y": 0.4325,
+        "position_tolerance": 0.1
+      },
+      {
+        "id": "comments_of_the_sub_centre_in_charge_if_any",
+        "label": "Comments of the Sub-Centre In-charge, if any:",
+        "aliases": [
+          "2)Name of Sub-centre-",
+          "Comments of the Sub-Centre In-charge, if any",
+          "Comments of the Sub-Centre In-charge, if any:",
+          "Comments of the Sub-Centre In-charge,if any",
+          "b-Centre In-charge"
+        ],
+        "reference_count": 3,
+        "x": 0.2781,
+        "y": 0.4825,
+        "position_tolerance": 0.1
+      },
+      {
+        "id": "signature_of_representative_of_the_authorized_agency",
+        "label": "Signature of Representative of the Authorized Agency",
+        "aliases": [
+          "Signature of Represemtative ofthe Authorized Agency",
+          "Signature of Representative of the Authorized Agency",
+          "Signature of Representative of the AuthorizedAgey",
+          "Signature of Representative ofthe Authorized Agency"
+        ],
+        "reference_count": 5,
+        "x": 0.634,
+        "y": 0.5855,
+        "position_tolerance": 0.1
+      },
+      {
+        "id": "full_nameq_qig",
+        "label": "Full Nameq qig",
+        "aliases": [
+          "Full Name-",
+          "Full Name:",
+          "Full Nameq qig"
+        ],
+        "reference_count": 4,
+        "x": 0.1509,
+        "y": 0.6215,
+        "position_tolerance": 0.1
+      },
+      {
+        "id": "signature_ofshb_centre_in_charge",
+        "label": "Signature ofShb-Centre In-charge",
+        "aliases": [
+          "Signature ofShb-Centre In-charge",
+          "Signature ofSub-Centre In-charge"
+        ],
+        "reference_count": 3,
+        "x": 0.2168,
+        "y": 0.593,
+        "position_tolerance": 0.1
+      }
+    ],
+    "minimum_anchor_match": 0.7,
+    "required_anchor_ratio": 0.7
+  },
+  "visual_checks": [
+    {
+      "id": "signature_of_representative_of_the_authorized_agency_signature",
+      "label": "Signature of Representative of the Authorized Agency",
+      "type": "signature",
+      "required": true,
+      "region": {
+        "x": 0.534,
+        "y": 0.6055,
+        "width": 0.3,
+        "height": 0.12
+      },
+      "min_ink_percentage": 0.8
+    },
+    {
+      "id": "signature_ofshb_centre_in_charge_signature",
+      "label": "Signature ofShb-Centre In-charge",
+      "type": "signature",
+      "required": true,
+      "region": {
+        "x": 0.11679999999999999,
+        "y": 0.613,
+        "width": 0.3,
+        "height": 0.12
+      },
+      "min_ink_percentage": 0.8
+    }
+  ],
+  "matching": {
+    "enabled": true,
+    "layout_threshold": 0.3,
+    "warning_only": true
+  },
+  "validation": {
+    "ocr_match_threshold": 0.7,
+    "require_anchor_ratio": 0.7,
+    "require_all_mandatory": false
+  },
+  "scoring": {
+    "structure_weight": 70,
+    "visual_weight": 30,
+    "pass_score_threshold": 75
+  },
+  "metadata": {
+    "learned_from": [
+      "WhatsApp Image 2026-08-09 at 23.54.14 (1).jpeg",
+      "WhatsApp Image 2026-08-09 at 23.54.14 (2).jpeg",
+      "WhatsApp Image 2026-08-09 at 23.54.15 (1).jpeg",
+      "WhatsApp Image 2026-08-09 at 23.54.15 (2).jpeg",
+      "WhatsApp Image 2026-08-09 at 23.54.15.jpeg"
+    ],
+    "reference_text_sample": [
+      "Sub-centre No1.0.2\nService Certificate for Impersonation Control Mechanism through IRIS and Facial\nrecognition Procedure\n2Nameorsub-cntreBuxbani.calege.agnmbaioooo\n3No.of Admitted Candidates:2.8.8..\nNo.fPresentCandidates4..\nThis is certified that Impersonation Control Mechanism through IRIS and Facial recognition Procedure\nwas provided by the Authorised Agency (M/s Innovatiview) during Assistant Town Planner Screening Test\n2022, conducted by Maharashtra Public Service Commission at the above mentioned Sub-Centre on 20h\nNovember.2022.\n2.During the verification process all the devices were found to be working and the performance of the\ndevices deployed was found to be satisfactory.Verification and Attendance Marking of all present candidates has\nbeen done properly and not a single candidate missed the verification process. After completign of Examination\nall..No.of devices) the devices deployed have been collected and accounted and none of the device is\nfound missing\nComments of the Sub-Centre In-charge, if any:\nSigr\nb-Centre In-charge\nSignature of Representative of the Authorized Agency\nFull Name:\nRp.Ctan\nName-Adarshmishra\nMobile No.\n7.7385730\nDesignation:biomehric Supervisor",
+      "Sub-centre No.Q.R.0.\nService Certificate for Impersonation Control Mechanism through IRIS and Facial\nrecognition Procedure\n3No.ofAdmitted Candidates.\nwas provided by the Authorised Agency (M/s Innovatiview during Assistant Town Planner Sereening Test\n2022 conducted by Maharashtra Public Service Commission at the above mentioned Sub-Centre on 20th\nNovember.2022\n2.During the verification process all the devices were found to be working and the performance of the\ndevices deployed was found to be satisfactory.Verification and Aendance Marking of all present candidates has\nbeen done properly and not a single candidate missed the verification process.After completion of Examination\nfound missing.\nCommensofthe Sub-Cenre In-chargeifanyAs...n.\nCandidate.biamtce..Co.yld.aot..be.done.\nSahadis\nSignature of Representative ofthe Authorized Agency\nFullNameDAWgh\nNameShubha mahadik\nMobileNo.98.73.82\nDesignation-SuPervSo\niaes issue.\nBahadis\nShubham Mahadik\nInnovative\nHuoeghe\n201202",
+      "Sub-cNQ25\nrecognition Procedure\namef Disri 0002\n2)Name of Sub-centre-\nNo.ofAdmitted Candidates-.88.\n4No.of Present Candidates 5\nThis is certified that Impersonation Control Mechanism through IRIS and Facial recognition Procedure\nwas provided by the Authorised Agency (M/s Innovativicw) during Assistant Town Planner Sereening Test\n2022, conducted by Maharashtra Public Service Commission at the above mentioned Sub-Centre on 20\nNovember.2022.\n2.During the verification process all the devices were found to be working and the performance of the\ndevices deployed was found to be satisfactory.Verification and Attndance Marking of all present candidates has\nbeen donc properly and not a single candidate missed the yerification process.After complction of Examination\nfound missing\nComments of the Sub-Centre In-charge,if any\nShil\nB.f-mal\nSignature ofShb-Centre In-charge\nSignature of Representative of the AuthorizedAgey\nFull Nameq qig\nName-Jadao nfkhilesh\nMobileNo....r-f\nDesignation Biomceksee\n \nName.orthe Agency-9619658695\nyaf\n7208191892"
+    ]
+  }
+}

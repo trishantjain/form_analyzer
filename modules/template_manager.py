@@ -9,22 +9,29 @@ from typing import Any, Dict, List, Optional
 
 DEFAULT_TEMPLATE = {
     "form_name": "New Form",
-    "required_headings": [],
-    "required_elements": {
-        "student_photo": {"required": False, "minimum_width": 100, "minimum_height": 100,
-                           "expected_aspect_ratio_min": 0.6, "expected_aspect_ratio_max": 1.2},
-        "stamp": {"required": False, "similarity_threshold": 0.70},
-        "signature": {"required": False},
-        "logo": {"required": False, "similarity_threshold": 0.70},
+    "template_version": "2.0",
+    "template_type": "generic",
+    "reference_count": 0,
+    "structure": {
+        "anchors": [],
+        "minimum_anchor_match": 0.70,
+        "required_anchor_ratio": 0.70,
     },
-    "checkboxes": [],
-    "minimum_ocr_confidence": 0.60,
-    "heading_match_threshold": 0.75,
+    "visual_checks": [],
+    "matching": {
+        "enabled": True,
+        "layout_threshold": 0.30,
+        "warning_only": True,
+    },
+    "validation": {
+        "ocr_match_threshold": 0.70,
+        "require_anchor_ratio": 0.70,
+        "require_all_mandatory": False,
+    },
     "scoring": {
-        "points_per_heading": 10, "points_photo": 15, "points_stamp": 15,
-        "points_signature": 15, "points_per_checkbox": 5,
-        "low_confidence_multiplier": 0.5, "pass_score_threshold": 80,
-        "require_all_mandatory_for_pass": True,
+        "structure_weight": 70,
+        "visual_weight": 30,
+        "pass_score_threshold": 75,
     },
 }
 
@@ -139,6 +146,21 @@ class TemplateManager:
             destination.write_bytes(uploaded.getvalue())
             count += 1
         return count
+
+    def learn_from_references(self, slug: str) -> Dict[str, Any]:
+        """Run OCR over saved reference images and rebuild the generic template profile."""
+        from modules.template_analyzer import learn_template_profile
+
+        refs = self.reference_files(slug)
+        config = self.load(slug)
+        form_name = config.get("form_name", slug)
+
+        if not refs:
+            raise ValueError("Add at least one reference image before learning the template.")
+
+        learned = learn_template_profile(refs, form_name=form_name)
+        self.save(slug, learned)
+        return learned
 
     def reference_files(self, slug: str) -> List[Path]:
         directory = self._references_dir(slug)

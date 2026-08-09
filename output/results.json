@@ -1,149 +1,60 @@
 [
   {
     "filename": "2316106.jpg",
-    "overall_status": "PASS",
-    "score": 100.0,
+    "overall_status": "FAIL",
+    "score": 70.0,
     "max_score": 100.0,
     "pages": 1,
-    "document_type": "CSR Form - Centre Sign-Off Report Biometric",
-    "document_confidence": 100.0,
-    "format_status": "PASS",
-    "format_score": 100.0,
-    "required_fields_passed": 17,
-    "required_fields_total": 17,
+    "document_type": "checking_updated_template",
+    "document_confidence": 57.14,
+    "format_status": "FAIL",
+    "format_score": 57.14,
+    "required_fields_passed": 8,
+    "required_fields_total": 14,
     "signatures_status": "PASS",
-    "stamps_status": "PASS",
-    "missing_headings": [],
-    "missing_elements": [],
-    "low_confidence_items": [],
+    "stamps_status": "N/A",
+    "missing_headings": [
+      "This is certified that Impersonation Control Mechanism through IRIS and Facial recognition Procedure",
+      "was provided by the Authorised Agency (M/s Innovatiview) during Assistant Town Planner Screening Test",
+      "November.2022.",
+      "2.During the verification process all the devices were found to be working and the performance of the",
+      "found missing.",
+      "Full Nameq qig"
+    ],
+    "missing_elements": [
+      "This is certified that Impersonation Control Mechanism through IRIS and Facial recognition Procedure",
+      "was provided by the Authorised Agency (M/s Innovatiview) during Assistant Town Planner Screening Test",
+      "November.2022.",
+      "2.During the verification process all the devices were found to be working and the performance of the",
+      "found missing.",
+      "Full Nameq qig"
+    ],
+    "low_confidence_items": [
+      "Sub-centre No.Q.R.0.",
+      "This is certified that Impersonation Control Mechanism through IRIS and Facial recognition Procedure",
+      "was provided by the Authorised Agency (M/s Innovatiview) during Assistant Town Planner Screening Test",
+      "2022, conducted by Maharashtra Public Service Commission at the above mentioned Sub-Centre on 20h",
+      "November.2022.",
+      "2.During the verification process all the devices were found to be working and the performance of the",
+      "found missing.",
+      "Full Nameq qig"
+    ],
     "detected_photo": false,
-    "detected_stamp": true,
+    "detected_stamp": false,
     "detected_signature": true,
     "detected_checkboxes": 0,
     "ocr_text": "Centre Sign-Off Report\nBiometric\n(NEET-21/JUNE/2026)\nESTANTONDENCY\nMehom\nGovt.ITI\nName &Address ofthe\nExamination Center:\n231606\nHaxuana\nCentre Code\nState Name:\n&Date of Exam\n21.06.2026\n&District/City Name:\n&Rontekmeham\nInstallation/\n21/JUNE/2026\nService Delivery Date\nThis is to Certify that below is the physical atendance of the candidates at our examination center.\nVenue Representative\nTotal no.of Candidates\nTotalno.of Candidates\nShifts\nPresent\nSignature &Stamp\nAllotted\n240\n215\nShift 1\nCentre Superintendent\nCode-2316106.G.l.T.IMeham\nRemarks:\nCustomer Statement\nIhereby certfy that M/s Edcil has implemented the Impersonation Control through Biometric Authentication and Attendance\nMarking System at our center for restricting the impersonated candidates to enter the examination hall during the NEET (UG)\n2026 Examination.\nThe work has been found Satisfactory/Unsatisfactory Please tick mark)\nIuelesSuel\n9887397\nCentre Superintendent/Rep Name & Number\nCentre Superintendent\nCode-2316106G.L.TMeham\nCentre Superintendent/Rep Signature & Seal\nName of Agency Rep.\nSignature of Agency Rep.",
     "warnings": [
-      "Reference layout similarity: 64.6% (2301105.jpg)."
+      "Only 8/14 template anchors matched."
     ],
     "checks": [
       {
-        "id": "centre_information",
-        "label": "Centre information",
-        "check_type": "field",
+        "id": "sub_centre_no_q_r_0",
+        "label": "Sub-centre No.Q.R.0.",
+        "check_type": "heading",
         "required": true,
         "passed": true,
-        "confidence": 1.0,
-        "matched_text": "Examination Center:",
-        "bbox": [
-          192,
-          425,
-          331,
-          450
-        ],
-        "details": "Matched"
-      },
-      {
-        "id": "attendance",
-        "label": "Attendance table",
-        "check_type": "field",
-        "required": true,
-        "passed": true,
-        "confidence": 1.0,
-        "matched_text": "Shifts",
-        "bbox": [
-          245,
-          657,
-          288,
-          677
-        ],
-        "details": "Matched"
-      },
-      {
-        "id": "customer_statement",
-        "label": "Customer Statement",
-        "check_type": "field",
-        "required": true,
-        "passed": true,
-        "confidence": 1.0,
-        "matched_text": "Customer Statement",
-        "bbox": [
-          168,
-          828,
-          307,
-          852
-        ],
-        "details": "Matched"
-      },
-      {
-        "id": "superintendent",
-        "label": "Centre Superintendent section",
-        "check_type": "field",
-        "required": true,
-        "passed": true,
-        "confidence": 1.0,
-        "matched_text": "Centre Superintendent",
-        "bbox": [
-          799,
-          703,
-          991,
-          742
-        ],
-        "details": "Matched"
-      },
-      {
-        "id": "agency",
-        "label": "Agency Representative section",
-        "check_type": "field",
-        "required": true,
-        "passed": true,
-        "confidence": 1.0,
-        "matched_text": "Name of Agency Rep.",
-        "bbox": [
-          175,
-          1125,
-          324,
-          1154
-        ],
-        "details": "Matched"
-      },
-      {
-        "id": "centre_name",
-        "label": "Examination Centre name/address",
-        "check_type": "field",
-        "required": true,
-        "passed": true,
-        "confidence": 1.0,
-        "matched_text": "Examination Center:",
-        "bbox": [
-          192,
-          425,
-          331,
-          450
-        ],
-        "details": "Matched"
-      },
-      {
-        "id": "state_district",
-        "label": "State / District / City",
-        "check_type": "field",
-        "required": true,
-        "passed": true,
-        "confidence": 1.0,
-        "matched_text": "State Name:",
-        "bbox": [
-          196,
-          478,
-          280,
-          502
-        ],
-        "details": "Matched"
-      },
-      {
-        "id": "centre_code",
-        "label": "Centre Code",
-        "check_type": "field",
-        "required": true,
-        "passed": true,
-        "confidence": 1.0,
+        "confidence": 0.7059,
         "matched_text": "Centre Code",
         "bbox": [
           663,
@@ -151,345 +62,428 @@
           757,
           489
         ],
-        "details": "Matched"
+        "details": "Template anchor detected"
       },
       {
-        "id": "exam_date",
-        "label": "Date of Exam",
-        "check_type": "field",
+        "id": "this_is_certified_that_impersonation_control_mechanism_through_iris_and_facial_r",
+        "label": "This is certified that Impersonation Control Mechanism through IRIS and Facial recognition Procedure",
+        "check_type": "heading",
+        "required": true,
+        "passed": false,
+        "confidence": 0.621,
+        "matched_text": null,
+        "bbox": null,
+        "details": "Template anchor not detected"
+      },
+      {
+        "id": "3no_of_admitted_candidates_2_8_8",
+        "label": "3No.of Admitted Candidates:2.8.8..",
+        "check_type": "heading",
         "required": true,
         "passed": true,
-        "confidence": 1.0,
-        "matched_text": "&Date of Exam",
+        "confidence": 0.766,
+        "matched_text": "Total no.of Candidates",
+        "bbox": [
+          356,
+          645,
+          508,
+          672
+        ],
+        "details": "Template anchor detected"
+      },
+      {
+        "id": "was_provided_by_the_authorised_agency_m_s_innovatiview_during_assistant_town_pla",
+        "label": "was provided by the Authorised Agency (M/s Innovatiview) during Assistant Town Planner Screening Test",
+        "check_type": "heading",
+        "required": true,
+        "passed": false,
+        "confidence": 0.5,
+        "matched_text": null,
+        "bbox": null,
+        "details": "Template anchor not detected"
+      },
+      {
+        "id": "2022_conducted_by_maharashtra_public_service_commission_at_the_above_mentioned_s",
+        "label": "2022, conducted by Maharashtra Public Service Commission at the above mentioned Sub-Centre on 20h",
+        "check_type": "heading",
+        "required": true,
+        "passed": true,
+        "confidence": 0.7059,
+        "matched_text": "Centre Code",
         "bbox": [
           663,
-          481,
-          772,
+          460,
+          757,
+          489
+        ],
+        "details": "Template anchor detected"
+      },
+      {
+        "id": "november_2022",
+        "label": "November.2022.",
+        "check_type": "heading",
+        "required": true,
+        "passed": false,
+        "confidence": 0.56,
+        "matched_text": null,
+        "bbox": null,
+        "details": "Template anchor not detected"
+      },
+      {
+        "id": "2_during_the_verification_process_all_the_devices_were_found_to_be_working_and_t",
+        "label": "2.During the verification process all the devices were found to be working and the performance of the",
+        "check_type": "heading",
+        "required": true,
+        "passed": false,
+        "confidence": 0.5149,
+        "matched_text": null,
+        "bbox": null,
+        "details": "Template anchor not detected"
+      },
+      {
+        "id": "devices_deployed_was_found_to_be_satisfactory_verification_and_attendance_markin",
+        "label": "devices deployed was found to be satisfactory.Verification and Attendance Marking of all present candidates has",
+        "check_type": "heading",
+        "required": true,
+        "passed": true,
+        "confidence": 1.0,
+        "matched_text": "Present",
+        "bbox": [
+          610,
+          663,
+          665,
+          685
+        ],
+        "details": "Template anchor detected"
+      },
+      {
+        "id": "been_done_properly_and_not_a_single_candidate_missed_the_verification_process_af",
+        "label": "been done properly and not a single candidate missed the verification process. After completign of Examination",
+        "check_type": "heading",
+        "required": true,
+        "passed": true,
+        "confidence": 0.8148,
+        "matched_text": "2026 Examination.",
+        "bbox": [
+          169,
+          888,
+          290,
+          910
+        ],
+        "details": "Template anchor detected"
+      },
+      {
+        "id": "found_missing",
+        "label": "found missing.",
+        "check_type": "heading",
+        "required": true,
+        "passed": false,
+        "confidence": 0.5556,
+        "matched_text": null,
+        "bbox": null,
+        "details": "Template anchor not detected"
+      },
+      {
+        "id": "comments_of_the_sub_centre_in_charge_if_any",
+        "label": "Comments of the Sub-Centre In-charge, if any:",
+        "check_type": "heading",
+        "required": true,
+        "passed": true,
+        "confidence": 0.8235,
+        "matched_text": "State Name: Haxuana Centre Code &Date of Exam 21.06.2026 231606",
+        "bbox": [
+          196,
+          453,
+          920,
           507
         ],
-        "details": "Matched"
+        "details": "Template anchor detected"
       },
       {
-        "id": "installation_date",
-        "label": "Installation / Service Delivery Date",
-        "check_type": "field",
+        "id": "signature_of_representative_of_the_authorized_agency",
+        "label": "Signature of Representative of the Authorized Agency",
+        "check_type": "heading",
         "required": true,
         "passed": true,
-        "confidence": 1.0,
-        "matched_text": "Installation/",
+        "confidence": 0.9048,
+        "matched_text": "Signature of Agency Rep.",
         "bbox": [
-          197,
-          540,
-          292,
-          567
+          179,
+          1183,
+          348,
+          1212
         ],
-        "details": "Matched"
+        "details": "Template anchor detected"
       },
       {
-        "id": "shift",
-        "label": "Shift",
-        "check_type": "field",
+        "id": "full_nameq_qig",
+        "label": "Full Nameq qig",
+        "check_type": "heading",
         "required": true,
-        "passed": true,
-        "confidence": 1.0,
-        "matched_text": "Shifts",
-        "bbox": [
-          245,
-          657,
-          288,
-          677
-        ],
-        "details": "Matched"
-      },
-      {
-        "id": "candidates_allotted",
-        "label": "Candidates Allotted",
-        "check_type": "field",
-        "required": true,
-        "passed": true,
-        "confidence": 1.0,
-        "matched_text": "Total no.of Candidates",
-        "bbox": [
-          356,
-          645,
-          508,
-          672
-        ],
-        "details": "Matched"
-      },
-      {
-        "id": "candidates_present",
-        "label": "Candidates Present",
-        "check_type": "field",
-        "required": true,
-        "passed": true,
-        "confidence": 1.0,
-        "matched_text": "Total no.of Candidates",
-        "bbox": [
-          356,
-          645,
-          508,
-          672
-        ],
-        "details": "Matched"
-      },
-      {
-        "id": "remarks",
-        "label": "Remarks",
-        "check_type": "field",
-        "required": true,
-        "passed": true,
-        "confidence": 1.0,
-        "matched_text": "Remarks:",
-        "bbox": [
-          201,
-          797,
-          262,
-          815
-        ],
-        "details": "Matched"
-      },
-      {
-        "id": "satisfactory",
-        "label": "Satisfactory / Unsatisfactory",
-        "check_type": "field",
-        "required": true,
-        "passed": true,
-        "confidence": 1.0,
-        "matched_text": "The work has been found Satisfactory/Unsatisfactory Please tick mark)",
-        "bbox": [
-          168,
-          900,
-          646,
-          945
-        ],
-        "details": "Matched"
-      },
-      {
-        "id": "superintendent_name",
-        "label": "Centre Superintendent/Rep Name & Number",
-        "check_type": "field",
-        "required": true,
-        "passed": true,
-        "confidence": 1.0,
-        "matched_text": "Centre Superintendent",
-        "bbox": [
-          799,
-          703,
-          991,
-          742
-        ],
-        "details": "Matched"
-      },
-      {
-        "id": "agency_name",
-        "label": "Name of Agency Rep",
-        "check_type": "field",
-        "required": true,
-        "passed": true,
-        "confidence": 1.0,
-        "matched_text": "Name of Agency Rep.",
-        "bbox": [
-          175,
-          1125,
-          324,
-          1154
-        ],
-        "details": "Matched"
-      },
-      {
-        "id": "venue_rep_signature_stamp",
-        "label": "Venue Representative signature & stamp",
-        "check_type": "signature_and_stamp_region",
-        "required": true,
-        "passed": true,
-        "confidence": 1.0,
+        "passed": false,
+        "confidence": 0.6154,
         "matched_text": null,
-        "bbox": [
-          768,
-          480,
-          1176,
-          704
-        ],
-        "details": "Ink coverage: 9.26%"
+        "bbox": null,
+        "details": "Template anchor not detected"
       },
       {
-        "id": "superintendent_signature_seal",
-        "label": "Centre Superintendent signature & seal",
-        "check_type": "signature_and_seal_region",
+        "id": "signature_ofshb_centre_in_charge",
+        "label": "Signature ofShb-Centre In-charge",
+        "check_type": "heading",
         "required": true,
         "passed": true,
-        "confidence": 1.0,
-        "matched_text": null,
+        "confidence": 0.75,
+        "matched_text": "Signature &Stamp",
         "bbox": [
-          480,
-          800,
-          1164,
-          992
+          780,
+          655,
+          904,
+          675
         ],
-        "details": "Ink coverage: 3.97%"
+        "details": "Template anchor detected"
       },
       {
-        "id": "agency_signature",
-        "label": "Agency Representative signature",
+        "id": "signature_of_representative_of_the_authorized_agency_signature",
+        "label": "Signature of Representative of the Authorized Agency",
         "check_type": "signature",
-        "required": false,
+        "required": true,
         "passed": true,
         "confidence": 1.0,
         "matched_text": null,
         "bbox": [
-          180,
-          1072,
-          1116,
-          1200
+          640,
+          968,
+          1000,
+          1160
         ],
-        "details": "Ink coverage: 2.72%"
+        "details": "Ink coverage: 89.43%"
+      },
+      {
+        "id": "signature_ofshb_centre_in_charge_signature",
+        "label": "Signature ofShb-Centre In-charge",
+        "check_type": "signature",
+        "required": true,
+        "passed": true,
+        "confidence": 1.0,
+        "matched_text": null,
+        "bbox": [
+          140,
+          980,
+          500,
+          1172
+        ],
+        "details": "Ink coverage: 81.02%"
       }
     ],
-    "heading_details": [],
-    "checkbox_details": [],
-    "processing_duration_seconds": 8.13,
-    "validation_details": {
-      "classification": {
-        "document_type": "CSR Form - Centre Sign-Off Report Biometric",
-        "confidence": 1.0,
+    "heading_details": [
+      {
+        "id": "sub_centre_no_q_r_0",
+        "label": "Sub-centre No.Q.R.0.",
+        "check_type": "heading",
+        "required": true,
         "passed": true,
-        "matched_markers": [
-          "Centre Sign-Off Report",
-          "Biometric",
-          "NEET",
-          "Name & Address of Examination Center",
-          "State / District / City",
-          "Centre Code",
-          "Installation / Service Delivery Date",
-          "Attendance table",
-          "Customer Statement",
-          "Centre Superintendent",
-          "Agency Representative"
+        "confidence": 0.7059,
+        "matched_text": "Centre Code",
+        "bbox": [
+          663,
+          460,
+          757,
+          489
         ],
-        "missing_markers": [],
-        "details": "Matched 11/11 configured document markers."
+        "details": "Template anchor detected"
       },
+      {
+        "id": "this_is_certified_that_impersonation_control_mechanism_through_iris_and_facial_r",
+        "label": "This is certified that Impersonation Control Mechanism through IRIS and Facial recognition Procedure",
+        "check_type": "heading",
+        "required": true,
+        "passed": false,
+        "confidence": 0.621,
+        "matched_text": null,
+        "bbox": null,
+        "details": "Template anchor not detected"
+      },
+      {
+        "id": "3no_of_admitted_candidates_2_8_8",
+        "label": "3No.of Admitted Candidates:2.8.8..",
+        "check_type": "heading",
+        "required": true,
+        "passed": true,
+        "confidence": 0.766,
+        "matched_text": "Total no.of Candidates",
+        "bbox": [
+          356,
+          645,
+          508,
+          672
+        ],
+        "details": "Template anchor detected"
+      },
+      {
+        "id": "was_provided_by_the_authorised_agency_m_s_innovatiview_during_assistant_town_pla",
+        "label": "was provided by the Authorised Agency (M/s Innovatiview) during Assistant Town Planner Screening Test",
+        "check_type": "heading",
+        "required": true,
+        "passed": false,
+        "confidence": 0.5,
+        "matched_text": null,
+        "bbox": null,
+        "details": "Template anchor not detected"
+      },
+      {
+        "id": "2022_conducted_by_maharashtra_public_service_commission_at_the_above_mentioned_s",
+        "label": "2022, conducted by Maharashtra Public Service Commission at the above mentioned Sub-Centre on 20h",
+        "check_type": "heading",
+        "required": true,
+        "passed": true,
+        "confidence": 0.7059,
+        "matched_text": "Centre Code",
+        "bbox": [
+          663,
+          460,
+          757,
+          489
+        ],
+        "details": "Template anchor detected"
+      },
+      {
+        "id": "november_2022",
+        "label": "November.2022.",
+        "check_type": "heading",
+        "required": true,
+        "passed": false,
+        "confidence": 0.56,
+        "matched_text": null,
+        "bbox": null,
+        "details": "Template anchor not detected"
+      },
+      {
+        "id": "2_during_the_verification_process_all_the_devices_were_found_to_be_working_and_t",
+        "label": "2.During the verification process all the devices were found to be working and the performance of the",
+        "check_type": "heading",
+        "required": true,
+        "passed": false,
+        "confidence": 0.5149,
+        "matched_text": null,
+        "bbox": null,
+        "details": "Template anchor not detected"
+      },
+      {
+        "id": "devices_deployed_was_found_to_be_satisfactory_verification_and_attendance_markin",
+        "label": "devices deployed was found to be satisfactory.Verification and Attendance Marking of all present candidates has",
+        "check_type": "heading",
+        "required": true,
+        "passed": true,
+        "confidence": 1.0,
+        "matched_text": "Present",
+        "bbox": [
+          610,
+          663,
+          665,
+          685
+        ],
+        "details": "Template anchor detected"
+      },
+      {
+        "id": "been_done_properly_and_not_a_single_candidate_missed_the_verification_process_af",
+        "label": "been done properly and not a single candidate missed the verification process. After completign of Examination",
+        "check_type": "heading",
+        "required": true,
+        "passed": true,
+        "confidence": 0.8148,
+        "matched_text": "2026 Examination.",
+        "bbox": [
+          169,
+          888,
+          290,
+          910
+        ],
+        "details": "Template anchor detected"
+      },
+      {
+        "id": "found_missing",
+        "label": "found missing.",
+        "check_type": "heading",
+        "required": true,
+        "passed": false,
+        "confidence": 0.5556,
+        "matched_text": null,
+        "bbox": null,
+        "details": "Template anchor not detected"
+      },
+      {
+        "id": "comments_of_the_sub_centre_in_charge_if_any",
+        "label": "Comments of the Sub-Centre In-charge, if any:",
+        "check_type": "heading",
+        "required": true,
+        "passed": true,
+        "confidence": 0.8235,
+        "matched_text": "State Name: Haxuana Centre Code &Date of Exam 21.06.2026 231606",
+        "bbox": [
+          196,
+          453,
+          920,
+          507
+        ],
+        "details": "Template anchor detected"
+      },
+      {
+        "id": "signature_of_representative_of_the_authorized_agency",
+        "label": "Signature of Representative of the Authorized Agency",
+        "check_type": "heading",
+        "required": true,
+        "passed": true,
+        "confidence": 0.9048,
+        "matched_text": "Signature of Agency Rep.",
+        "bbox": [
+          179,
+          1183,
+          348,
+          1212
+        ],
+        "details": "Template anchor detected"
+      },
+      {
+        "id": "full_nameq_qig",
+        "label": "Full Nameq qig",
+        "check_type": "heading",
+        "required": true,
+        "passed": false,
+        "confidence": 0.6154,
+        "matched_text": null,
+        "bbox": null,
+        "details": "Template anchor not detected"
+      },
+      {
+        "id": "signature_ofshb_centre_in_charge",
+        "label": "Signature ofShb-Centre In-charge",
+        "check_type": "heading",
+        "required": true,
+        "passed": true,
+        "confidence": 0.75,
+        "matched_text": "Signature &Stamp",
+        "bbox": [
+          780,
+          655,
+          904,
+          675
+        ],
+        "details": "Template anchor detected"
+      }
+    ],
+    "checkbox_details": [],
+    "processing_duration_seconds": 18.23,
+    "validation_details": {
+      "document_type": "checking_updated_template",
+      "classification_confidence": 0.5714,
       "checks": [
         {
-          "id": "centre_information",
-          "label": "Centre information",
-          "check_type": "field",
+          "id": "sub_centre_no_q_r_0",
+          "label": "Sub-centre No.Q.R.0.",
+          "check_type": "heading",
           "required": true,
           "passed": true,
-          "confidence": 1.0,
-          "matched_text": "Examination Center:",
-          "bbox": [
-            192,
-            425,
-            331,
-            450
-          ],
-          "details": "Matched"
-        },
-        {
-          "id": "attendance",
-          "label": "Attendance table",
-          "check_type": "field",
-          "required": true,
-          "passed": true,
-          "confidence": 1.0,
-          "matched_text": "Shifts",
-          "bbox": [
-            245,
-            657,
-            288,
-            677
-          ],
-          "details": "Matched"
-        },
-        {
-          "id": "customer_statement",
-          "label": "Customer Statement",
-          "check_type": "field",
-          "required": true,
-          "passed": true,
-          "confidence": 1.0,
-          "matched_text": "Customer Statement",
-          "bbox": [
-            168,
-            828,
-            307,
-            852
-          ],
-          "details": "Matched"
-        },
-        {
-          "id": "superintendent",
-          "label": "Centre Superintendent section",
-          "check_type": "field",
-          "required": true,
-          "passed": true,
-          "confidence": 1.0,
-          "matched_text": "Centre Superintendent",
-          "bbox": [
-            799,
-            703,
-            991,
-            742
-          ],
-          "details": "Matched"
-        },
-        {
-          "id": "agency",
-          "label": "Agency Representative section",
-          "check_type": "field",
-          "required": true,
-          "passed": true,
-          "confidence": 1.0,
-          "matched_text": "Name of Agency Rep.",
-          "bbox": [
-            175,
-            1125,
-            324,
-            1154
-          ],
-          "details": "Matched"
-        },
-        {
-          "id": "centre_name",
-          "label": "Examination Centre name/address",
-          "check_type": "field",
-          "required": true,
-          "passed": true,
-          "confidence": 1.0,
-          "matched_text": "Examination Center:",
-          "bbox": [
-            192,
-            425,
-            331,
-            450
-          ],
-          "details": "Matched"
-        },
-        {
-          "id": "state_district",
-          "label": "State / District / City",
-          "check_type": "field",
-          "required": true,
-          "passed": true,
-          "confidence": 1.0,
-          "matched_text": "State Name:",
-          "bbox": [
-            196,
-            478,
-            280,
-            502
-          ],
-          "details": "Matched"
-        },
-        {
-          "id": "centre_code",
-          "label": "Centre Code",
-          "check_type": "field",
-          "required": true,
-          "passed": true,
-          "confidence": 1.0,
+          "confidence": 0.7059,
           "matched_text": "Centre Code",
           "bbox": [
             663,
@@ -497,362 +491,309 @@
             757,
             489
           ],
-          "details": "Matched"
+          "details": "Template anchor detected"
         },
         {
-          "id": "exam_date",
-          "label": "Date of Exam",
-          "check_type": "field",
+          "id": "this_is_certified_that_impersonation_control_mechanism_through_iris_and_facial_r",
+          "label": "This is certified that Impersonation Control Mechanism through IRIS and Facial recognition Procedure",
+          "check_type": "heading",
+          "required": true,
+          "passed": false,
+          "confidence": 0.621,
+          "matched_text": null,
+          "bbox": null,
+          "details": "Template anchor not detected"
+        },
+        {
+          "id": "3no_of_admitted_candidates_2_8_8",
+          "label": "3No.of Admitted Candidates:2.8.8..",
+          "check_type": "heading",
           "required": true,
           "passed": true,
-          "confidence": 1.0,
-          "matched_text": "&Date of Exam",
+          "confidence": 0.766,
+          "matched_text": "Total no.of Candidates",
+          "bbox": [
+            356,
+            645,
+            508,
+            672
+          ],
+          "details": "Template anchor detected"
+        },
+        {
+          "id": "was_provided_by_the_authorised_agency_m_s_innovatiview_during_assistant_town_pla",
+          "label": "was provided by the Authorised Agency (M/s Innovatiview) during Assistant Town Planner Screening Test",
+          "check_type": "heading",
+          "required": true,
+          "passed": false,
+          "confidence": 0.5,
+          "matched_text": null,
+          "bbox": null,
+          "details": "Template anchor not detected"
+        },
+        {
+          "id": "2022_conducted_by_maharashtra_public_service_commission_at_the_above_mentioned_s",
+          "label": "2022, conducted by Maharashtra Public Service Commission at the above mentioned Sub-Centre on 20h",
+          "check_type": "heading",
+          "required": true,
+          "passed": true,
+          "confidence": 0.7059,
+          "matched_text": "Centre Code",
           "bbox": [
             663,
-            481,
-            772,
+            460,
+            757,
+            489
+          ],
+          "details": "Template anchor detected"
+        },
+        {
+          "id": "november_2022",
+          "label": "November.2022.",
+          "check_type": "heading",
+          "required": true,
+          "passed": false,
+          "confidence": 0.56,
+          "matched_text": null,
+          "bbox": null,
+          "details": "Template anchor not detected"
+        },
+        {
+          "id": "2_during_the_verification_process_all_the_devices_were_found_to_be_working_and_t",
+          "label": "2.During the verification process all the devices were found to be working and the performance of the",
+          "check_type": "heading",
+          "required": true,
+          "passed": false,
+          "confidence": 0.5149,
+          "matched_text": null,
+          "bbox": null,
+          "details": "Template anchor not detected"
+        },
+        {
+          "id": "devices_deployed_was_found_to_be_satisfactory_verification_and_attendance_markin",
+          "label": "devices deployed was found to be satisfactory.Verification and Attendance Marking of all present candidates has",
+          "check_type": "heading",
+          "required": true,
+          "passed": true,
+          "confidence": 1.0,
+          "matched_text": "Present",
+          "bbox": [
+            610,
+            663,
+            665,
+            685
+          ],
+          "details": "Template anchor detected"
+        },
+        {
+          "id": "been_done_properly_and_not_a_single_candidate_missed_the_verification_process_af",
+          "label": "been done properly and not a single candidate missed the verification process. After completign of Examination",
+          "check_type": "heading",
+          "required": true,
+          "passed": true,
+          "confidence": 0.8148,
+          "matched_text": "2026 Examination.",
+          "bbox": [
+            169,
+            888,
+            290,
+            910
+          ],
+          "details": "Template anchor detected"
+        },
+        {
+          "id": "found_missing",
+          "label": "found missing.",
+          "check_type": "heading",
+          "required": true,
+          "passed": false,
+          "confidence": 0.5556,
+          "matched_text": null,
+          "bbox": null,
+          "details": "Template anchor not detected"
+        },
+        {
+          "id": "comments_of_the_sub_centre_in_charge_if_any",
+          "label": "Comments of the Sub-Centre In-charge, if any:",
+          "check_type": "heading",
+          "required": true,
+          "passed": true,
+          "confidence": 0.8235,
+          "matched_text": "State Name: Haxuana Centre Code &Date of Exam 21.06.2026 231606",
+          "bbox": [
+            196,
+            453,
+            920,
             507
           ],
-          "details": "Matched"
+          "details": "Template anchor detected"
         },
         {
-          "id": "installation_date",
-          "label": "Installation / Service Delivery Date",
-          "check_type": "field",
+          "id": "signature_of_representative_of_the_authorized_agency",
+          "label": "Signature of Representative of the Authorized Agency",
+          "check_type": "heading",
           "required": true,
           "passed": true,
-          "confidence": 1.0,
-          "matched_text": "Installation/",
+          "confidence": 0.9048,
+          "matched_text": "Signature of Agency Rep.",
           "bbox": [
-            197,
-            540,
-            292,
-            567
+            179,
+            1183,
+            348,
+            1212
           ],
-          "details": "Matched"
+          "details": "Template anchor detected"
         },
         {
-          "id": "shift",
-          "label": "Shift",
-          "check_type": "field",
+          "id": "full_nameq_qig",
+          "label": "Full Nameq qig",
+          "check_type": "heading",
           "required": true,
-          "passed": true,
-          "confidence": 1.0,
-          "matched_text": "Shifts",
-          "bbox": [
-            245,
-            657,
-            288,
-            677
-          ],
-          "details": "Matched"
-        },
-        {
-          "id": "candidates_allotted",
-          "label": "Candidates Allotted",
-          "check_type": "field",
-          "required": true,
-          "passed": true,
-          "confidence": 1.0,
-          "matched_text": "Total no.of Candidates",
-          "bbox": [
-            356,
-            645,
-            508,
-            672
-          ],
-          "details": "Matched"
-        },
-        {
-          "id": "candidates_present",
-          "label": "Candidates Present",
-          "check_type": "field",
-          "required": true,
-          "passed": true,
-          "confidence": 1.0,
-          "matched_text": "Total no.of Candidates",
-          "bbox": [
-            356,
-            645,
-            508,
-            672
-          ],
-          "details": "Matched"
-        },
-        {
-          "id": "remarks",
-          "label": "Remarks",
-          "check_type": "field",
-          "required": true,
-          "passed": true,
-          "confidence": 1.0,
-          "matched_text": "Remarks:",
-          "bbox": [
-            201,
-            797,
-            262,
-            815
-          ],
-          "details": "Matched"
-        },
-        {
-          "id": "satisfactory",
-          "label": "Satisfactory / Unsatisfactory",
-          "check_type": "field",
-          "required": true,
-          "passed": true,
-          "confidence": 1.0,
-          "matched_text": "The work has been found Satisfactory/Unsatisfactory Please tick mark)",
-          "bbox": [
-            168,
-            900,
-            646,
-            945
-          ],
-          "details": "Matched"
-        },
-        {
-          "id": "superintendent_name",
-          "label": "Centre Superintendent/Rep Name & Number",
-          "check_type": "field",
-          "required": true,
-          "passed": true,
-          "confidence": 1.0,
-          "matched_text": "Centre Superintendent",
-          "bbox": [
-            799,
-            703,
-            991,
-            742
-          ],
-          "details": "Matched"
-        },
-        {
-          "id": "agency_name",
-          "label": "Name of Agency Rep",
-          "check_type": "field",
-          "required": true,
-          "passed": true,
-          "confidence": 1.0,
-          "matched_text": "Name of Agency Rep.",
-          "bbox": [
-            175,
-            1125,
-            324,
-            1154
-          ],
-          "details": "Matched"
-        },
-        {
-          "id": "venue_rep_signature_stamp",
-          "label": "Venue Representative signature & stamp",
-          "check_type": "signature_and_stamp_region",
-          "required": true,
-          "passed": true,
-          "confidence": 1.0,
+          "passed": false,
+          "confidence": 0.6154,
           "matched_text": null,
-          "bbox": [
-            768,
-            480,
-            1176,
-            704
-          ],
-          "details": "Ink coverage: 9.26%"
+          "bbox": null,
+          "details": "Template anchor not detected"
         },
         {
-          "id": "superintendent_signature_seal",
-          "label": "Centre Superintendent signature & seal",
-          "check_type": "signature_and_seal_region",
+          "id": "signature_ofshb_centre_in_charge",
+          "label": "Signature ofShb-Centre In-charge",
+          "check_type": "heading",
           "required": true,
           "passed": true,
-          "confidence": 1.0,
-          "matched_text": null,
+          "confidence": 0.75,
+          "matched_text": "Signature &Stamp",
           "bbox": [
-            480,
-            800,
-            1164,
-            992
+            780,
+            655,
+            904,
+            675
           ],
-          "details": "Ink coverage: 3.97%"
+          "details": "Template anchor detected"
         },
         {
-          "id": "agency_signature",
-          "label": "Agency Representative signature",
+          "id": "signature_of_representative_of_the_authorized_agency_signature",
+          "label": "Signature of Representative of the Authorized Agency",
           "check_type": "signature",
-          "required": false,
+          "required": true,
           "passed": true,
           "confidence": 1.0,
           "matched_text": null,
           "bbox": [
-            180,
-            1072,
-            1116,
-            1200
+            640,
+            968,
+            1000,
+            1160
           ],
-          "details": "Ink coverage: 2.72%"
+          "details": "Ink coverage: 89.43%"
+        },
+        {
+          "id": "signature_ofshb_centre_in_charge_signature",
+          "label": "Signature ofShb-Centre In-charge",
+          "check_type": "signature",
+          "required": true,
+          "passed": true,
+          "confidence": 1.0,
+          "matched_text": null,
+          "bbox": [
+            140,
+            980,
+            500,
+            1172
+          ],
+          "details": "Ink coverage: 81.02%"
         }
       ],
-      "format_score": 100.0,
-      "required_checks_passed": 19,
-      "required_checks_total": 19,
-      "missing_items": [],
-      "warnings": [
-        "Reference layout similarity: 64.6% (2301105.jpg)."
+      "structure_score": 57.14,
+      "visual_score": 100.0,
+      "overall_score": 70.0,
+      "missing_items": [
+        "This is certified that Impersonation Control Mechanism through IRIS and Facial recognition Procedure",
+        "was provided by the Authorised Agency (M/s Innovatiview) during Assistant Town Planner Screening Test",
+        "November.2022.",
+        "2.During the verification process all the devices were found to be working and the performance of the",
+        "found missing.",
+        "Full Nameq qig"
       ],
-      "template_match": {
-        "matched": true,
-        "similarity": 0.646,
-        "reference_name": "2301105.jpg",
-        "good_matches": 275,
-        "inlier_ratio": 0.3564
-      }
+      "warnings": [
+        "Only 8/14 template anchors matched."
+      ],
+      "matched_anchors": [
+        "Sub-centre No.Q.R.0.",
+        "3No.of Admitted Candidates:2.8.8..",
+        "2022, conducted by Maharashtra Public Service Commission at the above mentioned Sub-Centre on 20h",
+        "devices deployed was found to be satisfactory.Verification and Attendance Marking of all present candidates has",
+        "been done properly and not a single candidate missed the verification process. After completign of Examination",
+        "Comments of the Sub-Centre In-charge, if any:",
+        "Signature of Representative of the Authorized Agency",
+        "Signature ofShb-Centre In-charge"
+      ],
+      "missing_anchors": [
+        "This is certified that Impersonation Control Mechanism through IRIS and Facial recognition Procedure",
+        "was provided by the Authorised Agency (M/s Innovatiview) during Assistant Town Planner Screening Test",
+        "November.2022.",
+        "2.During the verification process all the devices were found to be working and the performance of the",
+        "found missing.",
+        "Full Nameq qig"
+      ]
     }
   },
   {
     "filename": "2316107.jpg",
-    "overall_status": "PASS",
-    "score": 100.0,
+    "overall_status": "FAIL",
+    "score": 70.0,
     "max_score": 100.0,
     "pages": 1,
-    "document_type": "CSR Form - Centre Sign-Off Report Biometric",
-    "document_confidence": 100.0,
-    "format_status": "PASS",
-    "format_score": 100.0,
-    "required_fields_passed": 17,
-    "required_fields_total": 17,
+    "document_type": "checking_updated_template",
+    "document_confidence": 57.14,
+    "format_status": "FAIL",
+    "format_score": 57.14,
+    "required_fields_passed": 8,
+    "required_fields_total": 14,
     "signatures_status": "PASS",
-    "stamps_status": "PASS",
-    "missing_headings": [],
-    "missing_elements": [],
-    "low_confidence_items": [],
+    "stamps_status": "N/A",
+    "missing_headings": [
+      "This is certified that Impersonation Control Mechanism through IRIS and Facial recognition Procedure",
+      "was provided by the Authorised Agency (M/s Innovatiview) during Assistant Town Planner Screening Test",
+      "November.2022.",
+      "2.During the verification process all the devices were found to be working and the performance of the",
+      "found missing.",
+      "Full Nameq qig"
+    ],
+    "missing_elements": [
+      "This is certified that Impersonation Control Mechanism through IRIS and Facial recognition Procedure",
+      "was provided by the Authorised Agency (M/s Innovatiview) during Assistant Town Planner Screening Test",
+      "November.2022.",
+      "2.During the verification process all the devices were found to be working and the performance of the",
+      "found missing.",
+      "Full Nameq qig"
+    ],
+    "low_confidence_items": [
+      "Sub-centre No.Q.R.0.",
+      "This is certified that Impersonation Control Mechanism through IRIS and Facial recognition Procedure",
+      "was provided by the Authorised Agency (M/s Innovatiview) during Assistant Town Planner Screening Test",
+      "2022, conducted by Maharashtra Public Service Commission at the above mentioned Sub-Centre on 20h",
+      "November.2022.",
+      "2.During the verification process all the devices were found to be working and the performance of the",
+      "found missing.",
+      "Full Nameq qig"
+    ],
     "detected_photo": false,
-    "detected_stamp": true,
+    "detected_stamp": false,
     "detected_signature": true,
     "detected_checkboxes": 0,
     "ocr_text": "Centre Sign-Off Report\nBiometric\nNEET-21/JUNE/2026)\nTESTING AGENCY\nName &Address of the\nExamination Center:\nGovt Polyechinic Mehan,obbnsit Busstendmelom\nHaryana\nCentre Code:\n2316107&\nState Name:\n&District/City Name:\n&Rahtk\n&Date of Exam\n21.06.2026\nInstallation/\n21/JUNE/2026\nService Delivery Date\nThis is to Certify that below is the physical attendance of the candidates at our examination center.\nShifts\nTotal no.of Candidates\nTotal no.of Candidates\nVenue Representative\nAllotted\nPresent\nSignature &Stamp\nShift 1\n240\n208\n5323\nRemarks\nCentre Superintendent\nCode-2316107Govt.Polytechnic Meham\nCustomer Statement\n hereby certify that M/s Edcil has implemented the Impersonatio\nControl through Biometric Authentication and Attendance\nMarking System at our center for restricting the impersonated candidates to enter the examination hall during the NEET (UG)\n2026 Examination.\nThe work has been found Satisfactory/Unsatisfactory (Please tick mark).\nCentre Superintendent/Rep Name &Number:\n323\nCentre Superintendent\nCentre Superintendent/Rep Signature & Seal\nCode-7316107Govt.Polytechnic Meham\nName of Agency Rep.\nRitu Saini\nSignature of Agency Rep.\nhitu Saimi",
     "warnings": [
-      "Reference layout similarity: 65.6% (2301105.jpg)."
+      "Only 8/14 template anchors matched."
     ],
     "checks": [
       {
-        "id": "centre_information",
-        "label": "Centre information",
-        "check_type": "field",
+        "id": "sub_centre_no_q_r_0",
+        "label": "Sub-centre No.Q.R.0.",
+        "check_type": "heading",
         "required": true,
         "passed": true,
-        "confidence": 1.0,
-        "matched_text": "Examination Center:",
-        "bbox": [
-          103,
-          447,
-          222,
-          463
-        ],
-        "details": "Matched"
-      },
-      {
-        "id": "attendance",
-        "label": "Attendance table",
-        "check_type": "field",
-        "required": true,
-        "passed": true,
-        "confidence": 1.0,
-        "matched_text": "Shifts",
-        "bbox": [
-          134,
-          647,
-          169,
-          665
-        ],
-        "details": "Matched"
-      },
-      {
-        "id": "customer_statement",
-        "label": "Customer Statement",
-        "check_type": "field",
-        "required": true,
-        "passed": true,
-        "confidence": 1.0,
-        "matched_text": "Customer Statement",
-        "bbox": [
-          55,
-          800,
-          175,
-          817
-        ],
-        "details": "Matched"
-      },
-      {
-        "id": "superintendent",
-        "label": "Centre Superintendent section",
-        "check_type": "field",
-        "required": true,
-        "passed": true,
-        "confidence": 1.0,
-        "matched_text": "Centre Superintendent",
-        "bbox": [
-          572,
-          761,
-          765,
-          792
-        ],
-        "details": "Matched"
-      },
-      {
-        "id": "agency",
-        "label": "Agency Representative section",
-        "check_type": "field",
-        "required": true,
-        "passed": true,
-        "confidence": 1.0,
-        "matched_text": "Name of Agency Rep.",
-        "bbox": [
-          41,
-          1060,
-          180,
-          1085
-        ],
-        "details": "Matched"
-      },
-      {
-        "id": "centre_name",
-        "label": "Examination Centre name/address",
-        "check_type": "field",
-        "required": true,
-        "passed": true,
-        "confidence": 1.0,
-        "matched_text": "Examination Center:",
-        "bbox": [
-          103,
-          447,
-          222,
-          463
-        ],
-        "details": "Matched"
-      },
-      {
-        "id": "state_district",
-        "label": "State / District / City",
-        "check_type": "field",
-        "required": true,
-        "passed": true,
-        "confidence": 1.0,
-        "matched_text": "State Name:",
-        "bbox": [
-          99,
-          492,
-          175,
-          508
-        ],
-        "details": "Matched"
-      },
-      {
-        "id": "centre_code",
-        "label": "Centre Code",
-        "check_type": "field",
-        "required": true,
-        "passed": true,
-        "confidence": 1.0,
+        "confidence": 0.7059,
         "matched_text": "Centre Code:",
         "bbox": [
           516,
@@ -860,63 +801,26 @@
           594,
           503
         ],
-        "details": "Matched"
+        "details": "Template anchor detected"
       },
       {
-        "id": "exam_date",
-        "label": "Date of Exam",
-        "check_type": "field",
+        "id": "this_is_certified_that_impersonation_control_mechanism_through_iris_and_facial_r",
+        "label": "This is certified that Impersonation Control Mechanism through IRIS and Facial recognition Procedure",
+        "check_type": "heading",
         "required": true,
-        "passed": true,
-        "confidence": 1.0,
-        "matched_text": "&Date of Exam",
-        "bbox": [
-          515,
-          503,
-          610,
-          520
-        ],
-        "details": "Matched"
+        "passed": false,
+        "confidence": 0.597,
+        "matched_text": null,
+        "bbox": null,
+        "details": "Template anchor not detected"
       },
       {
-        "id": "installation_date",
-        "label": "Installation / Service Delivery Date",
-        "check_type": "field",
+        "id": "3no_of_admitted_candidates_2_8_8",
+        "label": "3No.of Admitted Candidates:2.8.8..",
+        "check_type": "heading",
         "required": true,
         "passed": true,
-        "confidence": 1.0,
-        "matched_text": "Installation/",
-        "bbox": [
-          98,
-          547,
-          179,
-          563
-        ],
-        "details": "Matched"
-      },
-      {
-        "id": "shift",
-        "label": "Shift",
-        "check_type": "field",
-        "required": true,
-        "passed": true,
-        "confidence": 1.0,
-        "matched_text": "Shifts",
-        "bbox": [
-          134,
-          647,
-          169,
-          665
-        ],
-        "details": "Matched"
-      },
-      {
-        "id": "candidates_allotted",
-        "label": "Candidates Allotted",
-        "check_type": "field",
-        "required": true,
-        "passed": true,
-        "confidence": 1.0,
+        "confidence": 0.766,
         "matched_text": "Total no.of Candidates",
         "bbox": [
           230,
@@ -924,281 +828,401 @@
           366,
           660
         ],
-        "details": "Matched"
+        "details": "Template anchor detected"
       },
       {
-        "id": "candidates_present",
-        "label": "Candidates Present",
-        "check_type": "field",
+        "id": "was_provided_by_the_authorised_agency_m_s_innovatiview_during_assistant_town_pla",
+        "label": "was provided by the Authorised Agency (M/s Innovatiview) during Assistant Town Planner Screening Test",
+        "check_type": "heading",
+        "required": true,
+        "passed": false,
+        "confidence": 0.6,
+        "matched_text": null,
+        "bbox": null,
+        "details": "Template anchor not detected"
+      },
+      {
+        "id": "2022_conducted_by_maharashtra_public_service_commission_at_the_above_mentioned_s",
+        "label": "2022, conducted by Maharashtra Public Service Commission at the above mentioned Sub-Centre on 20h",
+        "check_type": "heading",
         "required": true,
         "passed": true,
-        "confidence": 1.0,
-        "matched_text": "Total no.of Candidates",
+        "confidence": 0.7059,
+        "matched_text": "Centre Code:",
         "bbox": [
-          230,
-          643,
-          366,
-          660
+          516,
+          485,
+          594,
+          503
         ],
-        "details": "Matched"
+        "details": "Template anchor detected"
       },
       {
-        "id": "remarks",
-        "label": "Remarks",
-        "check_type": "field",
+        "id": "november_2022",
+        "label": "November.2022.",
+        "check_type": "heading",
+        "required": true,
+        "passed": false,
+        "confidence": 0.56,
+        "matched_text": null,
+        "bbox": null,
+        "details": "Template anchor not detected"
+      },
+      {
+        "id": "2_during_the_verification_process_all_the_devices_were_found_to_be_working_and_t",
+        "label": "2.During the verification process all the devices were found to be working and the performance of the",
+        "check_type": "heading",
+        "required": true,
+        "passed": false,
+        "confidence": 0.5149,
+        "matched_text": null,
+        "bbox": null,
+        "details": "Template anchor not detected"
+      },
+      {
+        "id": "devices_deployed_was_found_to_be_satisfactory_verification_and_attendance_markin",
+        "label": "devices deployed was found to be satisfactory.Verification and Attendance Marking of all present candidates has",
+        "check_type": "heading",
         "required": true,
         "passed": true,
         "confidence": 1.0,
-        "matched_text": "Remarks",
+        "matched_text": "Present",
         "bbox": [
-          86,
-          767,
-          137,
-          783
+          460,
+          667,
+          505,
+          678
         ],
-        "details": "Matched"
+        "details": "Template anchor detected"
       },
       {
-        "id": "satisfactory",
-        "label": "Satisfactory / Unsatisfactory",
-        "check_type": "field",
+        "id": "been_done_properly_and_not_a_single_candidate_missed_the_verification_process_af",
+        "label": "been done properly and not a single candidate missed the verification process. After completign of Examination",
+        "check_type": "heading",
         "required": true,
         "passed": true,
-        "confidence": 1.0,
-        "matched_text": "The work has been found Satisfactory/Unsatisfactory (Please tick mark).",
+        "confidence": 0.8148,
+        "matched_text": "2026 Examination.",
         "bbox": [
           53,
-          877,
-          480,
-          897
+          848,
+          162,
+          868
         ],
-        "details": "Matched"
+        "details": "Template anchor detected"
       },
       {
-        "id": "superintendent_name",
-        "label": "Centre Superintendent/Rep Name & Number",
-        "check_type": "field",
+        "id": "found_missing",
+        "label": "found missing.",
+        "check_type": "heading",
         "required": true,
-        "passed": true,
-        "confidence": 1.0,
-        "matched_text": "Centre Superintendent",
-        "bbox": [
-          572,
-          761,
-          765,
-          792
-        ],
-        "details": "Matched"
-      },
-      {
-        "id": "agency_name",
-        "label": "Name of Agency Rep",
-        "check_type": "field",
-        "required": true,
-        "passed": true,
-        "confidence": 1.0,
-        "matched_text": "Name of Agency Rep.",
-        "bbox": [
-          41,
-          1060,
-          180,
-          1085
-        ],
-        "details": "Matched"
-      },
-      {
-        "id": "venue_rep_signature_stamp",
-        "label": "Venue Representative signature & stamp",
-        "check_type": "signature_and_stamp_region",
-        "required": true,
-        "passed": true,
-        "confidence": 1.0,
+        "passed": false,
+        "confidence": 0.5556,
         "matched_text": null,
-        "bbox": [
-          576,
-          480,
-          882,
-          704
-        ],
-        "details": "Ink coverage: 14.79%"
+        "bbox": null,
+        "details": "Template anchor not detected"
       },
       {
-        "id": "superintendent_signature_seal",
-        "label": "Centre Superintendent signature & seal",
-        "check_type": "signature_and_seal_region",
+        "id": "comments_of_the_sub_centre_in_charge_if_any",
+        "label": "Comments of the Sub-Centre In-charge, if any:",
+        "check_type": "heading",
         "required": true,
         "passed": true,
-        "confidence": 1.0,
-        "matched_text": null,
+        "confidence": 0.8235,
+        "matched_text": "State Name: &District/City Name: &Rahtk Haryana &Date of Exam Centre Code: 2316107& 21.06.2026",
         "bbox": [
-          360,
-          800,
-          873,
-          992
+          99,
+          480,
+          749,
+          535
         ],
-        "details": "Ink coverage: 11.50%"
+        "details": "Template anchor detected"
       },
       {
-        "id": "agency_signature",
-        "label": "Agency Representative signature",
+        "id": "signature_of_representative_of_the_authorized_agency",
+        "label": "Signature of Representative of the Authorized Agency",
+        "check_type": "heading",
+        "required": true,
+        "passed": true,
+        "confidence": 0.9048,
+        "matched_text": "Signature of Agency Rep.",
+        "bbox": [
+          40,
+          1117,
+          200,
+          1138
+        ],
+        "details": "Template anchor detected"
+      },
+      {
+        "id": "full_nameq_qig",
+        "label": "Full Nameq qig",
+        "check_type": "heading",
+        "required": true,
+        "passed": false,
+        "confidence": 0.6154,
+        "matched_text": null,
+        "bbox": null,
+        "details": "Template anchor not detected"
+      },
+      {
+        "id": "signature_ofshb_centre_in_charge",
+        "label": "Signature ofShb-Centre In-charge",
+        "check_type": "heading",
+        "required": true,
+        "passed": true,
+        "confidence": 0.75,
+        "matched_text": "Signature &Stamp",
+        "bbox": [
+          615,
+          663,
+          726,
+          675
+        ],
+        "details": "Template anchor detected"
+      },
+      {
+        "id": "signature_of_representative_of_the_authorized_agency_signature",
+        "label": "Signature of Representative of the Authorized Agency",
         "check_type": "signature",
-        "required": false,
+        "required": true,
         "passed": true,
         "confidence": 1.0,
         "matched_text": null,
         "bbox": [
-          135,
-          1072,
-          837,
-          1200
+          480,
+          968,
+          750,
+          1160
         ],
-        "details": "Ink coverage: 3.97%"
+        "details": "Ink coverage: 43.80%"
+      },
+      {
+        "id": "signature_ofshb_centre_in_charge_signature",
+        "label": "Signature ofShb-Centre In-charge",
+        "check_type": "signature",
+        "required": true,
+        "passed": true,
+        "confidence": 1.0,
+        "matched_text": null,
+        "bbox": [
+          105,
+          980,
+          375,
+          1172
+        ],
+        "details": "Ink coverage: 54.82%"
       }
     ],
-    "heading_details": [],
-    "checkbox_details": [],
-    "processing_duration_seconds": 4.28,
-    "validation_details": {
-      "classification": {
-        "document_type": "CSR Form - Centre Sign-Off Report Biometric",
-        "confidence": 1.0,
+    "heading_details": [
+      {
+        "id": "sub_centre_no_q_r_0",
+        "label": "Sub-centre No.Q.R.0.",
+        "check_type": "heading",
+        "required": true,
         "passed": true,
-        "matched_markers": [
-          "Centre Sign-Off Report",
-          "Biometric",
-          "NEET",
-          "Name & Address of Examination Center",
-          "State / District / City",
-          "Centre Code",
-          "Installation / Service Delivery Date",
-          "Attendance table",
-          "Customer Statement",
-          "Centre Superintendent",
-          "Agency Representative"
+        "confidence": 0.7059,
+        "matched_text": "Centre Code:",
+        "bbox": [
+          516,
+          485,
+          594,
+          503
         ],
-        "missing_markers": [],
-        "details": "Matched 11/11 configured document markers."
+        "details": "Template anchor detected"
       },
+      {
+        "id": "this_is_certified_that_impersonation_control_mechanism_through_iris_and_facial_r",
+        "label": "This is certified that Impersonation Control Mechanism through IRIS and Facial recognition Procedure",
+        "check_type": "heading",
+        "required": true,
+        "passed": false,
+        "confidence": 0.597,
+        "matched_text": null,
+        "bbox": null,
+        "details": "Template anchor not detected"
+      },
+      {
+        "id": "3no_of_admitted_candidates_2_8_8",
+        "label": "3No.of Admitted Candidates:2.8.8..",
+        "check_type": "heading",
+        "required": true,
+        "passed": true,
+        "confidence": 0.766,
+        "matched_text": "Total no.of Candidates",
+        "bbox": [
+          230,
+          643,
+          366,
+          660
+        ],
+        "details": "Template anchor detected"
+      },
+      {
+        "id": "was_provided_by_the_authorised_agency_m_s_innovatiview_during_assistant_town_pla",
+        "label": "was provided by the Authorised Agency (M/s Innovatiview) during Assistant Town Planner Screening Test",
+        "check_type": "heading",
+        "required": true,
+        "passed": false,
+        "confidence": 0.6,
+        "matched_text": null,
+        "bbox": null,
+        "details": "Template anchor not detected"
+      },
+      {
+        "id": "2022_conducted_by_maharashtra_public_service_commission_at_the_above_mentioned_s",
+        "label": "2022, conducted by Maharashtra Public Service Commission at the above mentioned Sub-Centre on 20h",
+        "check_type": "heading",
+        "required": true,
+        "passed": true,
+        "confidence": 0.7059,
+        "matched_text": "Centre Code:",
+        "bbox": [
+          516,
+          485,
+          594,
+          503
+        ],
+        "details": "Template anchor detected"
+      },
+      {
+        "id": "november_2022",
+        "label": "November.2022.",
+        "check_type": "heading",
+        "required": true,
+        "passed": false,
+        "confidence": 0.56,
+        "matched_text": null,
+        "bbox": null,
+        "details": "Template anchor not detected"
+      },
+      {
+        "id": "2_during_the_verification_process_all_the_devices_were_found_to_be_working_and_t",
+        "label": "2.During the verification process all the devices were found to be working and the performance of the",
+        "check_type": "heading",
+        "required": true,
+        "passed": false,
+        "confidence": 0.5149,
+        "matched_text": null,
+        "bbox": null,
+        "details": "Template anchor not detected"
+      },
+      {
+        "id": "devices_deployed_was_found_to_be_satisfactory_verification_and_attendance_markin",
+        "label": "devices deployed was found to be satisfactory.Verification and Attendance Marking of all present candidates has",
+        "check_type": "heading",
+        "required": true,
+        "passed": true,
+        "confidence": 1.0,
+        "matched_text": "Present",
+        "bbox": [
+          460,
+          667,
+          505,
+          678
+        ],
+        "details": "Template anchor detected"
+      },
+      {
+        "id": "been_done_properly_and_not_a_single_candidate_missed_the_verification_process_af",
+        "label": "been done properly and not a single candidate missed the verification process. After completign of Examination",
+        "check_type": "heading",
+        "required": true,
+        "passed": true,
+        "confidence": 0.8148,
+        "matched_text": "2026 Examination.",
+        "bbox": [
+          53,
+          848,
+          162,
+          868
+        ],
+        "details": "Template anchor detected"
+      },
+      {
+        "id": "found_missing",
+        "label": "found missing.",
+        "check_type": "heading",
+        "required": true,
+        "passed": false,
+        "confidence": 0.5556,
+        "matched_text": null,
+        "bbox": null,
+        "details": "Template anchor not detected"
+      },
+      {
+        "id": "comments_of_the_sub_centre_in_charge_if_any",
+        "label": "Comments of the Sub-Centre In-charge, if any:",
+        "check_type": "heading",
+        "required": true,
+        "passed": true,
+        "confidence": 0.8235,
+        "matched_text": "State Name: &District/City Name: &Rahtk Haryana &Date of Exam Centre Code: 2316107& 21.06.2026",
+        "bbox": [
+          99,
+          480,
+          749,
+          535
+        ],
+        "details": "Template anchor detected"
+      },
+      {
+        "id": "signature_of_representative_of_the_authorized_agency",
+        "label": "Signature of Representative of the Authorized Agency",
+        "check_type": "heading",
+        "required": true,
+        "passed": true,
+        "confidence": 0.9048,
+        "matched_text": "Signature of Agency Rep.",
+        "bbox": [
+          40,
+          1117,
+          200,
+          1138
+        ],
+        "details": "Template anchor detected"
+      },
+      {
+        "id": "full_nameq_qig",
+        "label": "Full Nameq qig",
+        "check_type": "heading",
+        "required": true,
+        "passed": false,
+        "confidence": 0.6154,
+        "matched_text": null,
+        "bbox": null,
+        "details": "Template anchor not detected"
+      },
+      {
+        "id": "signature_ofshb_centre_in_charge",
+        "label": "Signature ofShb-Centre In-charge",
+        "check_type": "heading",
+        "required": true,
+        "passed": true,
+        "confidence": 0.75,
+        "matched_text": "Signature &Stamp",
+        "bbox": [
+          615,
+          663,
+          726,
+          675
+        ],
+        "details": "Template anchor detected"
+      }
+    ],
+    "checkbox_details": [],
+    "processing_duration_seconds": 17.1,
+    "validation_details": {
+      "document_type": "checking_updated_template",
+      "classification_confidence": 0.5714,
       "checks": [
         {
-          "id": "centre_information",
-          "label": "Centre information",
-          "check_type": "field",
+          "id": "sub_centre_no_q_r_0",
+          "label": "Sub-centre No.Q.R.0.",
+          "check_type": "heading",
           "required": true,
           "passed": true,
-          "confidence": 1.0,
-          "matched_text": "Examination Center:",
-          "bbox": [
-            103,
-            447,
-            222,
-            463
-          ],
-          "details": "Matched"
-        },
-        {
-          "id": "attendance",
-          "label": "Attendance table",
-          "check_type": "field",
-          "required": true,
-          "passed": true,
-          "confidence": 1.0,
-          "matched_text": "Shifts",
-          "bbox": [
-            134,
-            647,
-            169,
-            665
-          ],
-          "details": "Matched"
-        },
-        {
-          "id": "customer_statement",
-          "label": "Customer Statement",
-          "check_type": "field",
-          "required": true,
-          "passed": true,
-          "confidence": 1.0,
-          "matched_text": "Customer Statement",
-          "bbox": [
-            55,
-            800,
-            175,
-            817
-          ],
-          "details": "Matched"
-        },
-        {
-          "id": "superintendent",
-          "label": "Centre Superintendent section",
-          "check_type": "field",
-          "required": true,
-          "passed": true,
-          "confidence": 1.0,
-          "matched_text": "Centre Superintendent",
-          "bbox": [
-            572,
-            761,
-            765,
-            792
-          ],
-          "details": "Matched"
-        },
-        {
-          "id": "agency",
-          "label": "Agency Representative section",
-          "check_type": "field",
-          "required": true,
-          "passed": true,
-          "confidence": 1.0,
-          "matched_text": "Name of Agency Rep.",
-          "bbox": [
-            41,
-            1060,
-            180,
-            1085
-          ],
-          "details": "Matched"
-        },
-        {
-          "id": "centre_name",
-          "label": "Examination Centre name/address",
-          "check_type": "field",
-          "required": true,
-          "passed": true,
-          "confidence": 1.0,
-          "matched_text": "Examination Center:",
-          "bbox": [
-            103,
-            447,
-            222,
-            463
-          ],
-          "details": "Matched"
-        },
-        {
-          "id": "state_district",
-          "label": "State / District / City",
-          "check_type": "field",
-          "required": true,
-          "passed": true,
-          "confidence": 1.0,
-          "matched_text": "State Name:",
-          "bbox": [
-            99,
-            492,
-            175,
-            508
-          ],
-          "details": "Matched"
-        },
-        {
-          "id": "centre_code",
-          "label": "Centre Code",
-          "check_type": "field",
-          "required": true,
-          "passed": true,
-          "confidence": 1.0,
+          "confidence": 0.7059,
           "matched_text": "Centre Code:",
           "bbox": [
             516,
@@ -1206,63 +1230,26 @@
             594,
             503
           ],
-          "details": "Matched"
+          "details": "Template anchor detected"
         },
         {
-          "id": "exam_date",
-          "label": "Date of Exam",
-          "check_type": "field",
+          "id": "this_is_certified_that_impersonation_control_mechanism_through_iris_and_facial_r",
+          "label": "This is certified that Impersonation Control Mechanism through IRIS and Facial recognition Procedure",
+          "check_type": "heading",
           "required": true,
-          "passed": true,
-          "confidence": 1.0,
-          "matched_text": "&Date of Exam",
-          "bbox": [
-            515,
-            503,
-            610,
-            520
-          ],
-          "details": "Matched"
+          "passed": false,
+          "confidence": 0.597,
+          "matched_text": null,
+          "bbox": null,
+          "details": "Template anchor not detected"
         },
         {
-          "id": "installation_date",
-          "label": "Installation / Service Delivery Date",
-          "check_type": "field",
+          "id": "3no_of_admitted_candidates_2_8_8",
+          "label": "3No.of Admitted Candidates:2.8.8..",
+          "check_type": "heading",
           "required": true,
           "passed": true,
-          "confidence": 1.0,
-          "matched_text": "Installation/",
-          "bbox": [
-            98,
-            547,
-            179,
-            563
-          ],
-          "details": "Matched"
-        },
-        {
-          "id": "shift",
-          "label": "Shift",
-          "check_type": "field",
-          "required": true,
-          "passed": true,
-          "confidence": 1.0,
-          "matched_text": "Shifts",
-          "bbox": [
-            134,
-            647,
-            169,
-            665
-          ],
-          "details": "Matched"
-        },
-        {
-          "id": "candidates_allotted",
-          "label": "Candidates Allotted",
-          "check_type": "field",
-          "required": true,
-          "passed": true,
-          "confidence": 1.0,
+          "confidence": 0.766,
           "matched_text": "Total no.of Candidates",
           "bbox": [
             230,
@@ -1270,298 +1257,281 @@
             366,
             660
           ],
-          "details": "Matched"
+          "details": "Template anchor detected"
         },
         {
-          "id": "candidates_present",
-          "label": "Candidates Present",
-          "check_type": "field",
+          "id": "was_provided_by_the_authorised_agency_m_s_innovatiview_during_assistant_town_pla",
+          "label": "was provided by the Authorised Agency (M/s Innovatiview) during Assistant Town Planner Screening Test",
+          "check_type": "heading",
+          "required": true,
+          "passed": false,
+          "confidence": 0.6,
+          "matched_text": null,
+          "bbox": null,
+          "details": "Template anchor not detected"
+        },
+        {
+          "id": "2022_conducted_by_maharashtra_public_service_commission_at_the_above_mentioned_s",
+          "label": "2022, conducted by Maharashtra Public Service Commission at the above mentioned Sub-Centre on 20h",
+          "check_type": "heading",
           "required": true,
           "passed": true,
-          "confidence": 1.0,
-          "matched_text": "Total no.of Candidates",
+          "confidence": 0.7059,
+          "matched_text": "Centre Code:",
           "bbox": [
-            230,
-            643,
-            366,
-            660
+            516,
+            485,
+            594,
+            503
           ],
-          "details": "Matched"
+          "details": "Template anchor detected"
         },
         {
-          "id": "remarks",
-          "label": "Remarks",
-          "check_type": "field",
+          "id": "november_2022",
+          "label": "November.2022.",
+          "check_type": "heading",
+          "required": true,
+          "passed": false,
+          "confidence": 0.56,
+          "matched_text": null,
+          "bbox": null,
+          "details": "Template anchor not detected"
+        },
+        {
+          "id": "2_during_the_verification_process_all_the_devices_were_found_to_be_working_and_t",
+          "label": "2.During the verification process all the devices were found to be working and the performance of the",
+          "check_type": "heading",
+          "required": true,
+          "passed": false,
+          "confidence": 0.5149,
+          "matched_text": null,
+          "bbox": null,
+          "details": "Template anchor not detected"
+        },
+        {
+          "id": "devices_deployed_was_found_to_be_satisfactory_verification_and_attendance_markin",
+          "label": "devices deployed was found to be satisfactory.Verification and Attendance Marking of all present candidates has",
+          "check_type": "heading",
           "required": true,
           "passed": true,
           "confidence": 1.0,
-          "matched_text": "Remarks",
+          "matched_text": "Present",
           "bbox": [
-            86,
-            767,
-            137,
-            783
+            460,
+            667,
+            505,
+            678
           ],
-          "details": "Matched"
+          "details": "Template anchor detected"
         },
         {
-          "id": "satisfactory",
-          "label": "Satisfactory / Unsatisfactory",
-          "check_type": "field",
+          "id": "been_done_properly_and_not_a_single_candidate_missed_the_verification_process_af",
+          "label": "been done properly and not a single candidate missed the verification process. After completign of Examination",
+          "check_type": "heading",
           "required": true,
           "passed": true,
-          "confidence": 1.0,
-          "matched_text": "The work has been found Satisfactory/Unsatisfactory (Please tick mark).",
+          "confidence": 0.8148,
+          "matched_text": "2026 Examination.",
           "bbox": [
             53,
-            877,
-            480,
-            897
+            848,
+            162,
+            868
           ],
-          "details": "Matched"
+          "details": "Template anchor detected"
         },
         {
-          "id": "superintendent_name",
-          "label": "Centre Superintendent/Rep Name & Number",
-          "check_type": "field",
+          "id": "found_missing",
+          "label": "found missing.",
+          "check_type": "heading",
           "required": true,
-          "passed": true,
-          "confidence": 1.0,
-          "matched_text": "Centre Superintendent",
-          "bbox": [
-            572,
-            761,
-            765,
-            792
-          ],
-          "details": "Matched"
-        },
-        {
-          "id": "agency_name",
-          "label": "Name of Agency Rep",
-          "check_type": "field",
-          "required": true,
-          "passed": true,
-          "confidence": 1.0,
-          "matched_text": "Name of Agency Rep.",
-          "bbox": [
-            41,
-            1060,
-            180,
-            1085
-          ],
-          "details": "Matched"
-        },
-        {
-          "id": "venue_rep_signature_stamp",
-          "label": "Venue Representative signature & stamp",
-          "check_type": "signature_and_stamp_region",
-          "required": true,
-          "passed": true,
-          "confidence": 1.0,
+          "passed": false,
+          "confidence": 0.5556,
           "matched_text": null,
-          "bbox": [
-            576,
-            480,
-            882,
-            704
-          ],
-          "details": "Ink coverage: 14.79%"
+          "bbox": null,
+          "details": "Template anchor not detected"
         },
         {
-          "id": "superintendent_signature_seal",
-          "label": "Centre Superintendent signature & seal",
-          "check_type": "signature_and_seal_region",
+          "id": "comments_of_the_sub_centre_in_charge_if_any",
+          "label": "Comments of the Sub-Centre In-charge, if any:",
+          "check_type": "heading",
           "required": true,
           "passed": true,
-          "confidence": 1.0,
-          "matched_text": null,
+          "confidence": 0.8235,
+          "matched_text": "State Name: &District/City Name: &Rahtk Haryana &Date of Exam Centre Code: 2316107& 21.06.2026",
           "bbox": [
-            360,
-            800,
-            873,
-            992
+            99,
+            480,
+            749,
+            535
           ],
-          "details": "Ink coverage: 11.50%"
+          "details": "Template anchor detected"
         },
         {
-          "id": "agency_signature",
-          "label": "Agency Representative signature",
+          "id": "signature_of_representative_of_the_authorized_agency",
+          "label": "Signature of Representative of the Authorized Agency",
+          "check_type": "heading",
+          "required": true,
+          "passed": true,
+          "confidence": 0.9048,
+          "matched_text": "Signature of Agency Rep.",
+          "bbox": [
+            40,
+            1117,
+            200,
+            1138
+          ],
+          "details": "Template anchor detected"
+        },
+        {
+          "id": "full_nameq_qig",
+          "label": "Full Nameq qig",
+          "check_type": "heading",
+          "required": true,
+          "passed": false,
+          "confidence": 0.6154,
+          "matched_text": null,
+          "bbox": null,
+          "details": "Template anchor not detected"
+        },
+        {
+          "id": "signature_ofshb_centre_in_charge",
+          "label": "Signature ofShb-Centre In-charge",
+          "check_type": "heading",
+          "required": true,
+          "passed": true,
+          "confidence": 0.75,
+          "matched_text": "Signature &Stamp",
+          "bbox": [
+            615,
+            663,
+            726,
+            675
+          ],
+          "details": "Template anchor detected"
+        },
+        {
+          "id": "signature_of_representative_of_the_authorized_agency_signature",
+          "label": "Signature of Representative of the Authorized Agency",
           "check_type": "signature",
-          "required": false,
+          "required": true,
           "passed": true,
           "confidence": 1.0,
           "matched_text": null,
           "bbox": [
-            135,
-            1072,
-            837,
-            1200
+            480,
+            968,
+            750,
+            1160
           ],
-          "details": "Ink coverage: 3.97%"
+          "details": "Ink coverage: 43.80%"
+        },
+        {
+          "id": "signature_ofshb_centre_in_charge_signature",
+          "label": "Signature ofShb-Centre In-charge",
+          "check_type": "signature",
+          "required": true,
+          "passed": true,
+          "confidence": 1.0,
+          "matched_text": null,
+          "bbox": [
+            105,
+            980,
+            375,
+            1172
+          ],
+          "details": "Ink coverage: 54.82%"
         }
       ],
-      "format_score": 100.0,
-      "required_checks_passed": 19,
-      "required_checks_total": 19,
-      "missing_items": [],
-      "warnings": [
-        "Reference layout similarity: 65.6% (2301105.jpg)."
+      "structure_score": 57.14,
+      "visual_score": 100.0,
+      "overall_score": 70.0,
+      "missing_items": [
+        "This is certified that Impersonation Control Mechanism through IRIS and Facial recognition Procedure",
+        "was provided by the Authorised Agency (M/s Innovatiview) during Assistant Town Planner Screening Test",
+        "November.2022.",
+        "2.During the verification process all the devices were found to be working and the performance of the",
+        "found missing.",
+        "Full Nameq qig"
       ],
-      "template_match": {
-        "matched": true,
-        "similarity": 0.6562,
-        "reference_name": "2301105.jpg",
-        "good_matches": 256,
-        "inlier_ratio": 0.375
-      }
+      "warnings": [
+        "Only 8/14 template anchors matched."
+      ],
+      "matched_anchors": [
+        "Sub-centre No.Q.R.0.",
+        "3No.of Admitted Candidates:2.8.8..",
+        "2022, conducted by Maharashtra Public Service Commission at the above mentioned Sub-Centre on 20h",
+        "devices deployed was found to be satisfactory.Verification and Attendance Marking of all present candidates has",
+        "been done properly and not a single candidate missed the verification process. After completign of Examination",
+        "Comments of the Sub-Centre In-charge, if any:",
+        "Signature of Representative of the Authorized Agency",
+        "Signature ofShb-Centre In-charge"
+      ],
+      "missing_anchors": [
+        "This is certified that Impersonation Control Mechanism through IRIS and Facial recognition Procedure",
+        "was provided by the Authorised Agency (M/s Innovatiview) during Assistant Town Planner Screening Test",
+        "November.2022.",
+        "2.During the verification process all the devices were found to be working and the performance of the",
+        "found missing.",
+        "Full Nameq qig"
+      ]
     }
   },
   {
     "filename": "2316108.jpg",
-    "overall_status": "PASS",
-    "score": 100.0,
+    "overall_status": "FAIL",
+    "score": 70.0,
     "max_score": 100.0,
     "pages": 1,
-    "document_type": "CSR Form - Centre Sign-Off Report Biometric",
-    "document_confidence": 100.0,
-    "format_status": "PASS",
-    "format_score": 100.0,
-    "required_fields_passed": 17,
-    "required_fields_total": 17,
+    "document_type": "checking_updated_template",
+    "document_confidence": 57.14,
+    "format_status": "FAIL",
+    "format_score": 57.14,
+    "required_fields_passed": 8,
+    "required_fields_total": 14,
     "signatures_status": "PASS",
-    "stamps_status": "PASS",
-    "missing_headings": [],
-    "missing_elements": [],
-    "low_confidence_items": [],
+    "stamps_status": "N/A",
+    "missing_headings": [
+      "This is certified that Impersonation Control Mechanism through IRIS and Facial recognition Procedure",
+      "was provided by the Authorised Agency (M/s Innovatiview) during Assistant Town Planner Screening Test",
+      "November.2022.",
+      "2.During the verification process all the devices were found to be working and the performance of the",
+      "found missing.",
+      "Full Nameq qig"
+    ],
+    "missing_elements": [
+      "This is certified that Impersonation Control Mechanism through IRIS and Facial recognition Procedure",
+      "was provided by the Authorised Agency (M/s Innovatiview) during Assistant Town Planner Screening Test",
+      "November.2022.",
+      "2.During the verification process all the devices were found to be working and the performance of the",
+      "found missing.",
+      "Full Nameq qig"
+    ],
+    "low_confidence_items": [
+      "Sub-centre No.Q.R.0.",
+      "This is certified that Impersonation Control Mechanism through IRIS and Facial recognition Procedure",
+      "was provided by the Authorised Agency (M/s Innovatiview) during Assistant Town Planner Screening Test",
+      "November.2022.",
+      "2.During the verification process all the devices were found to be working and the performance of the",
+      "found missing.",
+      "Full Nameq qig"
+    ],
     "detected_photo": false,
-    "detected_stamp": true,
+    "detected_stamp": false,
     "detected_signature": true,
     "detected_checkboxes": 0,
     "ocr_text": "Centre Sign-Off Report\ngsfetes\nBiometric\nEdCIL\n(NEET-21/JUNE/2026)\nTESTING AGENCY\nPM SHRI JAWAHAR NAVOPYA IDALAYAUPO\nName&Address ofthe\nGHUSKANI ROHTAK\nExamination Center:\n2316108&\nHARYANA\nCentre Code:\nState Name:\n&Date of Exam\n21.06.2026\n&District/City Name\n&POHTAY\nInstallation/\n21/JUNE/2026\nService Delivery Date\nThis is to Certify that below is the physical attendance of the candidates at our examination center.\nTotal no.of Candidates\nTotal no.of Candidates\nVenue Representative\nShifts\nAllotted\nPresent\nSignature &Stamp\n217\n240\nShift1\nCenure\nNM\nRemarks:\nCustomer Statement\n2026 Examination.\nThe work has been found Satisfaetory/Unsatisfactory (Please tick mark).\nFIROKHAN\nCentre Superintendent/Rep Name & Number:\ntrochan\nCentre Superintendent/Rep Signature & Seal:\nRAVI\nName of Agency Rep.\nRari\nSignature of Agency Rep.:",
     "warnings": [
-      "Reference layout similarity: 62.6% (2301105.jpg)."
+      "Only 8/14 template anchors matched."
     ],
     "checks": [
       {
-        "id": "centre_information",
-        "label": "Centre information",
-        "check_type": "field",
+        "id": "sub_centre_no_q_r_0",
+        "label": "Sub-centre No.Q.R.0.",
+        "check_type": "heading",
         "required": true,
         "passed": true,
-        "confidence": 1.0,
-        "matched_text": "Examination Center:",
-        "bbox": [
-          78,
-          410,
-          247,
-          437
-        ],
-        "details": "Matched"
-      },
-      {
-        "id": "attendance",
-        "label": "Attendance table",
-        "check_type": "field",
-        "required": true,
-        "passed": true,
-        "confidence": 1.0,
-        "matched_text": "Shifts",
-        "bbox": [
-          153,
-          702,
-          206,
-          725
-        ],
-        "details": "Matched"
-      },
-      {
-        "id": "customer_statement",
-        "label": "Customer Statement",
-        "check_type": "field",
-        "required": true,
-        "passed": true,
-        "confidence": 1.0,
-        "matched_text": "Customer Statement",
-        "bbox": [
-          70,
-          903,
-          237,
-          930
-        ],
-        "details": "Matched"
-      },
-      {
-        "id": "superintendent",
-        "label": "Centre Superintendent section",
-        "check_type": "field",
-        "required": true,
-        "passed": true,
-        "confidence": 1.0,
-        "matched_text": "Centre Superintendent/Rep Name & Number:",
-        "bbox": [
-          61,
-          1101,
-          433,
-          1147
-        ],
-        "details": "Matched"
-      },
-      {
-        "id": "agency",
-        "label": "Agency Representative section",
-        "check_type": "field",
-        "required": true,
-        "passed": true,
-        "confidence": 1.0,
-        "matched_text": "Name of Agency Rep.",
-        "bbox": [
-          51,
-          1261,
-          239,
-          1299
-        ],
-        "details": "Matched"
-      },
-      {
-        "id": "centre_name",
-        "label": "Examination Centre name/address",
-        "check_type": "field",
-        "required": true,
-        "passed": true,
-        "confidence": 1.0,
-        "matched_text": "Examination Center:",
-        "bbox": [
-          78,
-          410,
-          247,
-          437
-        ],
-        "details": "Matched"
-      },
-      {
-        "id": "state_district",
-        "label": "State / District / City",
-        "check_type": "field",
-        "required": true,
-        "passed": true,
-        "confidence": 1.0,
-        "matched_text": "State Name:",
-        "bbox": [
-          83,
-          478,
-          190,
-          505
-        ],
-        "details": "Matched"
-      },
-      {
-        "id": "centre_code",
-        "label": "Centre Code",
-        "check_type": "field",
-        "required": true,
-        "passed": true,
-        "confidence": 1.0,
+        "confidence": 0.7059,
         "matched_text": "Centre Code:",
         "bbox": [
           668,
@@ -1569,345 +1539,428 @@
           783,
           489
         ],
-        "details": "Matched"
+        "details": "Template anchor detected"
       },
       {
-        "id": "exam_date",
-        "label": "Date of Exam",
-        "check_type": "field",
+        "id": "this_is_certified_that_impersonation_control_mechanism_through_iris_and_facial_r",
+        "label": "This is certified that Impersonation Control Mechanism through IRIS and Facial recognition Procedure",
+        "check_type": "heading",
+        "required": true,
+        "passed": false,
+        "confidence": 0.5128,
+        "matched_text": null,
+        "bbox": null,
+        "details": "Template anchor not detected"
+      },
+      {
+        "id": "3no_of_admitted_candidates_2_8_8",
+        "label": "3No.of Admitted Candidates:2.8.8..",
+        "check_type": "heading",
+        "required": true,
+        "passed": true,
+        "confidence": 0.766,
+        "matched_text": "Total no.of Candidates",
+        "bbox": [
+          290,
+          697,
+          470,
+          718
+        ],
+        "details": "Template anchor detected"
+      },
+      {
+        "id": "was_provided_by_the_authorised_agency_m_s_innovatiview_during_assistant_town_pla",
+        "label": "was provided by the Authorised Agency (M/s Innovatiview) during Assistant Town Planner Screening Test",
+        "check_type": "heading",
+        "required": true,
+        "passed": false,
+        "confidence": 0.6,
+        "matched_text": null,
+        "bbox": null,
+        "details": "Template anchor not detected"
+      },
+      {
+        "id": "2022_conducted_by_maharashtra_public_service_commission_at_the_above_mentioned_s",
+        "label": "2022, conducted by Maharashtra Public Service Commission at the above mentioned Sub-Centre on 20h",
+        "check_type": "heading",
+        "required": true,
+        "passed": true,
+        "confidence": 0.9,
+        "matched_text": "NM",
+        "bbox": [
+          543,
+          828,
+          614,
+          871
+        ],
+        "details": "Template anchor detected"
+      },
+      {
+        "id": "november_2022",
+        "label": "November.2022.",
+        "check_type": "heading",
+        "required": true,
+        "passed": false,
+        "confidence": 0.56,
+        "matched_text": null,
+        "bbox": null,
+        "details": "Template anchor not detected"
+      },
+      {
+        "id": "2_during_the_verification_process_all_the_devices_were_found_to_be_working_and_t",
+        "label": "2.During the verification process all the devices were found to be working and the performance of the",
+        "check_type": "heading",
+        "required": true,
+        "passed": false,
+        "confidence": 0.4968,
+        "matched_text": null,
+        "bbox": null,
+        "details": "Template anchor not detected"
+      },
+      {
+        "id": "devices_deployed_was_found_to_be_satisfactory_verification_and_attendance_markin",
+        "label": "devices deployed was found to be satisfactory.Verification and Attendance Marking of all present candidates has",
+        "check_type": "heading",
         "required": true,
         "passed": true,
         "confidence": 1.0,
-        "matched_text": "&Date of Exam",
+        "matched_text": "Present",
         "bbox": [
-          670,
-          490,
-          805,
+          595,
+          718,
+          658,
+          737
+        ],
+        "details": "Template anchor detected"
+      },
+      {
+        "id": "been_done_properly_and_not_a_single_candidate_missed_the_verification_process_af",
+        "label": "been done properly and not a single candidate missed the verification process. After completign of Examination",
+        "check_type": "heading",
+        "required": true,
+        "passed": true,
+        "confidence": 0.8148,
+        "matched_text": "2026 Examination.",
+        "bbox": [
+          71,
+          971,
+          215,
+          995
+        ],
+        "details": "Template anchor detected"
+      },
+      {
+        "id": "found_missing",
+        "label": "found missing.",
+        "check_type": "heading",
+        "required": true,
+        "passed": false,
+        "confidence": 0.5556,
+        "matched_text": null,
+        "bbox": null,
+        "details": "Template anchor not detected"
+      },
+      {
+        "id": "comments_of_the_sub_centre_in_charge_if_any",
+        "label": "Comments of the Sub-Centre In-charge, if any:",
+        "check_type": "heading",
+        "required": true,
+        "passed": true,
+        "confidence": 0.8235,
+        "matched_text": "State Name: HARYANA Centre Code: &Date of Exam 21.06.2026 2316108&",
+        "bbox": [
+          83,
+          450,
+          1006,
           512
         ],
-        "details": "Matched"
+        "details": "Template anchor detected"
       },
       {
-        "id": "installation_date",
-        "label": "Installation / Service Delivery Date",
-        "check_type": "field",
+        "id": "signature_of_representative_of_the_authorized_agency",
+        "label": "Signature of Representative of the Authorized Agency",
+        "check_type": "heading",
         "required": true,
         "passed": true,
-        "confidence": 1.0,
-        "matched_text": "Installation/",
+        "confidence": 0.9048,
+        "matched_text": "Signature of Agency Rep.:",
         "bbox": [
-          92,
-          558,
-          201,
-          582
+          45,
+          1336,
+          267,
+          1377
         ],
-        "details": "Matched"
+        "details": "Template anchor detected"
       },
       {
-        "id": "shift",
-        "label": "Shift",
-        "check_type": "field",
+        "id": "full_nameq_qig",
+        "label": "Full Nameq qig",
+        "check_type": "heading",
         "required": true,
-        "passed": true,
-        "confidence": 1.0,
-        "matched_text": "Shifts",
-        "bbox": [
-          153,
-          702,
-          206,
-          725
-        ],
-        "details": "Matched"
-      },
-      {
-        "id": "candidates_allotted",
-        "label": "Candidates Allotted",
-        "check_type": "field",
-        "required": true,
-        "passed": true,
-        "confidence": 1.0,
-        "matched_text": "Total no.of Candidates",
-        "bbox": [
-          290,
-          697,
-          470,
-          718
-        ],
-        "details": "Matched"
-      },
-      {
-        "id": "candidates_present",
-        "label": "Candidates Present",
-        "check_type": "field",
-        "required": true,
-        "passed": true,
-        "confidence": 1.0,
-        "matched_text": "Total no.of Candidates",
-        "bbox": [
-          290,
-          697,
-          470,
-          718
-        ],
-        "details": "Matched"
-      },
-      {
-        "id": "remarks",
-        "label": "Remarks",
-        "check_type": "field",
-        "required": true,
-        "passed": true,
-        "confidence": 1.0,
-        "matched_text": "Remarks:",
-        "bbox": [
-          107,
-          863,
-          183,
-          890
-        ],
-        "details": "Matched"
-      },
-      {
-        "id": "satisfactory",
-        "label": "Satisfactory / Unsatisfactory",
-        "check_type": "field",
-        "required": true,
-        "passed": true,
-        "confidence": 1.0,
-        "matched_text": "The work has been found Satisfaetory/Unsatisfactory (Please tick mark).",
-        "bbox": [
-          66,
-          985,
-          631,
-          1035
-        ],
-        "details": "Matched"
-      },
-      {
-        "id": "superintendent_name",
-        "label": "Centre Superintendent/Rep Name & Number",
-        "check_type": "field",
-        "required": true,
-        "passed": true,
-        "confidence": 1.0,
-        "matched_text": "Centre Superintendent/Rep Name & Number:",
-        "bbox": [
-          61,
-          1101,
-          433,
-          1147
-        ],
-        "details": "Matched"
-      },
-      {
-        "id": "agency_name",
-        "label": "Name of Agency Rep",
-        "check_type": "field",
-        "required": true,
-        "passed": true,
-        "confidence": 1.0,
-        "matched_text": "Name of Agency Rep.",
-        "bbox": [
-          51,
-          1261,
-          239,
-          1299
-        ],
-        "details": "Matched"
-      },
-      {
-        "id": "venue_rep_signature_stamp",
-        "label": "Venue Representative signature & stamp",
-        "check_type": "signature_and_stamp_region",
-        "required": true,
-        "passed": true,
-        "confidence": 1.0,
+        "passed": false,
+        "confidence": 0.6154,
         "matched_text": null,
-        "bbox": [
-          768,
-          480,
-          1176,
-          704
-        ],
-        "details": "Ink coverage: 15.22%"
+        "bbox": null,
+        "details": "Template anchor not detected"
       },
       {
-        "id": "superintendent_signature_seal",
-        "label": "Centre Superintendent signature & seal",
-        "check_type": "signature_and_seal_region",
+        "id": "signature_ofshb_centre_in_charge",
+        "label": "Signature ofShb-Centre In-charge",
+        "check_type": "heading",
         "required": true,
         "passed": true,
-        "confidence": 1.0,
-        "matched_text": null,
+        "confidence": 0.75,
+        "matched_text": "Signature &Stamp",
         "bbox": [
-          480,
-          800,
-          1164,
-          992
+          801,
+          708,
+          965,
+          737
         ],
-        "details": "Ink coverage: 6.40%"
+        "details": "Template anchor detected"
       },
       {
-        "id": "agency_signature",
-        "label": "Agency Representative signature",
+        "id": "signature_of_representative_of_the_authorized_agency_signature",
+        "label": "Signature of Representative of the Authorized Agency",
         "check_type": "signature",
-        "required": false,
+        "required": true,
         "passed": true,
         "confidence": 1.0,
         "matched_text": null,
         "bbox": [
-          180,
-          1072,
-          1116,
-          1200
+          640,
+          968,
+          1000,
+          1160
         ],
-        "details": "Ink coverage: 8.01%"
+        "details": "Ink coverage: 79.43%"
+      },
+      {
+        "id": "signature_ofshb_centre_in_charge_signature",
+        "label": "Signature ofShb-Centre In-charge",
+        "check_type": "signature",
+        "required": true,
+        "passed": true,
+        "confidence": 1.0,
+        "matched_text": null,
+        "bbox": [
+          140,
+          980,
+          500,
+          1172
+        ],
+        "details": "Ink coverage: 96.42%"
       }
     ],
-    "heading_details": [],
-    "checkbox_details": [],
-    "processing_duration_seconds": 4.35,
-    "validation_details": {
-      "classification": {
-        "document_type": "CSR Form - Centre Sign-Off Report Biometric",
-        "confidence": 1.0,
+    "heading_details": [
+      {
+        "id": "sub_centre_no_q_r_0",
+        "label": "Sub-centre No.Q.R.0.",
+        "check_type": "heading",
+        "required": true,
         "passed": true,
-        "matched_markers": [
-          "Centre Sign-Off Report",
-          "Biometric",
-          "NEET",
-          "Name & Address of Examination Center",
-          "State / District / City",
-          "Centre Code",
-          "Installation / Service Delivery Date",
-          "Attendance table",
-          "Customer Statement",
-          "Centre Superintendent",
-          "Agency Representative"
+        "confidence": 0.7059,
+        "matched_text": "Centre Code:",
+        "bbox": [
+          668,
+          460,
+          783,
+          489
         ],
-        "missing_markers": [],
-        "details": "Matched 11/11 configured document markers."
+        "details": "Template anchor detected"
       },
+      {
+        "id": "this_is_certified_that_impersonation_control_mechanism_through_iris_and_facial_r",
+        "label": "This is certified that Impersonation Control Mechanism through IRIS and Facial recognition Procedure",
+        "check_type": "heading",
+        "required": true,
+        "passed": false,
+        "confidence": 0.5128,
+        "matched_text": null,
+        "bbox": null,
+        "details": "Template anchor not detected"
+      },
+      {
+        "id": "3no_of_admitted_candidates_2_8_8",
+        "label": "3No.of Admitted Candidates:2.8.8..",
+        "check_type": "heading",
+        "required": true,
+        "passed": true,
+        "confidence": 0.766,
+        "matched_text": "Total no.of Candidates",
+        "bbox": [
+          290,
+          697,
+          470,
+          718
+        ],
+        "details": "Template anchor detected"
+      },
+      {
+        "id": "was_provided_by_the_authorised_agency_m_s_innovatiview_during_assistant_town_pla",
+        "label": "was provided by the Authorised Agency (M/s Innovatiview) during Assistant Town Planner Screening Test",
+        "check_type": "heading",
+        "required": true,
+        "passed": false,
+        "confidence": 0.6,
+        "matched_text": null,
+        "bbox": null,
+        "details": "Template anchor not detected"
+      },
+      {
+        "id": "2022_conducted_by_maharashtra_public_service_commission_at_the_above_mentioned_s",
+        "label": "2022, conducted by Maharashtra Public Service Commission at the above mentioned Sub-Centre on 20h",
+        "check_type": "heading",
+        "required": true,
+        "passed": true,
+        "confidence": 0.9,
+        "matched_text": "NM",
+        "bbox": [
+          543,
+          828,
+          614,
+          871
+        ],
+        "details": "Template anchor detected"
+      },
+      {
+        "id": "november_2022",
+        "label": "November.2022.",
+        "check_type": "heading",
+        "required": true,
+        "passed": false,
+        "confidence": 0.56,
+        "matched_text": null,
+        "bbox": null,
+        "details": "Template anchor not detected"
+      },
+      {
+        "id": "2_during_the_verification_process_all_the_devices_were_found_to_be_working_and_t",
+        "label": "2.During the verification process all the devices were found to be working and the performance of the",
+        "check_type": "heading",
+        "required": true,
+        "passed": false,
+        "confidence": 0.4968,
+        "matched_text": null,
+        "bbox": null,
+        "details": "Template anchor not detected"
+      },
+      {
+        "id": "devices_deployed_was_found_to_be_satisfactory_verification_and_attendance_markin",
+        "label": "devices deployed was found to be satisfactory.Verification and Attendance Marking of all present candidates has",
+        "check_type": "heading",
+        "required": true,
+        "passed": true,
+        "confidence": 1.0,
+        "matched_text": "Present",
+        "bbox": [
+          595,
+          718,
+          658,
+          737
+        ],
+        "details": "Template anchor detected"
+      },
+      {
+        "id": "been_done_properly_and_not_a_single_candidate_missed_the_verification_process_af",
+        "label": "been done properly and not a single candidate missed the verification process. After completign of Examination",
+        "check_type": "heading",
+        "required": true,
+        "passed": true,
+        "confidence": 0.8148,
+        "matched_text": "2026 Examination.",
+        "bbox": [
+          71,
+          971,
+          215,
+          995
+        ],
+        "details": "Template anchor detected"
+      },
+      {
+        "id": "found_missing",
+        "label": "found missing.",
+        "check_type": "heading",
+        "required": true,
+        "passed": false,
+        "confidence": 0.5556,
+        "matched_text": null,
+        "bbox": null,
+        "details": "Template anchor not detected"
+      },
+      {
+        "id": "comments_of_the_sub_centre_in_charge_if_any",
+        "label": "Comments of the Sub-Centre In-charge, if any:",
+        "check_type": "heading",
+        "required": true,
+        "passed": true,
+        "confidence": 0.8235,
+        "matched_text": "State Name: HARYANA Centre Code: &Date of Exam 21.06.2026 2316108&",
+        "bbox": [
+          83,
+          450,
+          1006,
+          512
+        ],
+        "details": "Template anchor detected"
+      },
+      {
+        "id": "signature_of_representative_of_the_authorized_agency",
+        "label": "Signature of Representative of the Authorized Agency",
+        "check_type": "heading",
+        "required": true,
+        "passed": true,
+        "confidence": 0.9048,
+        "matched_text": "Signature of Agency Rep.:",
+        "bbox": [
+          45,
+          1336,
+          267,
+          1377
+        ],
+        "details": "Template anchor detected"
+      },
+      {
+        "id": "full_nameq_qig",
+        "label": "Full Nameq qig",
+        "check_type": "heading",
+        "required": true,
+        "passed": false,
+        "confidence": 0.6154,
+        "matched_text": null,
+        "bbox": null,
+        "details": "Template anchor not detected"
+      },
+      {
+        "id": "signature_ofshb_centre_in_charge",
+        "label": "Signature ofShb-Centre In-charge",
+        "check_type": "heading",
+        "required": true,
+        "passed": true,
+        "confidence": 0.75,
+        "matched_text": "Signature &Stamp",
+        "bbox": [
+          801,
+          708,
+          965,
+          737
+        ],
+        "details": "Template anchor detected"
+      }
+    ],
+    "checkbox_details": [],
+    "processing_duration_seconds": 15.99,
+    "validation_details": {
+      "document_type": "checking_updated_template",
+      "classification_confidence": 0.5714,
       "checks": [
         {
-          "id": "centre_information",
-          "label": "Centre information",
-          "check_type": "field",
+          "id": "sub_centre_no_q_r_0",
+          "label": "Sub-centre No.Q.R.0.",
+          "check_type": "heading",
           "required": true,
           "passed": true,
-          "confidence": 1.0,
-          "matched_text": "Examination Center:",
-          "bbox": [
-            78,
-            410,
-            247,
-            437
-          ],
-          "details": "Matched"
-        },
-        {
-          "id": "attendance",
-          "label": "Attendance table",
-          "check_type": "field",
-          "required": true,
-          "passed": true,
-          "confidence": 1.0,
-          "matched_text": "Shifts",
-          "bbox": [
-            153,
-            702,
-            206,
-            725
-          ],
-          "details": "Matched"
-        },
-        {
-          "id": "customer_statement",
-          "label": "Customer Statement",
-          "check_type": "field",
-          "required": true,
-          "passed": true,
-          "confidence": 1.0,
-          "matched_text": "Customer Statement",
-          "bbox": [
-            70,
-            903,
-            237,
-            930
-          ],
-          "details": "Matched"
-        },
-        {
-          "id": "superintendent",
-          "label": "Centre Superintendent section",
-          "check_type": "field",
-          "required": true,
-          "passed": true,
-          "confidence": 1.0,
-          "matched_text": "Centre Superintendent/Rep Name & Number:",
-          "bbox": [
-            61,
-            1101,
-            433,
-            1147
-          ],
-          "details": "Matched"
-        },
-        {
-          "id": "agency",
-          "label": "Agency Representative section",
-          "check_type": "field",
-          "required": true,
-          "passed": true,
-          "confidence": 1.0,
-          "matched_text": "Name of Agency Rep.",
-          "bbox": [
-            51,
-            1261,
-            239,
-            1299
-          ],
-          "details": "Matched"
-        },
-        {
-          "id": "centre_name",
-          "label": "Examination Centre name/address",
-          "check_type": "field",
-          "required": true,
-          "passed": true,
-          "confidence": 1.0,
-          "matched_text": "Examination Center:",
-          "bbox": [
-            78,
-            410,
-            247,
-            437
-          ],
-          "details": "Matched"
-        },
-        {
-          "id": "state_district",
-          "label": "State / District / City",
-          "check_type": "field",
-          "required": true,
-          "passed": true,
-          "confidence": 1.0,
-          "matched_text": "State Name:",
-          "bbox": [
-            83,
-            478,
-            190,
-            505
-          ],
-          "details": "Matched"
-        },
-        {
-          "id": "centre_code",
-          "label": "Centre Code",
-          "check_type": "field",
-          "required": true,
-          "passed": true,
-          "confidence": 1.0,
+          "confidence": 0.7059,
           "matched_text": "Centre Code:",
           "bbox": [
             668,
@@ -1915,362 +1968,301 @@
             783,
             489
           ],
-          "details": "Matched"
+          "details": "Template anchor detected"
         },
         {
-          "id": "exam_date",
-          "label": "Date of Exam",
-          "check_type": "field",
+          "id": "this_is_certified_that_impersonation_control_mechanism_through_iris_and_facial_r",
+          "label": "This is certified that Impersonation Control Mechanism through IRIS and Facial recognition Procedure",
+          "check_type": "heading",
+          "required": true,
+          "passed": false,
+          "confidence": 0.5128,
+          "matched_text": null,
+          "bbox": null,
+          "details": "Template anchor not detected"
+        },
+        {
+          "id": "3no_of_admitted_candidates_2_8_8",
+          "label": "3No.of Admitted Candidates:2.8.8..",
+          "check_type": "heading",
+          "required": true,
+          "passed": true,
+          "confidence": 0.766,
+          "matched_text": "Total no.of Candidates",
+          "bbox": [
+            290,
+            697,
+            470,
+            718
+          ],
+          "details": "Template anchor detected"
+        },
+        {
+          "id": "was_provided_by_the_authorised_agency_m_s_innovatiview_during_assistant_town_pla",
+          "label": "was provided by the Authorised Agency (M/s Innovatiview) during Assistant Town Planner Screening Test",
+          "check_type": "heading",
+          "required": true,
+          "passed": false,
+          "confidence": 0.6,
+          "matched_text": null,
+          "bbox": null,
+          "details": "Template anchor not detected"
+        },
+        {
+          "id": "2022_conducted_by_maharashtra_public_service_commission_at_the_above_mentioned_s",
+          "label": "2022, conducted by Maharashtra Public Service Commission at the above mentioned Sub-Centre on 20h",
+          "check_type": "heading",
+          "required": true,
+          "passed": true,
+          "confidence": 0.9,
+          "matched_text": "NM",
+          "bbox": [
+            543,
+            828,
+            614,
+            871
+          ],
+          "details": "Template anchor detected"
+        },
+        {
+          "id": "november_2022",
+          "label": "November.2022.",
+          "check_type": "heading",
+          "required": true,
+          "passed": false,
+          "confidence": 0.56,
+          "matched_text": null,
+          "bbox": null,
+          "details": "Template anchor not detected"
+        },
+        {
+          "id": "2_during_the_verification_process_all_the_devices_were_found_to_be_working_and_t",
+          "label": "2.During the verification process all the devices were found to be working and the performance of the",
+          "check_type": "heading",
+          "required": true,
+          "passed": false,
+          "confidence": 0.4968,
+          "matched_text": null,
+          "bbox": null,
+          "details": "Template anchor not detected"
+        },
+        {
+          "id": "devices_deployed_was_found_to_be_satisfactory_verification_and_attendance_markin",
+          "label": "devices deployed was found to be satisfactory.Verification and Attendance Marking of all present candidates has",
+          "check_type": "heading",
           "required": true,
           "passed": true,
           "confidence": 1.0,
-          "matched_text": "&Date of Exam",
+          "matched_text": "Present",
           "bbox": [
-            670,
-            490,
-            805,
+            595,
+            718,
+            658,
+            737
+          ],
+          "details": "Template anchor detected"
+        },
+        {
+          "id": "been_done_properly_and_not_a_single_candidate_missed_the_verification_process_af",
+          "label": "been done properly and not a single candidate missed the verification process. After completign of Examination",
+          "check_type": "heading",
+          "required": true,
+          "passed": true,
+          "confidence": 0.8148,
+          "matched_text": "2026 Examination.",
+          "bbox": [
+            71,
+            971,
+            215,
+            995
+          ],
+          "details": "Template anchor detected"
+        },
+        {
+          "id": "found_missing",
+          "label": "found missing.",
+          "check_type": "heading",
+          "required": true,
+          "passed": false,
+          "confidence": 0.5556,
+          "matched_text": null,
+          "bbox": null,
+          "details": "Template anchor not detected"
+        },
+        {
+          "id": "comments_of_the_sub_centre_in_charge_if_any",
+          "label": "Comments of the Sub-Centre In-charge, if any:",
+          "check_type": "heading",
+          "required": true,
+          "passed": true,
+          "confidence": 0.8235,
+          "matched_text": "State Name: HARYANA Centre Code: &Date of Exam 21.06.2026 2316108&",
+          "bbox": [
+            83,
+            450,
+            1006,
             512
           ],
-          "details": "Matched"
+          "details": "Template anchor detected"
         },
         {
-          "id": "installation_date",
-          "label": "Installation / Service Delivery Date",
-          "check_type": "field",
+          "id": "signature_of_representative_of_the_authorized_agency",
+          "label": "Signature of Representative of the Authorized Agency",
+          "check_type": "heading",
           "required": true,
           "passed": true,
-          "confidence": 1.0,
-          "matched_text": "Installation/",
+          "confidence": 0.9048,
+          "matched_text": "Signature of Agency Rep.:",
           "bbox": [
-            92,
-            558,
-            201,
-            582
+            45,
+            1336,
+            267,
+            1377
           ],
-          "details": "Matched"
+          "details": "Template anchor detected"
         },
         {
-          "id": "shift",
-          "label": "Shift",
-          "check_type": "field",
+          "id": "full_nameq_qig",
+          "label": "Full Nameq qig",
+          "check_type": "heading",
           "required": true,
-          "passed": true,
-          "confidence": 1.0,
-          "matched_text": "Shifts",
-          "bbox": [
-            153,
-            702,
-            206,
-            725
-          ],
-          "details": "Matched"
-        },
-        {
-          "id": "candidates_allotted",
-          "label": "Candidates Allotted",
-          "check_type": "field",
-          "required": true,
-          "passed": true,
-          "confidence": 1.0,
-          "matched_text": "Total no.of Candidates",
-          "bbox": [
-            290,
-            697,
-            470,
-            718
-          ],
-          "details": "Matched"
-        },
-        {
-          "id": "candidates_present",
-          "label": "Candidates Present",
-          "check_type": "field",
-          "required": true,
-          "passed": true,
-          "confidence": 1.0,
-          "matched_text": "Total no.of Candidates",
-          "bbox": [
-            290,
-            697,
-            470,
-            718
-          ],
-          "details": "Matched"
-        },
-        {
-          "id": "remarks",
-          "label": "Remarks",
-          "check_type": "field",
-          "required": true,
-          "passed": true,
-          "confidence": 1.0,
-          "matched_text": "Remarks:",
-          "bbox": [
-            107,
-            863,
-            183,
-            890
-          ],
-          "details": "Matched"
-        },
-        {
-          "id": "satisfactory",
-          "label": "Satisfactory / Unsatisfactory",
-          "check_type": "field",
-          "required": true,
-          "passed": true,
-          "confidence": 1.0,
-          "matched_text": "The work has been found Satisfaetory/Unsatisfactory (Please tick mark).",
-          "bbox": [
-            66,
-            985,
-            631,
-            1035
-          ],
-          "details": "Matched"
-        },
-        {
-          "id": "superintendent_name",
-          "label": "Centre Superintendent/Rep Name & Number",
-          "check_type": "field",
-          "required": true,
-          "passed": true,
-          "confidence": 1.0,
-          "matched_text": "Centre Superintendent/Rep Name & Number:",
-          "bbox": [
-            61,
-            1101,
-            433,
-            1147
-          ],
-          "details": "Matched"
-        },
-        {
-          "id": "agency_name",
-          "label": "Name of Agency Rep",
-          "check_type": "field",
-          "required": true,
-          "passed": true,
-          "confidence": 1.0,
-          "matched_text": "Name of Agency Rep.",
-          "bbox": [
-            51,
-            1261,
-            239,
-            1299
-          ],
-          "details": "Matched"
-        },
-        {
-          "id": "venue_rep_signature_stamp",
-          "label": "Venue Representative signature & stamp",
-          "check_type": "signature_and_stamp_region",
-          "required": true,
-          "passed": true,
-          "confidence": 1.0,
+          "passed": false,
+          "confidence": 0.6154,
           "matched_text": null,
-          "bbox": [
-            768,
-            480,
-            1176,
-            704
-          ],
-          "details": "Ink coverage: 15.22%"
+          "bbox": null,
+          "details": "Template anchor not detected"
         },
         {
-          "id": "superintendent_signature_seal",
-          "label": "Centre Superintendent signature & seal",
-          "check_type": "signature_and_seal_region",
+          "id": "signature_ofshb_centre_in_charge",
+          "label": "Signature ofShb-Centre In-charge",
+          "check_type": "heading",
           "required": true,
           "passed": true,
-          "confidence": 1.0,
-          "matched_text": null,
+          "confidence": 0.75,
+          "matched_text": "Signature &Stamp",
           "bbox": [
-            480,
-            800,
-            1164,
-            992
+            801,
+            708,
+            965,
+            737
           ],
-          "details": "Ink coverage: 6.40%"
+          "details": "Template anchor detected"
         },
         {
-          "id": "agency_signature",
-          "label": "Agency Representative signature",
+          "id": "signature_of_representative_of_the_authorized_agency_signature",
+          "label": "Signature of Representative of the Authorized Agency",
           "check_type": "signature",
-          "required": false,
+          "required": true,
           "passed": true,
           "confidence": 1.0,
           "matched_text": null,
           "bbox": [
-            180,
-            1072,
-            1116,
-            1200
+            640,
+            968,
+            1000,
+            1160
           ],
-          "details": "Ink coverage: 8.01%"
+          "details": "Ink coverage: 79.43%"
+        },
+        {
+          "id": "signature_ofshb_centre_in_charge_signature",
+          "label": "Signature ofShb-Centre In-charge",
+          "check_type": "signature",
+          "required": true,
+          "passed": true,
+          "confidence": 1.0,
+          "matched_text": null,
+          "bbox": [
+            140,
+            980,
+            500,
+            1172
+          ],
+          "details": "Ink coverage: 96.42%"
         }
       ],
-      "format_score": 100.0,
-      "required_checks_passed": 19,
-      "required_checks_total": 19,
-      "missing_items": [],
-      "warnings": [
-        "Reference layout similarity: 62.6% (2301105.jpg)."
+      "structure_score": 57.14,
+      "visual_score": 100.0,
+      "overall_score": 70.0,
+      "missing_items": [
+        "This is certified that Impersonation Control Mechanism through IRIS and Facial recognition Procedure",
+        "was provided by the Authorised Agency (M/s Innovatiview) during Assistant Town Planner Screening Test",
+        "November.2022.",
+        "2.During the verification process all the devices were found to be working and the performance of the",
+        "found missing.",
+        "Full Nameq qig"
       ],
-      "template_match": {
-        "matched": true,
-        "similarity": 0.6261,
-        "reference_name": "2301105.jpg",
-        "good_matches": 278,
-        "inlier_ratio": 0.3201
-      }
+      "warnings": [
+        "Only 8/14 template anchors matched."
+      ],
+      "matched_anchors": [
+        "Sub-centre No.Q.R.0.",
+        "3No.of Admitted Candidates:2.8.8..",
+        "2022, conducted by Maharashtra Public Service Commission at the above mentioned Sub-Centre on 20h",
+        "devices deployed was found to be satisfactory.Verification and Attendance Marking of all present candidates has",
+        "been done properly and not a single candidate missed the verification process. After completign of Examination",
+        "Comments of the Sub-Centre In-charge, if any:",
+        "Signature of Representative of the Authorized Agency",
+        "Signature ofShb-Centre In-charge"
+      ],
+      "missing_anchors": [
+        "This is certified that Impersonation Control Mechanism through IRIS and Facial recognition Procedure",
+        "was provided by the Authorised Agency (M/s Innovatiview) during Assistant Town Planner Screening Test",
+        "November.2022.",
+        "2.During the verification process all the devices were found to be working and the performance of the",
+        "found missing.",
+        "Full Nameq qig"
+      ]
     }
   },
   {
     "filename": "2316201.jpg",
     "overall_status": "PASS",
-    "score": 100.0,
+    "score": 80.0,
     "max_score": 100.0,
     "pages": 1,
-    "document_type": "CSR Form - Centre Sign-Off Report Biometric",
-    "document_confidence": 100.0,
-    "format_status": "PASS",
-    "format_score": 100.0,
-    "required_fields_passed": 17,
-    "required_fields_total": 17,
+    "document_type": "checking_updated_template",
+    "document_confidence": 71.43,
+    "format_status": "FAIL",
+    "format_score": 71.43,
+    "required_fields_passed": 10,
+    "required_fields_total": 14,
     "signatures_status": "PASS",
-    "stamps_status": "PASS",
-    "missing_headings": [],
-    "missing_elements": [],
-    "low_confidence_items": [],
+    "stamps_status": "N/A",
+    "missing_headings": [
+      "November.2022.",
+      "2.During the verification process all the devices were found to be working and the performance of the",
+      "found missing.",
+      "Full Nameq qig"
+    ],
+    "missing_elements": [
+      "November.2022.",
+      "2.During the verification process all the devices were found to be working and the performance of the",
+      "found missing.",
+      "Full Nameq qig"
+    ],
+    "low_confidence_items": [
+      "Sub-centre No.Q.R.0.",
+      "November.2022.",
+      "2.During the verification process all the devices were found to be working and the performance of the",
+      "found missing.",
+      "Comments of the Sub-Centre In-charge, if any:",
+      "Full Nameq qig"
+    ],
     "detected_photo": false,
-    "detected_stamp": true,
+    "detected_stamp": false,
     "detected_signature": true,
     "detected_checkboxes": 0,
     "ocr_text": "Centre Sign-Off Report\nBiometric\nIESTINGADENCY\n(NEET-21/JUNE/2026\nEd\nName&Address ofthe\n9t.N.R.s.Gavt.GolleRohtak\nExamination Center:\n2316201\nState Name\nHARYANA\n&District/City Name:\n231620&\n&Rohk/Rohak\nCentre Code:\n&Date of Exam\n21.06.2026\nInstallation/\nService Delivery Date\n21/1UNE/206\nThis is to Certify that below is the physical attendance of the cand\ndidates at our examination center\nShifts\nTotal no.of Candidates\nTotal no.of Candidates\nVenue Representative\nAllotted\nPresent\nSignature&Stamp\nShift 1\n480\n431\nPrincipal\nRemarks:\nPt.NRS Govt. College\nCustomer Statement\nRohtak\nI hereby certify that M/s Edcil has implemented the Impersonation Control through Biometric Authentication and Attendance\n2026 Examinatlon\nThe work has been found Satisfactory/Unsatisfactory (Please tick mark).\nBof SuxinclexSangaanFo56t19\nCentre Superintendent/Rep Name & Number:\nCentre Superintendent/Rep Signature & Seal\nPrincipal\nPt.NRS Govt.College\nRohtak\nName of Agency Rep.\nSignature of Agency Rep.",
-    "warnings": [
-      "Reference layout similarity: 62.9% (2301105.jpg)."
-    ],
+    "warnings": [],
     "checks": [
       {
-        "id": "centre_information",
-        "label": "Centre information",
-        "check_type": "field",
+        "id": "sub_centre_no_q_r_0",
+        "label": "Sub-centre No.Q.R.0.",
+        "check_type": "heading",
         "required": true,
         "passed": true,
-        "confidence": 1.0,
-        "matched_text": "Examination Center:",
-        "bbox": [
-          133,
-          358,
-          270,
-          389
-        ],
-        "details": "Matched"
-      },
-      {
-        "id": "attendance",
-        "label": "Attendance table",
-        "check_type": "field",
-        "required": true,
-        "passed": true,
-        "confidence": 1.0,
-        "matched_text": "Shifts",
-        "bbox": [
-          168,
-          582,
-          212,
-          607
-        ],
-        "details": "Matched"
-      },
-      {
-        "id": "customer_statement",
-        "label": "Customer Statement",
-        "check_type": "field",
-        "required": true,
-        "passed": true,
-        "confidence": 1.0,
-        "matched_text": "Customer Statement",
-        "bbox": [
-          79,
-          751,
-          217,
-          773
-        ],
-        "details": "Matched"
-      },
-      {
-        "id": "superintendent",
-        "label": "Centre Superintendent section",
-        "check_type": "field",
-        "required": true,
-        "passed": true,
-        "confidence": 1.0,
-        "matched_text": "Centre Superintendent/Rep Name & Number:",
-        "bbox": [
-          73,
-          928,
-          377,
-          949
-        ],
-        "details": "Matched"
-      },
-      {
-        "id": "agency",
-        "label": "Agency Representative section",
-        "check_type": "field",
-        "required": true,
-        "passed": true,
-        "confidence": 1.0,
-        "matched_text": "Name of Agency Rep.",
-        "bbox": [
-          68,
-          1051,
-          215,
-          1068
-        ],
-        "details": "Matched"
-      },
-      {
-        "id": "centre_name",
-        "label": "Examination Centre name/address",
-        "check_type": "field",
-        "required": true,
-        "passed": true,
-        "confidence": 1.0,
-        "matched_text": "Examination Center:",
-        "bbox": [
-          133,
-          358,
-          270,
-          389
-        ],
-        "details": "Matched"
-      },
-      {
-        "id": "state_district",
-        "label": "State / District / City",
-        "check_type": "field",
-        "required": true,
-        "passed": true,
-        "confidence": 1.0,
-        "matched_text": "State Name",
-        "bbox": [
-          130,
-          406,
-          216,
-          437
-        ],
-        "details": "Matched"
-      },
-      {
-        "id": "centre_code",
-        "label": "Centre Code",
-        "check_type": "field",
-        "required": true,
-        "passed": true,
-        "confidence": 1.0,
+        "confidence": 0.7059,
         "matched_text": "Centre Code:",
         "bbox": [
           585,
@@ -2278,127 +2270,144 @@
           668,
           458
         ],
-        "details": "Matched"
+        "details": "Template anchor detected"
       },
       {
-        "id": "exam_date",
-        "label": "Date of Exam",
-        "check_type": "field",
+        "id": "this_is_certified_that_impersonation_control_mechanism_through_iris_and_facial_r",
+        "label": "This is certified that Impersonation Control Mechanism through IRIS and Facial recognition Procedure",
+        "check_type": "heading",
         "required": true,
         "passed": true,
-        "confidence": 1.0,
-        "matched_text": "&Date of Exam",
+        "confidence": 0.9,
+        "matched_text": "Ed",
         "bbox": [
-          583,
-          456,
-          680,
-          480
+          756,
+          276,
+          857,
+          317
         ],
-        "details": "Matched"
+        "details": "Template anchor detected"
       },
       {
-        "id": "installation_date",
-        "label": "Installation / Service Delivery Date",
-        "check_type": "field",
+        "id": "3no_of_admitted_candidates_2_8_8",
+        "label": "3No.of Admitted Candidates:2.8.8..",
+        "check_type": "heading",
         "required": true,
         "passed": true,
-        "confidence": 1.0,
-        "matched_text": "Installation/",
+        "confidence": 0.9,
+        "matched_text": "Ed",
         "bbox": [
-          128,
-          467,
-          222,
-          495
+          756,
+          276,
+          857,
+          317
         ],
-        "details": "Matched"
+        "details": "Template anchor detected"
       },
       {
-        "id": "shift",
-        "label": "Shift",
-        "check_type": "field",
+        "id": "was_provided_by_the_authorised_agency_m_s_innovatiview_during_assistant_town_pla",
+        "label": "was provided by the Authorised Agency (M/s Innovatiview) during Assistant Town Planner Screening Test",
+        "check_type": "heading",
         "required": true,
         "passed": true,
-        "confidence": 1.0,
-        "matched_text": "Shifts",
+        "confidence": 0.9,
+        "matched_text": "Ed",
         "bbox": [
-          168,
-          582,
-          212,
-          607
+          756,
+          276,
+          857,
+          317
         ],
-        "details": "Matched"
+        "details": "Template anchor detected"
       },
       {
-        "id": "candidates_allotted",
-        "label": "Candidates Allotted",
-        "check_type": "field",
+        "id": "2022_conducted_by_maharashtra_public_service_commission_at_the_above_mentioned_s",
+        "label": "2022, conducted by Maharashtra Public Service Commission at the above mentioned Sub-Centre on 20h",
+        "check_type": "heading",
         "required": true,
         "passed": true,
-        "confidence": 1.0,
-        "matched_text": "Total no.of Candidates",
+        "confidence": 0.9,
+        "matched_text": "Ed",
         "bbox": [
-          278,
-          586,
-          428,
-          611
+          756,
+          276,
+          857,
+          317
         ],
-        "details": "Matched"
+        "details": "Template anchor detected"
       },
       {
-        "id": "candidates_present",
-        "label": "Candidates Present",
-        "check_type": "field",
+        "id": "november_2022",
+        "label": "November.2022.",
+        "check_type": "heading",
+        "required": true,
+        "passed": false,
+        "confidence": 0.5333,
+        "matched_text": null,
+        "bbox": null,
+        "details": "Template anchor not detected"
+      },
+      {
+        "id": "2_during_the_verification_process_all_the_devices_were_found_to_be_working_and_t",
+        "label": "2.During the verification process all the devices were found to be working and the performance of the",
+        "check_type": "heading",
+        "required": true,
+        "passed": false,
+        "confidence": 0.4968,
+        "matched_text": null,
+        "bbox": null,
+        "details": "Template anchor not detected"
+      },
+      {
+        "id": "devices_deployed_was_found_to_be_satisfactory_verification_and_attendance_markin",
+        "label": "devices deployed was found to be satisfactory.Verification and Attendance Marking of all present candidates has",
+        "check_type": "heading",
         "required": true,
         "passed": true,
         "confidence": 1.0,
-        "matched_text": "Total no.of Candidates",
+        "matched_text": "Present",
         "bbox": [
-          278,
-          586,
-          428,
-          611
+          526,
+          620,
+          575,
+          636
         ],
-        "details": "Matched"
+        "details": "Template anchor detected"
       },
       {
-        "id": "remarks",
-        "label": "Remarks",
-        "check_type": "field",
+        "id": "been_done_properly_and_not_a_single_candidate_missed_the_verification_process_af",
+        "label": "been done properly and not a single candidate missed the verification process. After completign of Examination",
+        "check_type": "heading",
         "required": true,
         "passed": true,
-        "confidence": 1.0,
-        "matched_text": "Remarks:",
+        "confidence": 0.9,
+        "matched_text": "Ed",
         "bbox": [
-          114,
-          718,
-          177,
-          736
+          756,
+          276,
+          857,
+          317
         ],
-        "details": "Matched"
+        "details": "Template anchor detected"
       },
       {
-        "id": "satisfactory",
-        "label": "Satisfactory / Unsatisfactory",
-        "check_type": "field",
+        "id": "found_missing",
+        "label": "found missing.",
+        "check_type": "heading",
         "required": true,
-        "passed": true,
-        "confidence": 1.0,
-        "matched_text": "The work has been found Satisfactory/Unsatisfactory (Please tick mark).",
-        "bbox": [
-          74,
-          838,
-          547,
-          861
-        ],
-        "details": "Matched"
+        "passed": false,
+        "confidence": 0.5556,
+        "matched_text": null,
+        "bbox": null,
+        "details": "Template anchor not detected"
       },
       {
-        "id": "superintendent_name",
-        "label": "Centre Superintendent/Rep Name & Number",
-        "check_type": "field",
+        "id": "comments_of_the_sub_centre_in_charge_if_any",
+        "label": "Comments of the Sub-Centre In-charge, if any:",
+        "check_type": "heading",
         "required": true,
         "passed": true,
-        "confidence": 1.0,
+        "confidence": 0.7097,
         "matched_text": "Centre Superintendent/Rep Name & Number:",
         "bbox": [
           73,
@@ -2406,217 +2415,303 @@
           377,
           949
         ],
-        "details": "Matched"
+        "details": "Template anchor detected"
       },
       {
-        "id": "agency_name",
-        "label": "Name of Agency Rep",
-        "check_type": "field",
+        "id": "signature_of_representative_of_the_authorized_agency",
+        "label": "Signature of Representative of the Authorized Agency",
+        "check_type": "heading",
         "required": true,
         "passed": true,
-        "confidence": 1.0,
-        "matched_text": "Name of Agency Rep.",
+        "confidence": 0.9048,
+        "matched_text": "Signature of Agency Rep.",
         "bbox": [
-          68,
-          1051,
-          215,
-          1068
+          66,
+          1106,
+          236,
+          1129
         ],
-        "details": "Matched"
+        "details": "Template anchor detected"
       },
       {
-        "id": "venue_rep_signature_stamp",
-        "label": "Venue Representative signature & stamp",
-        "check_type": "signature_and_stamp_region",
+        "id": "full_nameq_qig",
+        "label": "Full Nameq qig",
+        "check_type": "heading",
         "required": true,
-        "passed": true,
-        "confidence": 1.0,
+        "passed": false,
+        "confidence": 0.6154,
         "matched_text": null,
-        "bbox": [
-          575,
-          479,
-          881,
-          703
-        ],
-        "details": "Ink coverage: 18.97%"
+        "bbox": null,
+        "details": "Template anchor not detected"
       },
       {
-        "id": "superintendent_signature_seal",
-        "label": "Centre Superintendent signature & seal",
-        "check_type": "signature_and_seal_region",
+        "id": "signature_ofshb_centre_in_charge",
+        "label": "Signature ofShb-Centre In-charge",
+        "check_type": "heading",
         "required": true,
         "passed": true,
-        "confidence": 1.0,
-        "matched_text": null,
+        "confidence": 0.75,
+        "matched_text": "Signature&Stamp",
         "bbox": [
-          359,
-          799,
-          872,
-          991
+          686,
+          618,
+          803,
+          640
         ],
-        "details": "Ink coverage: 7.21%"
+        "details": "Template anchor detected"
       },
       {
-        "id": "agency_signature",
-        "label": "Agency Representative signature",
+        "id": "signature_of_representative_of_the_authorized_agency_signature",
+        "label": "Signature of Representative of the Authorized Agency",
         "check_type": "signature",
-        "required": false,
+        "required": true,
         "passed": true,
         "confidence": 1.0,
         "matched_text": null,
         "bbox": [
-          134,
-          1071,
-          836,
-          1199
+          480,
+          968,
+          749,
+          1160
         ],
-        "details": "Ink coverage: 74.54%"
+        "details": "Ink coverage: 29.02%"
+      },
+      {
+        "id": "signature_ofshb_centre_in_charge_signature",
+        "label": "Signature ofShb-Centre In-charge",
+        "check_type": "signature",
+        "required": true,
+        "passed": true,
+        "confidence": 1.0,
+        "matched_text": null,
+        "bbox": [
+          105,
+          980,
+          374,
+          1172
+        ],
+        "details": "Ink coverage: 5.79%"
       }
     ],
-    "heading_details": [],
-    "checkbox_details": [],
-    "processing_duration_seconds": 4.1,
-    "validation_details": {
-      "classification": {
-        "document_type": "CSR Form - Centre Sign-Off Report Biometric",
-        "confidence": 1.0,
+    "heading_details": [
+      {
+        "id": "sub_centre_no_q_r_0",
+        "label": "Sub-centre No.Q.R.0.",
+        "check_type": "heading",
+        "required": true,
         "passed": true,
-        "matched_markers": [
-          "Centre Sign-Off Report",
-          "Biometric",
-          "NEET",
-          "Name & Address of Examination Center",
-          "State / District / City",
-          "Centre Code",
-          "Installation / Service Delivery Date",
-          "Attendance table",
-          "Customer Statement",
-          "Centre Superintendent",
-          "Agency Representative"
+        "confidence": 0.7059,
+        "matched_text": "Centre Code:",
+        "bbox": [
+          585,
+          440,
+          668,
+          458
         ],
-        "missing_markers": [],
-        "details": "Matched 11/11 configured document markers."
+        "details": "Template anchor detected"
       },
+      {
+        "id": "this_is_certified_that_impersonation_control_mechanism_through_iris_and_facial_r",
+        "label": "This is certified that Impersonation Control Mechanism through IRIS and Facial recognition Procedure",
+        "check_type": "heading",
+        "required": true,
+        "passed": true,
+        "confidence": 0.9,
+        "matched_text": "Ed",
+        "bbox": [
+          756,
+          276,
+          857,
+          317
+        ],
+        "details": "Template anchor detected"
+      },
+      {
+        "id": "3no_of_admitted_candidates_2_8_8",
+        "label": "3No.of Admitted Candidates:2.8.8..",
+        "check_type": "heading",
+        "required": true,
+        "passed": true,
+        "confidence": 0.9,
+        "matched_text": "Ed",
+        "bbox": [
+          756,
+          276,
+          857,
+          317
+        ],
+        "details": "Template anchor detected"
+      },
+      {
+        "id": "was_provided_by_the_authorised_agency_m_s_innovatiview_during_assistant_town_pla",
+        "label": "was provided by the Authorised Agency (M/s Innovatiview) during Assistant Town Planner Screening Test",
+        "check_type": "heading",
+        "required": true,
+        "passed": true,
+        "confidence": 0.9,
+        "matched_text": "Ed",
+        "bbox": [
+          756,
+          276,
+          857,
+          317
+        ],
+        "details": "Template anchor detected"
+      },
+      {
+        "id": "2022_conducted_by_maharashtra_public_service_commission_at_the_above_mentioned_s",
+        "label": "2022, conducted by Maharashtra Public Service Commission at the above mentioned Sub-Centre on 20h",
+        "check_type": "heading",
+        "required": true,
+        "passed": true,
+        "confidence": 0.9,
+        "matched_text": "Ed",
+        "bbox": [
+          756,
+          276,
+          857,
+          317
+        ],
+        "details": "Template anchor detected"
+      },
+      {
+        "id": "november_2022",
+        "label": "November.2022.",
+        "check_type": "heading",
+        "required": true,
+        "passed": false,
+        "confidence": 0.5333,
+        "matched_text": null,
+        "bbox": null,
+        "details": "Template anchor not detected"
+      },
+      {
+        "id": "2_during_the_verification_process_all_the_devices_were_found_to_be_working_and_t",
+        "label": "2.During the verification process all the devices were found to be working and the performance of the",
+        "check_type": "heading",
+        "required": true,
+        "passed": false,
+        "confidence": 0.4968,
+        "matched_text": null,
+        "bbox": null,
+        "details": "Template anchor not detected"
+      },
+      {
+        "id": "devices_deployed_was_found_to_be_satisfactory_verification_and_attendance_markin",
+        "label": "devices deployed was found to be satisfactory.Verification and Attendance Marking of all present candidates has",
+        "check_type": "heading",
+        "required": true,
+        "passed": true,
+        "confidence": 1.0,
+        "matched_text": "Present",
+        "bbox": [
+          526,
+          620,
+          575,
+          636
+        ],
+        "details": "Template anchor detected"
+      },
+      {
+        "id": "been_done_properly_and_not_a_single_candidate_missed_the_verification_process_af",
+        "label": "been done properly and not a single candidate missed the verification process. After completign of Examination",
+        "check_type": "heading",
+        "required": true,
+        "passed": true,
+        "confidence": 0.9,
+        "matched_text": "Ed",
+        "bbox": [
+          756,
+          276,
+          857,
+          317
+        ],
+        "details": "Template anchor detected"
+      },
+      {
+        "id": "found_missing",
+        "label": "found missing.",
+        "check_type": "heading",
+        "required": true,
+        "passed": false,
+        "confidence": 0.5556,
+        "matched_text": null,
+        "bbox": null,
+        "details": "Template anchor not detected"
+      },
+      {
+        "id": "comments_of_the_sub_centre_in_charge_if_any",
+        "label": "Comments of the Sub-Centre In-charge, if any:",
+        "check_type": "heading",
+        "required": true,
+        "passed": true,
+        "confidence": 0.7097,
+        "matched_text": "Centre Superintendent/Rep Name & Number:",
+        "bbox": [
+          73,
+          928,
+          377,
+          949
+        ],
+        "details": "Template anchor detected"
+      },
+      {
+        "id": "signature_of_representative_of_the_authorized_agency",
+        "label": "Signature of Representative of the Authorized Agency",
+        "check_type": "heading",
+        "required": true,
+        "passed": true,
+        "confidence": 0.9048,
+        "matched_text": "Signature of Agency Rep.",
+        "bbox": [
+          66,
+          1106,
+          236,
+          1129
+        ],
+        "details": "Template anchor detected"
+      },
+      {
+        "id": "full_nameq_qig",
+        "label": "Full Nameq qig",
+        "check_type": "heading",
+        "required": true,
+        "passed": false,
+        "confidence": 0.6154,
+        "matched_text": null,
+        "bbox": null,
+        "details": "Template anchor not detected"
+      },
+      {
+        "id": "signature_ofshb_centre_in_charge",
+        "label": "Signature ofShb-Centre In-charge",
+        "check_type": "heading",
+        "required": true,
+        "passed": true,
+        "confidence": 0.75,
+        "matched_text": "Signature&Stamp",
+        "bbox": [
+          686,
+          618,
+          803,
+          640
+        ],
+        "details": "Template anchor detected"
+      }
+    ],
+    "checkbox_details": [],
+    "processing_duration_seconds": 15.01,
+    "validation_details": {
+      "document_type": "checking_updated_template",
+      "classification_confidence": 0.7143,
       "checks": [
         {
-          "id": "centre_information",
-          "label": "Centre information",
-          "check_type": "field",
+          "id": "sub_centre_no_q_r_0",
+          "label": "Sub-centre No.Q.R.0.",
+          "check_type": "heading",
           "required": true,
           "passed": true,
-          "confidence": 1.0,
-          "matched_text": "Examination Center:",
-          "bbox": [
-            133,
-            358,
-            270,
-            389
-          ],
-          "details": "Matched"
-        },
-        {
-          "id": "attendance",
-          "label": "Attendance table",
-          "check_type": "field",
-          "required": true,
-          "passed": true,
-          "confidence": 1.0,
-          "matched_text": "Shifts",
-          "bbox": [
-            168,
-            582,
-            212,
-            607
-          ],
-          "details": "Matched"
-        },
-        {
-          "id": "customer_statement",
-          "label": "Customer Statement",
-          "check_type": "field",
-          "required": true,
-          "passed": true,
-          "confidence": 1.0,
-          "matched_text": "Customer Statement",
-          "bbox": [
-            79,
-            751,
-            217,
-            773
-          ],
-          "details": "Matched"
-        },
-        {
-          "id": "superintendent",
-          "label": "Centre Superintendent section",
-          "check_type": "field",
-          "required": true,
-          "passed": true,
-          "confidence": 1.0,
-          "matched_text": "Centre Superintendent/Rep Name & Number:",
-          "bbox": [
-            73,
-            928,
-            377,
-            949
-          ],
-          "details": "Matched"
-        },
-        {
-          "id": "agency",
-          "label": "Agency Representative section",
-          "check_type": "field",
-          "required": true,
-          "passed": true,
-          "confidence": 1.0,
-          "matched_text": "Name of Agency Rep.",
-          "bbox": [
-            68,
-            1051,
-            215,
-            1068
-          ],
-          "details": "Matched"
-        },
-        {
-          "id": "centre_name",
-          "label": "Examination Centre name/address",
-          "check_type": "field",
-          "required": true,
-          "passed": true,
-          "confidence": 1.0,
-          "matched_text": "Examination Center:",
-          "bbox": [
-            133,
-            358,
-            270,
-            389
-          ],
-          "details": "Matched"
-        },
-        {
-          "id": "state_district",
-          "label": "State / District / City",
-          "check_type": "field",
-          "required": true,
-          "passed": true,
-          "confidence": 1.0,
-          "matched_text": "State Name",
-          "bbox": [
-            130,
-            406,
-            216,
-            437
-          ],
-          "details": "Matched"
-        },
-        {
-          "id": "centre_code",
-          "label": "Centre Code",
-          "check_type": "field",
-          "required": true,
-          "passed": true,
-          "confidence": 1.0,
+          "confidence": 0.7059,
           "matched_text": "Centre Code:",
           "bbox": [
             585,
@@ -2624,127 +2719,144 @@
             668,
             458
           ],
-          "details": "Matched"
+          "details": "Template anchor detected"
         },
         {
-          "id": "exam_date",
-          "label": "Date of Exam",
-          "check_type": "field",
+          "id": "this_is_certified_that_impersonation_control_mechanism_through_iris_and_facial_r",
+          "label": "This is certified that Impersonation Control Mechanism through IRIS and Facial recognition Procedure",
+          "check_type": "heading",
           "required": true,
           "passed": true,
-          "confidence": 1.0,
-          "matched_text": "&Date of Exam",
+          "confidence": 0.9,
+          "matched_text": "Ed",
           "bbox": [
-            583,
-            456,
-            680,
-            480
+            756,
+            276,
+            857,
+            317
           ],
-          "details": "Matched"
+          "details": "Template anchor detected"
         },
         {
-          "id": "installation_date",
-          "label": "Installation / Service Delivery Date",
-          "check_type": "field",
+          "id": "3no_of_admitted_candidates_2_8_8",
+          "label": "3No.of Admitted Candidates:2.8.8..",
+          "check_type": "heading",
           "required": true,
           "passed": true,
-          "confidence": 1.0,
-          "matched_text": "Installation/",
+          "confidence": 0.9,
+          "matched_text": "Ed",
           "bbox": [
-            128,
-            467,
-            222,
-            495
+            756,
+            276,
+            857,
+            317
           ],
-          "details": "Matched"
+          "details": "Template anchor detected"
         },
         {
-          "id": "shift",
-          "label": "Shift",
-          "check_type": "field",
+          "id": "was_provided_by_the_authorised_agency_m_s_innovatiview_during_assistant_town_pla",
+          "label": "was provided by the Authorised Agency (M/s Innovatiview) during Assistant Town Planner Screening Test",
+          "check_type": "heading",
           "required": true,
           "passed": true,
-          "confidence": 1.0,
-          "matched_text": "Shifts",
+          "confidence": 0.9,
+          "matched_text": "Ed",
           "bbox": [
-            168,
-            582,
-            212,
-            607
+            756,
+            276,
+            857,
+            317
           ],
-          "details": "Matched"
+          "details": "Template anchor detected"
         },
         {
-          "id": "candidates_allotted",
-          "label": "Candidates Allotted",
-          "check_type": "field",
+          "id": "2022_conducted_by_maharashtra_public_service_commission_at_the_above_mentioned_s",
+          "label": "2022, conducted by Maharashtra Public Service Commission at the above mentioned Sub-Centre on 20h",
+          "check_type": "heading",
           "required": true,
           "passed": true,
-          "confidence": 1.0,
-          "matched_text": "Total no.of Candidates",
+          "confidence": 0.9,
+          "matched_text": "Ed",
           "bbox": [
-            278,
-            586,
-            428,
-            611
+            756,
+            276,
+            857,
+            317
           ],
-          "details": "Matched"
+          "details": "Template anchor detected"
         },
         {
-          "id": "candidates_present",
-          "label": "Candidates Present",
-          "check_type": "field",
+          "id": "november_2022",
+          "label": "November.2022.",
+          "check_type": "heading",
+          "required": true,
+          "passed": false,
+          "confidence": 0.5333,
+          "matched_text": null,
+          "bbox": null,
+          "details": "Template anchor not detected"
+        },
+        {
+          "id": "2_during_the_verification_process_all_the_devices_were_found_to_be_working_and_t",
+          "label": "2.During the verification process all the devices were found to be working and the performance of the",
+          "check_type": "heading",
+          "required": true,
+          "passed": false,
+          "confidence": 0.4968,
+          "matched_text": null,
+          "bbox": null,
+          "details": "Template anchor not detected"
+        },
+        {
+          "id": "devices_deployed_was_found_to_be_satisfactory_verification_and_attendance_markin",
+          "label": "devices deployed was found to be satisfactory.Verification and Attendance Marking of all present candidates has",
+          "check_type": "heading",
           "required": true,
           "passed": true,
           "confidence": 1.0,
-          "matched_text": "Total no.of Candidates",
+          "matched_text": "Present",
           "bbox": [
-            278,
-            586,
-            428,
-            611
+            526,
+            620,
+            575,
+            636
           ],
-          "details": "Matched"
+          "details": "Template anchor detected"
         },
         {
-          "id": "remarks",
-          "label": "Remarks",
-          "check_type": "field",
+          "id": "been_done_properly_and_not_a_single_candidate_missed_the_verification_process_af",
+          "label": "been done properly and not a single candidate missed the verification process. After completign of Examination",
+          "check_type": "heading",
           "required": true,
           "passed": true,
-          "confidence": 1.0,
-          "matched_text": "Remarks:",
+          "confidence": 0.9,
+          "matched_text": "Ed",
           "bbox": [
-            114,
-            718,
-            177,
-            736
+            756,
+            276,
+            857,
+            317
           ],
-          "details": "Matched"
+          "details": "Template anchor detected"
         },
         {
-          "id": "satisfactory",
-          "label": "Satisfactory / Unsatisfactory",
-          "check_type": "field",
+          "id": "found_missing",
+          "label": "found missing.",
+          "check_type": "heading",
           "required": true,
-          "passed": true,
-          "confidence": 1.0,
-          "matched_text": "The work has been found Satisfactory/Unsatisfactory (Please tick mark).",
-          "bbox": [
-            74,
-            838,
-            547,
-            861
-          ],
-          "details": "Matched"
+          "passed": false,
+          "confidence": 0.5556,
+          "matched_text": null,
+          "bbox": null,
+          "details": "Template anchor not detected"
         },
         {
-          "id": "superintendent_name",
-          "label": "Centre Superintendent/Rep Name & Number",
-          "check_type": "field",
+          "id": "comments_of_the_sub_centre_in_charge_if_any",
+          "label": "Comments of the Sub-Centre In-charge, if any:",
+          "check_type": "heading",
           "required": true,
           "passed": true,
-          "confidence": 1.0,
+          "confidence": 0.7097,
           "matched_text": "Centre Superintendent/Rep Name & Number:",
           "bbox": [
             73,
@@ -2752,87 +2864,889 @@
             377,
             949
           ],
-          "details": "Matched"
+          "details": "Template anchor detected"
         },
         {
-          "id": "agency_name",
-          "label": "Name of Agency Rep",
-          "check_type": "field",
+          "id": "signature_of_representative_of_the_authorized_agency",
+          "label": "Signature of Representative of the Authorized Agency",
+          "check_type": "heading",
           "required": true,
           "passed": true,
-          "confidence": 1.0,
-          "matched_text": "Name of Agency Rep.",
+          "confidence": 0.9048,
+          "matched_text": "Signature of Agency Rep.",
           "bbox": [
-            68,
-            1051,
-            215,
-            1068
+            66,
+            1106,
+            236,
+            1129
           ],
-          "details": "Matched"
+          "details": "Template anchor detected"
         },
         {
-          "id": "venue_rep_signature_stamp",
-          "label": "Venue Representative signature & stamp",
-          "check_type": "signature_and_stamp_region",
+          "id": "full_nameq_qig",
+          "label": "Full Nameq qig",
+          "check_type": "heading",
           "required": true,
-          "passed": true,
-          "confidence": 1.0,
+          "passed": false,
+          "confidence": 0.6154,
           "matched_text": null,
-          "bbox": [
-            575,
-            479,
-            881,
-            703
-          ],
-          "details": "Ink coverage: 18.97%"
+          "bbox": null,
+          "details": "Template anchor not detected"
         },
         {
-          "id": "superintendent_signature_seal",
-          "label": "Centre Superintendent signature & seal",
-          "check_type": "signature_and_seal_region",
+          "id": "signature_ofshb_centre_in_charge",
+          "label": "Signature ofShb-Centre In-charge",
+          "check_type": "heading",
           "required": true,
           "passed": true,
-          "confidence": 1.0,
-          "matched_text": null,
+          "confidence": 0.75,
+          "matched_text": "Signature&Stamp",
           "bbox": [
-            359,
-            799,
-            872,
-            991
+            686,
+            618,
+            803,
+            640
           ],
-          "details": "Ink coverage: 7.21%"
+          "details": "Template anchor detected"
         },
         {
-          "id": "agency_signature",
-          "label": "Agency Representative signature",
+          "id": "signature_of_representative_of_the_authorized_agency_signature",
+          "label": "Signature of Representative of the Authorized Agency",
           "check_type": "signature",
-          "required": false,
+          "required": true,
           "passed": true,
           "confidence": 1.0,
           "matched_text": null,
           "bbox": [
-            134,
-            1071,
-            836,
-            1199
+            480,
+            968,
+            749,
+            1160
           ],
-          "details": "Ink coverage: 74.54%"
+          "details": "Ink coverage: 29.02%"
+        },
+        {
+          "id": "signature_ofshb_centre_in_charge_signature",
+          "label": "Signature ofShb-Centre In-charge",
+          "check_type": "signature",
+          "required": true,
+          "passed": true,
+          "confidence": 1.0,
+          "matched_text": null,
+          "bbox": [
+            105,
+            980,
+            374,
+            1172
+          ],
+          "details": "Ink coverage: 5.79%"
         }
       ],
-      "format_score": 100.0,
-      "required_checks_passed": 19,
-      "required_checks_total": 19,
-      "missing_items": [],
-      "warnings": [
-        "Reference layout similarity: 62.9% (2301105.jpg)."
+      "structure_score": 71.43,
+      "visual_score": 100.0,
+      "overall_score": 80.0,
+      "missing_items": [
+        "November.2022.",
+        "2.During the verification process all the devices were found to be working and the performance of the",
+        "found missing.",
+        "Full Nameq qig"
       ],
-      "template_match": {
-        "matched": true,
-        "similarity": 0.6292,
-        "reference_name": "2301105.jpg",
-        "good_matches": 267,
-        "inlier_ratio": 0.3258
+      "warnings": [],
+      "matched_anchors": [
+        "Sub-centre No.Q.R.0.",
+        "This is certified that Impersonation Control Mechanism through IRIS and Facial recognition Procedure",
+        "3No.of Admitted Candidates:2.8.8..",
+        "was provided by the Authorised Agency (M/s Innovatiview) during Assistant Town Planner Screening Test",
+        "2022, conducted by Maharashtra Public Service Commission at the above mentioned Sub-Centre on 20h",
+        "devices deployed was found to be satisfactory.Verification and Attendance Marking of all present candidates has",
+        "been done properly and not a single candidate missed the verification process. After completign of Examination",
+        "Comments of the Sub-Centre In-charge, if any:",
+        "Signature of Representative of the Authorized Agency",
+        "Signature ofShb-Centre In-charge"
+      ],
+      "missing_anchors": [
+        "November.2022.",
+        "2.During the verification process all the devices were found to be working and the performance of the",
+        "found missing.",
+        "Full Nameq qig"
+      ]
+    }
+  },
+  {
+    "filename": "2316202.jpeg",
+    "overall_status": "PASS",
+    "score": 90.0,
+    "max_score": 100.0,
+    "pages": 1,
+    "document_type": "checking_updated_template",
+    "document_confidence": 85.71,
+    "format_status": "PASS",
+    "format_score": 85.71,
+    "required_fields_passed": 12,
+    "required_fields_total": 14,
+    "signatures_status": "PASS",
+    "stamps_status": "N/A",
+    "missing_headings": [
+      "Sub-centre No.Q.R.0.",
+      "Signature ofShb-Centre In-charge"
+    ],
+    "missing_elements": [
+      "Sub-centre No.Q.R.0.",
+      "Signature ofShb-Centre In-charge"
+    ],
+    "low_confidence_items": [
+      "Sub-centre No.Q.R.0.",
+      "Signature ofShb-Centre In-charge"
+    ],
+    "detected_photo": false,
+    "detected_stamp": false,
+    "detected_signature": true,
+    "detected_checkboxes": 0,
+    "ocr_text": "87069186\n2110026\nh9h25tght\nM\n1699860666\ngood\nbhh\nMtay\nyMoy8\n211U26\n07\nAlre\nLLh\nstaenaer\nshils",
+    "warnings": [],
+    "checks": [
+      {
+        "id": "sub_centre_no_q_r_0",
+        "label": "Sub-centre No.Q.R.0.",
+        "check_type": "heading",
+        "required": true,
+        "passed": false,
+        "confidence": 0.4211,
+        "matched_text": null,
+        "bbox": null,
+        "details": "Template anchor not detected"
+      },
+      {
+        "id": "this_is_certified_that_impersonation_control_mechanism_through_iris_and_facial_r",
+        "label": "This is certified that Impersonation Control Mechanism through IRIS and Facial recognition Procedure",
+        "check_type": "heading",
+        "required": true,
+        "passed": true,
+        "confidence": 0.9,
+        "matched_text": "M",
+        "bbox": [
+          682,
+          238,
+          708,
+          289
+        ],
+        "details": "Template anchor detected"
+      },
+      {
+        "id": "3no_of_admitted_candidates_2_8_8",
+        "label": "3No.of Admitted Candidates:2.8.8..",
+        "check_type": "heading",
+        "required": true,
+        "passed": true,
+        "confidence": 0.9,
+        "matched_text": "M",
+        "bbox": [
+          682,
+          238,
+          708,
+          289
+        ],
+        "details": "Template anchor detected"
+      },
+      {
+        "id": "was_provided_by_the_authorised_agency_m_s_innovatiview_during_assistant_town_pla",
+        "label": "was provided by the Authorised Agency (M/s Innovatiview) during Assistant Town Planner Screening Test",
+        "check_type": "heading",
+        "required": true,
+        "passed": true,
+        "confidence": 1.0,
+        "matched_text": "M",
+        "bbox": [
+          682,
+          238,
+          708,
+          289
+        ],
+        "details": "Template anchor detected"
+      },
+      {
+        "id": "2022_conducted_by_maharashtra_public_service_commission_at_the_above_mentioned_s",
+        "label": "2022, conducted by Maharashtra Public Service Commission at the above mentioned Sub-Centre on 20h",
+        "check_type": "heading",
+        "required": true,
+        "passed": true,
+        "confidence": 0.9,
+        "matched_text": "M",
+        "bbox": [
+          682,
+          238,
+          708,
+          289
+        ],
+        "details": "Template anchor detected"
+      },
+      {
+        "id": "november_2022",
+        "label": "November.2022.",
+        "check_type": "heading",
+        "required": true,
+        "passed": true,
+        "confidence": 0.9,
+        "matched_text": "M",
+        "bbox": [
+          682,
+          238,
+          708,
+          289
+        ],
+        "details": "Template anchor detected"
+      },
+      {
+        "id": "2_during_the_verification_process_all_the_devices_were_found_to_be_working_and_t",
+        "label": "2.During the verification process all the devices were found to be working and the performance of the",
+        "check_type": "heading",
+        "required": true,
+        "passed": true,
+        "confidence": 0.9,
+        "matched_text": "M",
+        "bbox": [
+          682,
+          238,
+          708,
+          289
+        ],
+        "details": "Template anchor detected"
+      },
+      {
+        "id": "devices_deployed_was_found_to_be_satisfactory_verification_and_attendance_markin",
+        "label": "devices deployed was found to be satisfactory.Verification and Attendance Marking of all present candidates has",
+        "check_type": "heading",
+        "required": true,
+        "passed": true,
+        "confidence": 0.9,
+        "matched_text": "M",
+        "bbox": [
+          682,
+          238,
+          708,
+          289
+        ],
+        "details": "Template anchor detected"
+      },
+      {
+        "id": "been_done_properly_and_not_a_single_candidate_missed_the_verification_process_af",
+        "label": "been done properly and not a single candidate missed the verification process. After completign of Examination",
+        "check_type": "heading",
+        "required": true,
+        "passed": true,
+        "confidence": 0.9,
+        "matched_text": "M",
+        "bbox": [
+          682,
+          238,
+          708,
+          289
+        ],
+        "details": "Template anchor detected"
+      },
+      {
+        "id": "found_missing",
+        "label": "found missing.",
+        "check_type": "heading",
+        "required": true,
+        "passed": true,
+        "confidence": 0.9,
+        "matched_text": "M",
+        "bbox": [
+          682,
+          238,
+          708,
+          289
+        ],
+        "details": "Template anchor detected"
+      },
+      {
+        "id": "comments_of_the_sub_centre_in_charge_if_any",
+        "label": "Comments of the Sub-Centre In-charge, if any:",
+        "check_type": "heading",
+        "required": true,
+        "passed": true,
+        "confidence": 0.9,
+        "matched_text": "M",
+        "bbox": [
+          682,
+          238,
+          708,
+          289
+        ],
+        "details": "Template anchor detected"
+      },
+      {
+        "id": "signature_of_representative_of_the_authorized_agency",
+        "label": "Signature of Representative of the Authorized Agency",
+        "check_type": "heading",
+        "required": true,
+        "passed": true,
+        "confidence": 0.9,
+        "matched_text": "M",
+        "bbox": [
+          682,
+          238,
+          708,
+          289
+        ],
+        "details": "Template anchor detected"
+      },
+      {
+        "id": "full_nameq_qig",
+        "label": "Full Nameq qig",
+        "check_type": "heading",
+        "required": true,
+        "passed": true,
+        "confidence": 0.9,
+        "matched_text": "M",
+        "bbox": [
+          682,
+          238,
+          708,
+          289
+        ],
+        "details": "Template anchor detected"
+      },
+      {
+        "id": "signature_ofshb_centre_in_charge",
+        "label": "Signature ofShb-Centre In-charge",
+        "check_type": "heading",
+        "required": true,
+        "passed": false,
+        "confidence": 0.3478,
+        "matched_text": null,
+        "bbox": null,
+        "details": "Template anchor not detected"
+      },
+      {
+        "id": "signature_of_representative_of_the_authorized_agency_signature",
+        "label": "Signature of Representative of the Authorized Agency",
+        "check_type": "signature",
+        "required": true,
+        "passed": true,
+        "confidence": 1.0,
+        "matched_text": null,
+        "bbox": [
+          617,
+          524,
+          964,
+          629
+        ],
+        "details": "Ink coverage: 5.17%"
+      },
+      {
+        "id": "signature_ofshb_centre_in_charge_signature",
+        "label": "Signature ofShb-Centre In-charge",
+        "check_type": "signature",
+        "required": true,
+        "passed": true,
+        "confidence": 1.0,
+        "matched_text": null,
+        "bbox": [
+          135,
+          531,
+          481,
+          635
+        ],
+        "details": "Ink coverage: 18.50%"
       }
+    ],
+    "heading_details": [
+      {
+        "id": "sub_centre_no_q_r_0",
+        "label": "Sub-centre No.Q.R.0.",
+        "check_type": "heading",
+        "required": true,
+        "passed": false,
+        "confidence": 0.4211,
+        "matched_text": null,
+        "bbox": null,
+        "details": "Template anchor not detected"
+      },
+      {
+        "id": "this_is_certified_that_impersonation_control_mechanism_through_iris_and_facial_r",
+        "label": "This is certified that Impersonation Control Mechanism through IRIS and Facial recognition Procedure",
+        "check_type": "heading",
+        "required": true,
+        "passed": true,
+        "confidence": 0.9,
+        "matched_text": "M",
+        "bbox": [
+          682,
+          238,
+          708,
+          289
+        ],
+        "details": "Template anchor detected"
+      },
+      {
+        "id": "3no_of_admitted_candidates_2_8_8",
+        "label": "3No.of Admitted Candidates:2.8.8..",
+        "check_type": "heading",
+        "required": true,
+        "passed": true,
+        "confidence": 0.9,
+        "matched_text": "M",
+        "bbox": [
+          682,
+          238,
+          708,
+          289
+        ],
+        "details": "Template anchor detected"
+      },
+      {
+        "id": "was_provided_by_the_authorised_agency_m_s_innovatiview_during_assistant_town_pla",
+        "label": "was provided by the Authorised Agency (M/s Innovatiview) during Assistant Town Planner Screening Test",
+        "check_type": "heading",
+        "required": true,
+        "passed": true,
+        "confidence": 1.0,
+        "matched_text": "M",
+        "bbox": [
+          682,
+          238,
+          708,
+          289
+        ],
+        "details": "Template anchor detected"
+      },
+      {
+        "id": "2022_conducted_by_maharashtra_public_service_commission_at_the_above_mentioned_s",
+        "label": "2022, conducted by Maharashtra Public Service Commission at the above mentioned Sub-Centre on 20h",
+        "check_type": "heading",
+        "required": true,
+        "passed": true,
+        "confidence": 0.9,
+        "matched_text": "M",
+        "bbox": [
+          682,
+          238,
+          708,
+          289
+        ],
+        "details": "Template anchor detected"
+      },
+      {
+        "id": "november_2022",
+        "label": "November.2022.",
+        "check_type": "heading",
+        "required": true,
+        "passed": true,
+        "confidence": 0.9,
+        "matched_text": "M",
+        "bbox": [
+          682,
+          238,
+          708,
+          289
+        ],
+        "details": "Template anchor detected"
+      },
+      {
+        "id": "2_during_the_verification_process_all_the_devices_were_found_to_be_working_and_t",
+        "label": "2.During the verification process all the devices were found to be working and the performance of the",
+        "check_type": "heading",
+        "required": true,
+        "passed": true,
+        "confidence": 0.9,
+        "matched_text": "M",
+        "bbox": [
+          682,
+          238,
+          708,
+          289
+        ],
+        "details": "Template anchor detected"
+      },
+      {
+        "id": "devices_deployed_was_found_to_be_satisfactory_verification_and_attendance_markin",
+        "label": "devices deployed was found to be satisfactory.Verification and Attendance Marking of all present candidates has",
+        "check_type": "heading",
+        "required": true,
+        "passed": true,
+        "confidence": 0.9,
+        "matched_text": "M",
+        "bbox": [
+          682,
+          238,
+          708,
+          289
+        ],
+        "details": "Template anchor detected"
+      },
+      {
+        "id": "been_done_properly_and_not_a_single_candidate_missed_the_verification_process_af",
+        "label": "been done properly and not a single candidate missed the verification process. After completign of Examination",
+        "check_type": "heading",
+        "required": true,
+        "passed": true,
+        "confidence": 0.9,
+        "matched_text": "M",
+        "bbox": [
+          682,
+          238,
+          708,
+          289
+        ],
+        "details": "Template anchor detected"
+      },
+      {
+        "id": "found_missing",
+        "label": "found missing.",
+        "check_type": "heading",
+        "required": true,
+        "passed": true,
+        "confidence": 0.9,
+        "matched_text": "M",
+        "bbox": [
+          682,
+          238,
+          708,
+          289
+        ],
+        "details": "Template anchor detected"
+      },
+      {
+        "id": "comments_of_the_sub_centre_in_charge_if_any",
+        "label": "Comments of the Sub-Centre In-charge, if any:",
+        "check_type": "heading",
+        "required": true,
+        "passed": true,
+        "confidence": 0.9,
+        "matched_text": "M",
+        "bbox": [
+          682,
+          238,
+          708,
+          289
+        ],
+        "details": "Template anchor detected"
+      },
+      {
+        "id": "signature_of_representative_of_the_authorized_agency",
+        "label": "Signature of Representative of the Authorized Agency",
+        "check_type": "heading",
+        "required": true,
+        "passed": true,
+        "confidence": 0.9,
+        "matched_text": "M",
+        "bbox": [
+          682,
+          238,
+          708,
+          289
+        ],
+        "details": "Template anchor detected"
+      },
+      {
+        "id": "full_nameq_qig",
+        "label": "Full Nameq qig",
+        "check_type": "heading",
+        "required": true,
+        "passed": true,
+        "confidence": 0.9,
+        "matched_text": "M",
+        "bbox": [
+          682,
+          238,
+          708,
+          289
+        ],
+        "details": "Template anchor detected"
+      },
+      {
+        "id": "signature_ofshb_centre_in_charge",
+        "label": "Signature ofShb-Centre In-charge",
+        "check_type": "heading",
+        "required": true,
+        "passed": false,
+        "confidence": 0.3478,
+        "matched_text": null,
+        "bbox": null,
+        "details": "Template anchor not detected"
+      }
+    ],
+    "checkbox_details": [],
+    "processing_duration_seconds": 11.97,
+    "validation_details": {
+      "document_type": "checking_updated_template",
+      "classification_confidence": 0.8571,
+      "checks": [
+        {
+          "id": "sub_centre_no_q_r_0",
+          "label": "Sub-centre No.Q.R.0.",
+          "check_type": "heading",
+          "required": true,
+          "passed": false,
+          "confidence": 0.4211,
+          "matched_text": null,
+          "bbox": null,
+          "details": "Template anchor not detected"
+        },
+        {
+          "id": "this_is_certified_that_impersonation_control_mechanism_through_iris_and_facial_r",
+          "label": "This is certified that Impersonation Control Mechanism through IRIS and Facial recognition Procedure",
+          "check_type": "heading",
+          "required": true,
+          "passed": true,
+          "confidence": 0.9,
+          "matched_text": "M",
+          "bbox": [
+            682,
+            238,
+            708,
+            289
+          ],
+          "details": "Template anchor detected"
+        },
+        {
+          "id": "3no_of_admitted_candidates_2_8_8",
+          "label": "3No.of Admitted Candidates:2.8.8..",
+          "check_type": "heading",
+          "required": true,
+          "passed": true,
+          "confidence": 0.9,
+          "matched_text": "M",
+          "bbox": [
+            682,
+            238,
+            708,
+            289
+          ],
+          "details": "Template anchor detected"
+        },
+        {
+          "id": "was_provided_by_the_authorised_agency_m_s_innovatiview_during_assistant_town_pla",
+          "label": "was provided by the Authorised Agency (M/s Innovatiview) during Assistant Town Planner Screening Test",
+          "check_type": "heading",
+          "required": true,
+          "passed": true,
+          "confidence": 1.0,
+          "matched_text": "M",
+          "bbox": [
+            682,
+            238,
+            708,
+            289
+          ],
+          "details": "Template anchor detected"
+        },
+        {
+          "id": "2022_conducted_by_maharashtra_public_service_commission_at_the_above_mentioned_s",
+          "label": "2022, conducted by Maharashtra Public Service Commission at the above mentioned Sub-Centre on 20h",
+          "check_type": "heading",
+          "required": true,
+          "passed": true,
+          "confidence": 0.9,
+          "matched_text": "M",
+          "bbox": [
+            682,
+            238,
+            708,
+            289
+          ],
+          "details": "Template anchor detected"
+        },
+        {
+          "id": "november_2022",
+          "label": "November.2022.",
+          "check_type": "heading",
+          "required": true,
+          "passed": true,
+          "confidence": 0.9,
+          "matched_text": "M",
+          "bbox": [
+            682,
+            238,
+            708,
+            289
+          ],
+          "details": "Template anchor detected"
+        },
+        {
+          "id": "2_during_the_verification_process_all_the_devices_were_found_to_be_working_and_t",
+          "label": "2.During the verification process all the devices were found to be working and the performance of the",
+          "check_type": "heading",
+          "required": true,
+          "passed": true,
+          "confidence": 0.9,
+          "matched_text": "M",
+          "bbox": [
+            682,
+            238,
+            708,
+            289
+          ],
+          "details": "Template anchor detected"
+        },
+        {
+          "id": "devices_deployed_was_found_to_be_satisfactory_verification_and_attendance_markin",
+          "label": "devices deployed was found to be satisfactory.Verification and Attendance Marking of all present candidates has",
+          "check_type": "heading",
+          "required": true,
+          "passed": true,
+          "confidence": 0.9,
+          "matched_text": "M",
+          "bbox": [
+            682,
+            238,
+            708,
+            289
+          ],
+          "details": "Template anchor detected"
+        },
+        {
+          "id": "been_done_properly_and_not_a_single_candidate_missed_the_verification_process_af",
+          "label": "been done properly and not a single candidate missed the verification process. After completign of Examination",
+          "check_type": "heading",
+          "required": true,
+          "passed": true,
+          "confidence": 0.9,
+          "matched_text": "M",
+          "bbox": [
+            682,
+            238,
+            708,
+            289
+          ],
+          "details": "Template anchor detected"
+        },
+        {
+          "id": "found_missing",
+          "label": "found missing.",
+          "check_type": "heading",
+          "required": true,
+          "passed": true,
+          "confidence": 0.9,
+          "matched_text": "M",
+          "bbox": [
+            682,
+            238,
+            708,
+            289
+          ],
+          "details": "Template anchor detected"
+        },
+        {
+          "id": "comments_of_the_sub_centre_in_charge_if_any",
+          "label": "Comments of the Sub-Centre In-charge, if any:",
+          "check_type": "heading",
+          "required": true,
+          "passed": true,
+          "confidence": 0.9,
+          "matched_text": "M",
+          "bbox": [
+            682,
+            238,
+            708,
+            289
+          ],
+          "details": "Template anchor detected"
+        },
+        {
+          "id": "signature_of_representative_of_the_authorized_agency",
+          "label": "Signature of Representative of the Authorized Agency",
+          "check_type": "heading",
+          "required": true,
+          "passed": true,
+          "confidence": 0.9,
+          "matched_text": "M",
+          "bbox": [
+            682,
+            238,
+            708,
+            289
+          ],
+          "details": "Template anchor detected"
+        },
+        {
+          "id": "full_nameq_qig",
+          "label": "Full Nameq qig",
+          "check_type": "heading",
+          "required": true,
+          "passed": true,
+          "confidence": 0.9,
+          "matched_text": "M",
+          "bbox": [
+            682,
+            238,
+            708,
+            289
+          ],
+          "details": "Template anchor detected"
+        },
+        {
+          "id": "signature_ofshb_centre_in_charge",
+          "label": "Signature ofShb-Centre In-charge",
+          "check_type": "heading",
+          "required": true,
+          "passed": false,
+          "confidence": 0.3478,
+          "matched_text": null,
+          "bbox": null,
+          "details": "Template anchor not detected"
+        },
+        {
+          "id": "signature_of_representative_of_the_authorized_agency_signature",
+          "label": "Signature of Representative of the Authorized Agency",
+          "check_type": "signature",
+          "required": true,
+          "passed": true,
+          "confidence": 1.0,
+          "matched_text": null,
+          "bbox": [
+            617,
+            524,
+            964,
+            629
+          ],
+          "details": "Ink coverage: 5.17%"
+        },
+        {
+          "id": "signature_ofshb_centre_in_charge_signature",
+          "label": "Signature ofShb-Centre In-charge",
+          "check_type": "signature",
+          "required": true,
+          "passed": true,
+          "confidence": 1.0,
+          "matched_text": null,
+          "bbox": [
+            135,
+            531,
+            481,
+            635
+          ],
+          "details": "Ink coverage: 18.50%"
+        }
+      ],
+      "structure_score": 85.71,
+      "visual_score": 100.0,
+      "overall_score": 90.0,
+      "missing_items": [
+        "Sub-centre No.Q.R.0.",
+        "Signature ofShb-Centre In-charge"
+      ],
+      "warnings": [],
+      "matched_anchors": [
+        "This is certified that Impersonation Control Mechanism through IRIS and Facial recognition Procedure",
+        "3No.of Admitted Candidates:2.8.8..",
+        "was provided by the Authorised Agency (M/s Innovatiview) during Assistant Town Planner Screening Test",
+        "2022, conducted by Maharashtra Public Service Commission at the above mentioned Sub-Centre on 20h",
+        "November.2022.",
+        "2.During the verification process all the devices were found to be working and the performance of the",
+        "devices deployed was found to be satisfactory.Verification and Attendance Marking of all present candidates has",
+        "been done properly and not a single candidate missed the verification process. After completign of Examination",
+        "found missing.",
+        "Comments of the Sub-Centre In-charge, if any:",
+        "Signature of Representative of the Authorized Agency",
+        "Full Nameq qig"
+      ],
+      "missing_anchors": [
+        "Sub-centre No.Q.R.0.",
+        "Signature ofShb-Centre In-charge"
+      ]
     }
   }
 ]
