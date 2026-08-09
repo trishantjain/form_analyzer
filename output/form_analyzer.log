@@ -1,0 +1,56 @@
+2026-08-09 21:26:02,105 [ERROR] asyncio: Exception in callback _ProactorBasePipeTransport._call_connection_lost(None)
+handle: <Handle _ProactorBasePipeTransport._call_connection_lost(None)>
+Traceback (most recent call last):
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\Lib\asyncio\events.py", line 84, in _run
+    self._context.run(self._callback, *self._args)
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\Lib\asyncio\proactor_events.py", line 165, in _call_connection_lost
+    self._sock.shutdown(socket.SHUT_RDWR)
+ConnectionResetError: [WinError 10054] An existing connection was forcibly closed by the remote host
+2026-08-09 21:26:17,594 [ERROR] form_analyzer.app: Pipeline failure for 2841.jpg: [WinError 32] The process cannot access the file because it is being used by another process: 'C:\\Users\\trish/.paddleocr/whl\\det\\en\\en_PP-OCRv3_det_infer\\en_PP-OCRv3_det_infer.tar'
+Traceback (most recent call last):
+  File "C:\Users\trish\Downloads\form_analyzer\form_analyzer\app.py", line 201, in analyze_single_file
+    blocks = engine.run(bgr)
+             ^^^^^^^^^^^^^^^
+  File "C:\Users\trish\Downloads\form_analyzer\form_analyzer\modules\ocr_engine.py", line 103, in run
+    self._ensure_loaded()
+  File "C:\Users\trish\Downloads\form_analyzer\form_analyzer\modules\ocr_engine.py", line 80, in _ensure_loaded
+    self._ocr = PaddleOCR(**kwargs)
+                ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\trish\Downloads\form_analyzer\form_analyzer\venv\Lib\site-packages\paddleocr\paddleocr.py", line 599, in __init__
+    maybe_download(params.det_model_dir, det_url)
+  File "C:\Users\trish\Downloads\form_analyzer\form_analyzer\venv\Lib\site-packages\paddleocr\ppocr\utils\network.py", line 69, in maybe_download
+    os.remove(tmp_path)
+PermissionError: [WinError 32] The process cannot access the file because it is being used by another process: 'C:\\Users\\trish/.paddleocr/whl\\det\\en\\en_PP-OCRv3_det_infer\\en_PP-OCRv3_det_infer.tar'
+
+2026-08-09 21:26:36,049 [ERROR] form_analyzer.app: Pipeline failure for 2842.jpg: [WinError 32] The process cannot access the file because it is being used by another process: 'C:\\Users\\trish/.paddleocr/whl\\cls\\ch_ppocr_mobile_v2.0_cls_infer\\ch_ppocr_mobile_v2.0_cls_infer.tar'
+Traceback (most recent call last):
+  File "C:\Users\trish\Downloads\form_analyzer\form_analyzer\app.py", line 201, in analyze_single_file
+    blocks = engine.run(bgr)
+             ^^^^^^^^^^^^^^^
+  File "C:\Users\trish\Downloads\form_analyzer\form_analyzer\modules\ocr_engine.py", line 103, in run
+    self._ensure_loaded()
+  File "C:\Users\trish\Downloads\form_analyzer\form_analyzer\modules\ocr_engine.py", line 80, in _ensure_loaded
+    self._ocr = PaddleOCR(**kwargs)
+                ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\trish\Downloads\form_analyzer\form_analyzer\venv\Lib\site-packages\paddleocr\paddleocr.py", line 601, in __init__
+    maybe_download(params.cls_model_dir, cls_url)
+  File "C:\Users\trish\Downloads\form_analyzer\form_analyzer\venv\Lib\site-packages\paddleocr\ppocr\utils\network.py", line 69, in maybe_download
+    os.remove(tmp_path)
+PermissionError: [WinError 32] The process cannot access the file because it is being used by another process: 'C:\\Users\\trish/.paddleocr/whl\\cls\\ch_ppocr_mobile_v2.0_cls_infer\\ch_ppocr_mobile_v2.0_cls_infer.tar'
+
+2026-08-09 21:26:44,746 [ERROR] form_analyzer.app: Pipeline failure for 2843.jpg: [WinError 32] The process cannot access the file because it is being used by another process: 'C:\\Users\\trish/.paddleocr/whl\\cls\\ch_ppocr_mobile_v2.0_cls_infer\\ch_ppocr_mobile_v2.0_cls_infer.tar'
+Traceback (most recent call last):
+  File "C:\Users\trish\Downloads\form_analyzer\form_analyzer\app.py", line 201, in analyze_single_file
+    blocks = engine.run(bgr)
+             ^^^^^^^^^^^^^^^
+  File "C:\Users\trish\Downloads\form_analyzer\form_analyzer\modules\ocr_engine.py", line 103, in run
+    self._ensure_loaded()
+  File "C:\Users\trish\Downloads\form_analyzer\form_analyzer\modules\ocr_engine.py", line 80, in _ensure_loaded
+    self._ocr = PaddleOCR(**kwargs)
+                ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\trish\Downloads\form_analyzer\form_analyzer\venv\Lib\site-packages\paddleocr\paddleocr.py", line 601, in __init__
+    maybe_download(params.cls_model_dir, cls_url)
+  File "C:\Users\trish\Downloads\form_analyzer\form_analyzer\venv\Lib\site-packages\paddleocr\ppocr\utils\network.py", line 69, in maybe_download
+    os.remove(tmp_path)
+PermissionError: [WinError 32] The process cannot access the file because it is being used by another process: 'C:\\Users\\trish/.paddleocr/whl\\cls\\ch_ppocr_mobile_v2.0_cls_infer\\ch_ppocr_mobile_v2.0_cls_infer.tar'
+

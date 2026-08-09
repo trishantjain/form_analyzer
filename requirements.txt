@@ -1,0 +1,19 @@
+# Core web UI
+streamlit>=1.32,<2.0
+
+# OCR (pinned to a stable, known-compatible pair -- see README for details
+# on PaddleOCR API differences across versions)
+paddleocr==2.7.3
+paddlepaddle==2.6.2
+
+# Image / PDF processing
+opencv-python-headless>=4.9,<5.0
+Pillow>=10.0,<11.0
+PyMuPDF>=1.23,<2.0
+numpy>=1.24,<2.0
+
+# Fuzzy text matching
+rapidfuzz>=3.6,<4.0
+
+# Data handling
+pandas>=2.1,<3.0

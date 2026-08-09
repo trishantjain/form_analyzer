@@ -1,0 +1,2838 @@
+[
+  {
+    "filename": "2316106.jpg",
+    "overall_status": "PASS",
+    "score": 100.0,
+    "max_score": 100.0,
+    "pages": 1,
+    "document_type": "CSR Form - Centre Sign-Off Report Biometric",
+    "document_confidence": 100.0,
+    "format_status": "PASS",
+    "format_score": 100.0,
+    "required_fields_passed": 17,
+    "required_fields_total": 17,
+    "signatures_status": "PASS",
+    "stamps_status": "PASS",
+    "missing_headings": [],
+    "missing_elements": [],
+    "low_confidence_items": [],
+    "detected_photo": false,
+    "detected_stamp": true,
+    "detected_signature": true,
+    "detected_checkboxes": 0,
+    "ocr_text": "Centre Sign-Off Report\nBiometric\n(NEET-21/JUNE/2026)\nESTANTONDENCY\nMehom\nGovt.ITI\nName &Address ofthe\nExamination Center:\n231606\nHaxuana\nCentre Code\nState Name:\n&Date of Exam\n21.06.2026\n&District/City Name:\n&Rontekmeham\nInstallation/\n21/JUNE/2026\nService Delivery Date\nThis is to Certify that below is the physical atendance of the candidates at our examination center.\nVenue Representative\nTotal no.of Candidates\nTotalno.of Candidates\nShifts\nPresent\nSignature &Stamp\nAllotted\n240\n215\nShift 1\nCentre Superintendent\nCode-2316106.G.l.T.IMeham\nRemarks:\nCustomer Statement\nIhereby certfy that M/s Edcil has implemented the Impersonation Control through Biometric Authentication and Attendance\nMarking System at our center for restricting the impersonated candidates to enter the examination hall during the NEET (UG)\n2026 Examination.\nThe work has been found Satisfactory/Unsatisfactory Please tick mark)\nIuelesSuel\n9887397\nCentre Superintendent/Rep Name & Number\nCentre Superintendent\nCode-2316106G.L.TMeham\nCentre Superintendent/Rep Signature & Seal\nName of Agency Rep.\nSignature of Agency Rep.",
+    "warnings": [
+      "Reference layout similarity: 64.6% (2301105.jpg)."
+    ],
+    "checks": [
+      {
+        "id": "centre_information",
+        "label": "Centre information",
+        "check_type": "field",
+        "required": true,
+        "passed": true,
+        "confidence": 1.0,
+        "matched_text": "Examination Center:",
+        "bbox": [
+          192,
+          425,
+          331,
+          450
+        ],
+        "details": "Matched"
+      },
+      {
+        "id": "attendance",
+        "label": "Attendance table",
+        "check_type": "field",
+        "required": true,
+        "passed": true,
+        "confidence": 1.0,
+        "matched_text": "Shifts",
+        "bbox": [
+          245,
+          657,
+          288,
+          677
+        ],
+        "details": "Matched"
+      },
+      {
+        "id": "customer_statement",
+        "label": "Customer Statement",
+        "check_type": "field",
+        "required": true,
+        "passed": true,
+        "confidence": 1.0,
+        "matched_text": "Customer Statement",
+        "bbox": [
+          168,
+          828,
+          307,
+          852
+        ],
+        "details": "Matched"
+      },
+      {
+        "id": "superintendent",
+        "label": "Centre Superintendent section",
+        "check_type": "field",
+        "required": true,
+        "passed": true,
+        "confidence": 1.0,
+        "matched_text": "Centre Superintendent",
+        "bbox": [
+          799,
+          703,
+          991,
+          742
+        ],
+        "details": "Matched"
+      },
+      {
+        "id": "agency",
+        "label": "Agency Representative section",
+        "check_type": "field",
+        "required": true,
+        "passed": true,
+        "confidence": 1.0,
+        "matched_text": "Name of Agency Rep.",
+        "bbox": [
+          175,
+          1125,
+          324,
+          1154
+        ],
+        "details": "Matched"
+      },
+      {
+        "id": "centre_name",
+        "label": "Examination Centre name/address",
+        "check_type": "field",
+        "required": true,
+        "passed": true,
+        "confidence": 1.0,
+        "matched_text": "Examination Center:",
+        "bbox": [
+          192,
+          425,
+          331,
+          450
+        ],
+        "details": "Matched"
+      },
+      {
+        "id": "state_district",
+        "label": "State / District / City",
+        "check_type": "field",
+        "required": true,
+        "passed": true,
+        "confidence": 1.0,
+        "matched_text": "State Name:",
+        "bbox": [
+          196,
+          478,
+          280,
+          502
+        ],
+        "details": "Matched"
+      },
+      {
+        "id": "centre_code",
+        "label": "Centre Code",
+        "check_type": "field",
+        "required": true,
+        "passed": true,
+        "confidence": 1.0,
+        "matched_text": "Centre Code",
+        "bbox": [
+          663,
+          460,
+          757,
+          489
+        ],
+        "details": "Matched"
+      },
+      {
+        "id": "exam_date",
+        "label": "Date of Exam",
+        "check_type": "field",
+        "required": true,
+        "passed": true,
+        "confidence": 1.0,
+        "matched_text": "&Date of Exam",
+        "bbox": [
+          663,
+          481,
+          772,
+          507
+        ],
+        "details": "Matched"
+      },
+      {
+        "id": "installation_date",
+        "label": "Installation / Service Delivery Date",
+        "check_type": "field",
+        "required": true,
+        "passed": true,
+        "confidence": 1.0,
+        "matched_text": "Installation/",
+        "bbox": [
+          197,
+          540,
+          292,
+          567
+        ],
+        "details": "Matched"
+      },
+      {
+        "id": "shift",
+        "label": "Shift",
+        "check_type": "field",
+        "required": true,
+        "passed": true,
+        "confidence": 1.0,
+        "matched_text": "Shifts",
+        "bbox": [
+          245,
+          657,
+          288,
+          677
+        ],
+        "details": "Matched"
+      },
+      {
+        "id": "candidates_allotted",
+        "label": "Candidates Allotted",
+        "check_type": "field",
+        "required": true,
+        "passed": true,
+        "confidence": 1.0,
+        "matched_text": "Total no.of Candidates",
+        "bbox": [
+          356,
+          645,
+          508,
+          672
+        ],
+        "details": "Matched"
+      },
+      {
+        "id": "candidates_present",
+        "label": "Candidates Present",
+        "check_type": "field",
+        "required": true,
+        "passed": true,
+        "confidence": 1.0,
+        "matched_text": "Total no.of Candidates",
+        "bbox": [
+          356,
+          645,
+          508,
+          672
+        ],
+        "details": "Matched"
+      },
+      {
+        "id": "remarks",
+        "label": "Remarks",
+        "check_type": "field",
+        "required": true,
+        "passed": true,
+        "confidence": 1.0,
+        "matched_text": "Remarks:",
+        "bbox": [
+          201,
+          797,
+          262,
+          815
+        ],
+        "details": "Matched"
+      },
+      {
+        "id": "satisfactory",
+        "label": "Satisfactory / Unsatisfactory",
+        "check_type": "field",
+        "required": true,
+        "passed": true,
+        "confidence": 1.0,
+        "matched_text": "The work has been found Satisfactory/Unsatisfactory Please tick mark)",
+        "bbox": [
+          168,
+          900,
+          646,
+          945
+        ],
+        "details": "Matched"
+      },
+      {
+        "id": "superintendent_name",
+        "label": "Centre Superintendent/Rep Name & Number",
+        "check_type": "field",
+        "required": true,
+        "passed": true,
+        "confidence": 1.0,
+        "matched_text": "Centre Superintendent",
+        "bbox": [
+          799,
+          703,
+          991,
+          742
+        ],
+        "details": "Matched"
+      },
+      {
+        "id": "agency_name",
+        "label": "Name of Agency Rep",
+        "check_type": "field",
+        "required": true,
+        "passed": true,
+        "confidence": 1.0,
+        "matched_text": "Name of Agency Rep.",
+        "bbox": [
+          175,
+          1125,
+          324,
+          1154
+        ],
+        "details": "Matched"
+      },
+      {
+        "id": "venue_rep_signature_stamp",
+        "label": "Venue Representative signature & stamp",
+        "check_type": "signature_and_stamp_region",
+        "required": true,
+        "passed": true,
+        "confidence": 1.0,
+        "matched_text": null,
+        "bbox": [
+          768,
+          480,
+          1176,
+          704
+        ],
+        "details": "Ink coverage: 9.26%"
+      },
+      {
+        "id": "superintendent_signature_seal",
+        "label": "Centre Superintendent signature & seal",
+        "check_type": "signature_and_seal_region",
+        "required": true,
+        "passed": true,
+        "confidence": 1.0,
+        "matched_text": null,
+        "bbox": [
+          480,
+          800,
+          1164,
+          992
+        ],
+        "details": "Ink coverage: 3.97%"
+      },
+      {
+        "id": "agency_signature",
+        "label": "Agency Representative signature",
+        "check_type": "signature",
+        "required": false,
+        "passed": true,
+        "confidence": 1.0,
+        "matched_text": null,
+        "bbox": [
+          180,
+          1072,
+          1116,
+          1200
+        ],
+        "details": "Ink coverage: 2.72%"
+      }
+    ],
+    "heading_details": [],
+    "checkbox_details": [],
+    "processing_duration_seconds": 8.13,
+    "validation_details": {
+      "classification": {
+        "document_type": "CSR Form - Centre Sign-Off Report Biometric",
+        "confidence": 1.0,
+        "passed": true,
+        "matched_markers": [
+          "Centre Sign-Off Report",
+          "Biometric",
+          "NEET",
+          "Name & Address of Examination Center",
+          "State / District / City",
+          "Centre Code",
+          "Installation / Service Delivery Date",
+          "Attendance table",
+          "Customer Statement",
+          "Centre Superintendent",
+          "Agency Representative"
+        ],
+        "missing_markers": [],
+        "details": "Matched 11/11 configured document markers."
+      },
+      "checks": [
+        {
+          "id": "centre_information",
+          "label": "Centre information",
+          "check_type": "field",
+          "required": true,
+          "passed": true,
+          "confidence": 1.0,
+          "matched_text": "Examination Center:",
+          "bbox": [
+            192,
+            425,
+            331,
+            450
+          ],
+          "details": "Matched"
+        },
+        {
+          "id": "attendance",
+          "label": "Attendance table",
+          "check_type": "field",
+          "required": true,
+          "passed": true,
+          "confidence": 1.0,
+          "matched_text": "Shifts",
+          "bbox": [
+            245,
+            657,
+            288,
+            677
+          ],
+          "details": "Matched"
+        },
+        {
+          "id": "customer_statement",
+          "label": "Customer Statement",
+          "check_type": "field",
+          "required": true,
+          "passed": true,
+          "confidence": 1.0,
+          "matched_text": "Customer Statement",
+          "bbox": [
+            168,
+            828,
+            307,
+            852
+          ],
+          "details": "Matched"
+        },
+        {
+          "id": "superintendent",
+          "label": "Centre Superintendent section",
+          "check_type": "field",
+          "required": true,
+          "passed": true,
+          "confidence": 1.0,
+          "matched_text": "Centre Superintendent",
+          "bbox": [
+            799,
+            703,
+            991,
+            742
+          ],
+          "details": "Matched"
+        },
+        {
+          "id": "agency",
+          "label": "Agency Representative section",
+          "check_type": "field",
+          "required": true,
+          "passed": true,
+          "confidence": 1.0,
+          "matched_text": "Name of Agency Rep.",
+          "bbox": [
+            175,
+            1125,
+            324,
+            1154
+          ],
+          "details": "Matched"
+        },
+        {
+          "id": "centre_name",
+          "label": "Examination Centre name/address",
+          "check_type": "field",
+          "required": true,
+          "passed": true,
+          "confidence": 1.0,
+          "matched_text": "Examination Center:",
+          "bbox": [
+            192,
+            425,
+            331,
+            450
+          ],
+          "details": "Matched"
+        },
+        {
+          "id": "state_district",
+          "label": "State / District / City",
+          "check_type": "field",
+          "required": true,
+          "passed": true,
+          "confidence": 1.0,
+          "matched_text": "State Name:",
+          "bbox": [
+            196,
+            478,
+            280,
+            502
+          ],
+          "details": "Matched"
+        },
+        {
+          "id": "centre_code",
+          "label": "Centre Code",
+          "check_type": "field",
+          "required": true,
+          "passed": true,
+          "confidence": 1.0,
+          "matched_text": "Centre Code",
+          "bbox": [
+            663,
+            460,
+            757,
+            489
+          ],
+          "details": "Matched"
+        },
+        {
+          "id": "exam_date",
+          "label": "Date of Exam",
+          "check_type": "field",
+          "required": true,
+          "passed": true,
+          "confidence": 1.0,
+          "matched_text": "&Date of Exam",
+          "bbox": [
+            663,
+            481,
+            772,
+            507
+          ],
+          "details": "Matched"
+        },
+        {
+          "id": "installation_date",
+          "label": "Installation / Service Delivery Date",
+          "check_type": "field",
+          "required": true,
+          "passed": true,
+          "confidence": 1.0,
+          "matched_text": "Installation/",
+          "bbox": [
+            197,
+            540,
+            292,
+            567
+          ],
+          "details": "Matched"
+        },
+        {
+          "id": "shift",
+          "label": "Shift",
+          "check_type": "field",
+          "required": true,
+          "passed": true,
+          "confidence": 1.0,
+          "matched_text": "Shifts",
+          "bbox": [
+            245,
+            657,
+            288,
+            677
+          ],
+          "details": "Matched"
+        },
+        {
+          "id": "candidates_allotted",
+          "label": "Candidates Allotted",
+          "check_type": "field",
+          "required": true,
+          "passed": true,
+          "confidence": 1.0,
+          "matched_text": "Total no.of Candidates",
+          "bbox": [
+            356,
+            645,
+            508,
+            672
+          ],
+          "details": "Matched"
+        },
+        {
+          "id": "candidates_present",
+          "label": "Candidates Present",
+          "check_type": "field",
+          "required": true,
+          "passed": true,
+          "confidence": 1.0,
+          "matched_text": "Total no.of Candidates",
+          "bbox": [
+            356,
+            645,
+            508,
+            672
+          ],
+          "details": "Matched"
+        },
+        {
+          "id": "remarks",
+          "label": "Remarks",
+          "check_type": "field",
+          "required": true,
+          "passed": true,
+          "confidence": 1.0,
+          "matched_text": "Remarks:",
+          "bbox": [
+            201,
+            797,
+            262,
+            815
+          ],
+          "details": "Matched"
+        },
+        {
+          "id": "satisfactory",
+          "label": "Satisfactory / Unsatisfactory",
+          "check_type": "field",
+          "required": true,
+          "passed": true,
+          "confidence": 1.0,
+          "matched_text": "The work has been found Satisfactory/Unsatisfactory Please tick mark)",
+          "bbox": [
+            168,
+            900,
+            646,
+            945
+          ],
+          "details": "Matched"
+        },
+        {
+          "id": "superintendent_name",
+          "label": "Centre Superintendent/Rep Name & Number",
+          "check_type": "field",
+          "required": true,
+          "passed": true,
+          "confidence": 1.0,
+          "matched_text": "Centre Superintendent",
+          "bbox": [
+            799,
+            703,
+            991,
+            742
+          ],
+          "details": "Matched"
+        },
+        {
+          "id": "agency_name",
+          "label": "Name of Agency Rep",
+          "check_type": "field",
+          "required": true,
+          "passed": true,
+          "confidence": 1.0,
+          "matched_text": "Name of Agency Rep.",
+          "bbox": [
+            175,
+            1125,
+            324,
+            1154
+          ],
+          "details": "Matched"
+        },
+        {
+          "id": "venue_rep_signature_stamp",
+          "label": "Venue Representative signature & stamp",
+          "check_type": "signature_and_stamp_region",
+          "required": true,
+          "passed": true,
+          "confidence": 1.0,
+          "matched_text": null,
+          "bbox": [
+            768,
+            480,
+            1176,
+            704
+          ],
+          "details": "Ink coverage: 9.26%"
+        },
+        {
+          "id": "superintendent_signature_seal",
+          "label": "Centre Superintendent signature & seal",
+          "check_type": "signature_and_seal_region",
+          "required": true,
+          "passed": true,
+          "confidence": 1.0,
+          "matched_text": null,
+          "bbox": [
+            480,
+            800,
+            1164,
+            992
+          ],
+          "details": "Ink coverage: 3.97%"
+        },
+        {
+          "id": "agency_signature",
+          "label": "Agency Representative signature",
+          "check_type": "signature",
+          "required": false,
+          "passed": true,
+          "confidence": 1.0,
+          "matched_text": null,
+          "bbox": [
+            180,
+            1072,
+            1116,
+            1200
+          ],
+          "details": "Ink coverage: 2.72%"
+        }
+      ],
+      "format_score": 100.0,
+      "required_checks_passed": 19,
+      "required_checks_total": 19,
+      "missing_items": [],
+      "warnings": [
+        "Reference layout similarity: 64.6% (2301105.jpg)."
+      ],
+      "template_match": {
+        "matched": true,
+        "similarity": 0.646,
+        "reference_name": "2301105.jpg",
+        "good_matches": 275,
+        "inlier_ratio": 0.3564
+      }
+    }
+  },
+  {
+    "filename": "2316107.jpg",
+    "overall_status": "PASS",
+    "score": 100.0,
+    "max_score": 100.0,
+    "pages": 1,
+    "document_type": "CSR Form - Centre Sign-Off Report Biometric",
+    "document_confidence": 100.0,
+    "format_status": "PASS",
+    "format_score": 100.0,
+    "required_fields_passed": 17,
+    "required_fields_total": 17,
+    "signatures_status": "PASS",
+    "stamps_status": "PASS",
+    "missing_headings": [],
+    "missing_elements": [],
+    "low_confidence_items": [],
+    "detected_photo": false,
+    "detected_stamp": true,
+    "detected_signature": true,
+    "detected_checkboxes": 0,
+    "ocr_text": "Centre Sign-Off Report\nBiometric\nNEET-21/JUNE/2026)\nTESTING AGENCY\nName &Address of the\nExamination Center:\nGovt Polyechinic Mehan,obbnsit Busstendmelom\nHaryana\nCentre Code:\n2316107&\nState Name:\n&District/City Name:\n&Rahtk\n&Date of Exam\n21.06.2026\nInstallation/\n21/JUNE/2026\nService Delivery Date\nThis is to Certify that below is the physical attendance of the candidates at our examination center.\nShifts\nTotal no.of Candidates\nTotal no.of Candidates\nVenue Representative\nAllotted\nPresent\nSignature &Stamp\nShift 1\n240\n208\n5323\nRemarks\nCentre Superintendent\nCode-2316107Govt.Polytechnic Meham\nCustomer Statement\n hereby certify that M/s Edcil has implemented the Impersonatio\nControl through Biometric Authentication and Attendance\nMarking System at our center for restricting the impersonated candidates to enter the examination hall during the NEET (UG)\n2026 Examination.\nThe work has been found Satisfactory/Unsatisfactory (Please tick mark).\nCentre Superintendent/Rep Name &Number:\n323\nCentre Superintendent\nCentre Superintendent/Rep Signature & Seal\nCode-7316107Govt.Polytechnic Meham\nName of Agency Rep.\nRitu Saini\nSignature of Agency Rep.\nhitu Saimi",
+    "warnings": [
+      "Reference layout similarity: 65.6% (2301105.jpg)."
+    ],
+    "checks": [
+      {
+        "id": "centre_information",
+        "label": "Centre information",
+        "check_type": "field",
+        "required": true,
+        "passed": true,
+        "confidence": 1.0,
+        "matched_text": "Examination Center:",
+        "bbox": [
+          103,
+          447,
+          222,
+          463
+        ],
+        "details": "Matched"
+      },
+      {
+        "id": "attendance",
+        "label": "Attendance table",
+        "check_type": "field",
+        "required": true,
+        "passed": true,
+        "confidence": 1.0,
+        "matched_text": "Shifts",
+        "bbox": [
+          134,
+          647,
+          169,
+          665
+        ],
+        "details": "Matched"
+      },
+      {
+        "id": "customer_statement",
+        "label": "Customer Statement",
+        "check_type": "field",
+        "required": true,
+        "passed": true,
+        "confidence": 1.0,
+        "matched_text": "Customer Statement",
+        "bbox": [
+          55,
+          800,
+          175,
+          817
+        ],
+        "details": "Matched"
+      },
+      {
+        "id": "superintendent",
+        "label": "Centre Superintendent section",
+        "check_type": "field",
+        "required": true,
+        "passed": true,
+        "confidence": 1.0,
+        "matched_text": "Centre Superintendent",
+        "bbox": [
+          572,
+          761,
+          765,
+          792
+        ],
+        "details": "Matched"
+      },
+      {
+        "id": "agency",
+        "label": "Agency Representative section",
+        "check_type": "field",
+        "required": true,
+        "passed": true,
+        "confidence": 1.0,
+        "matched_text": "Name of Agency Rep.",
+        "bbox": [
+          41,
+          1060,
+          180,
+          1085
+        ],
+        "details": "Matched"
+      },
+      {
+        "id": "centre_name",
+        "label": "Examination Centre name/address",
+        "check_type": "field",
+        "required": true,
+        "passed": true,
+        "confidence": 1.0,
+        "matched_text": "Examination Center:",
+        "bbox": [
+          103,
+          447,
+          222,
+          463
+        ],
+        "details": "Matched"
+      },
+      {
+        "id": "state_district",
+        "label": "State / District / City",
+        "check_type": "field",
+        "required": true,
+        "passed": true,
+        "confidence": 1.0,
+        "matched_text": "State Name:",
+        "bbox": [
+          99,
+          492,
+          175,
+          508
+        ],
+        "details": "Matched"
+      },
+      {
+        "id": "centre_code",
+        "label": "Centre Code",
+        "check_type": "field",
+        "required": true,
+        "passed": true,
+        "confidence": 1.0,
+        "matched_text": "Centre Code:",
+        "bbox": [
+          516,
+          485,
+          594,
+          503
+        ],
+        "details": "Matched"
+      },
+      {
+        "id": "exam_date",
+        "label": "Date of Exam",
+        "check_type": "field",
+        "required": true,
+        "passed": true,
+        "confidence": 1.0,
+        "matched_text": "&Date of Exam",
+        "bbox": [
+          515,
+          503,
+          610,
+          520
+        ],
+        "details": "Matched"
+      },
+      {
+        "id": "installation_date",
+        "label": "Installation / Service Delivery Date",
+        "check_type": "field",
+        "required": true,
+        "passed": true,
+        "confidence": 1.0,
+        "matched_text": "Installation/",
+        "bbox": [
+          98,
+          547,
+          179,
+          563
+        ],
+        "details": "Matched"
+      },
+      {
+        "id": "shift",
+        "label": "Shift",
+        "check_type": "field",
+        "required": true,
+        "passed": true,
+        "confidence": 1.0,
+        "matched_text": "Shifts",
+        "bbox": [
+          134,
+          647,
+          169,
+          665
+        ],
+        "details": "Matched"
+      },
+      {
+        "id": "candidates_allotted",
+        "label": "Candidates Allotted",
+        "check_type": "field",
+        "required": true,
+        "passed": true,
+        "confidence": 1.0,
+        "matched_text": "Total no.of Candidates",
+        "bbox": [
+          230,
+          643,
+          366,
+          660
+        ],
+        "details": "Matched"
+      },
+      {
+        "id": "candidates_present",
+        "label": "Candidates Present",
+        "check_type": "field",
+        "required": true,
+        "passed": true,
+        "confidence": 1.0,
+        "matched_text": "Total no.of Candidates",
+        "bbox": [
+          230,
+          643,
+          366,
+          660
+        ],
+        "details": "Matched"
+      },
+      {
+        "id": "remarks",
+        "label": "Remarks",
+        "check_type": "field",
+        "required": true,
+        "passed": true,
+        "confidence": 1.0,
+        "matched_text": "Remarks",
+        "bbox": [
+          86,
+          767,
+          137,
+          783
+        ],
+        "details": "Matched"
+      },
+      {
+        "id": "satisfactory",
+        "label": "Satisfactory / Unsatisfactory",
+        "check_type": "field",
+        "required": true,
+        "passed": true,
+        "confidence": 1.0,
+        "matched_text": "The work has been found Satisfactory/Unsatisfactory (Please tick mark).",
+        "bbox": [
+          53,
+          877,
+          480,
+          897
+        ],
+        "details": "Matched"
+      },
+      {
+        "id": "superintendent_name",
+        "label": "Centre Superintendent/Rep Name & Number",
+        "check_type": "field",
+        "required": true,
+        "passed": true,
+        "confidence": 1.0,
+        "matched_text": "Centre Superintendent",
+        "bbox": [
+          572,
+          761,
+          765,
+          792
+        ],
+        "details": "Matched"
+      },
+      {
+        "id": "agency_name",
+        "label": "Name of Agency Rep",
+        "check_type": "field",
+        "required": true,
+        "passed": true,
+        "confidence": 1.0,
+        "matched_text": "Name of Agency Rep.",
+        "bbox": [
+          41,
+          1060,
+          180,
+          1085
+        ],
+        "details": "Matched"
+      },
+      {
+        "id": "venue_rep_signature_stamp",
+        "label": "Venue Representative signature & stamp",
+        "check_type": "signature_and_stamp_region",
+        "required": true,
+        "passed": true,
+        "confidence": 1.0,
+        "matched_text": null,
+        "bbox": [
+          576,
+          480,
+          882,
+          704
+        ],
+        "details": "Ink coverage: 14.79%"
+      },
+      {
+        "id": "superintendent_signature_seal",
+        "label": "Centre Superintendent signature & seal",
+        "check_type": "signature_and_seal_region",
+        "required": true,
+        "passed": true,
+        "confidence": 1.0,
+        "matched_text": null,
+        "bbox": [
+          360,
+          800,
+          873,
+          992
+        ],
+        "details": "Ink coverage: 11.50%"
+      },
+      {
+        "id": "agency_signature",
+        "label": "Agency Representative signature",
+        "check_type": "signature",
+        "required": false,
+        "passed": true,
+        "confidence": 1.0,
+        "matched_text": null,
+        "bbox": [
+          135,
+          1072,
+          837,
+          1200
+        ],
+        "details": "Ink coverage: 3.97%"
+      }
+    ],
+    "heading_details": [],
+    "checkbox_details": [],
+    "processing_duration_seconds": 4.28,
+    "validation_details": {
+      "classification": {
+        "document_type": "CSR Form - Centre Sign-Off Report Biometric",
+        "confidence": 1.0,
+        "passed": true,
+        "matched_markers": [
+          "Centre Sign-Off Report",
+          "Biometric",
+          "NEET",
+          "Name & Address of Examination Center",
+          "State / District / City",
+          "Centre Code",
+          "Installation / Service Delivery Date",
+          "Attendance table",
+          "Customer Statement",
+          "Centre Superintendent",
+          "Agency Representative"
+        ],
+        "missing_markers": [],
+        "details": "Matched 11/11 configured document markers."
+      },
+      "checks": [
+        {
+          "id": "centre_information",
+          "label": "Centre information",
+          "check_type": "field",
+          "required": true,
+          "passed": true,
+          "confidence": 1.0,
+          "matched_text": "Examination Center:",
+          "bbox": [
+            103,
+            447,
+            222,
+            463
+          ],
+          "details": "Matched"
+        },
+        {
+          "id": "attendance",
+          "label": "Attendance table",
+          "check_type": "field",
+          "required": true,
+          "passed": true,
+          "confidence": 1.0,
+          "matched_text": "Shifts",
+          "bbox": [
+            134,
+            647,
+            169,
+            665
+          ],
+          "details": "Matched"
+        },
+        {
+          "id": "customer_statement",
+          "label": "Customer Statement",
+          "check_type": "field",
+          "required": true,
+          "passed": true,
+          "confidence": 1.0,
+          "matched_text": "Customer Statement",
+          "bbox": [
+            55,
+            800,
+            175,
+            817
+          ],
+          "details": "Matched"
+        },
+        {
+          "id": "superintendent",
+          "label": "Centre Superintendent section",
+          "check_type": "field",
+          "required": true,
+          "passed": true,
+          "confidence": 1.0,
+          "matched_text": "Centre Superintendent",
+          "bbox": [
+            572,
+            761,
+            765,
+            792
+          ],
+          "details": "Matched"
+        },
+        {
+          "id": "agency",
+          "label": "Agency Representative section",
+          "check_type": "field",
+          "required": true,
+          "passed": true,
+          "confidence": 1.0,
+          "matched_text": "Name of Agency Rep.",
+          "bbox": [
+            41,
+            1060,
+            180,
+            1085
+          ],
+          "details": "Matched"
+        },
+        {
+          "id": "centre_name",
+          "label": "Examination Centre name/address",
+          "check_type": "field",
+          "required": true,
+          "passed": true,
+          "confidence": 1.0,
+          "matched_text": "Examination Center:",
+          "bbox": [
+            103,
+            447,
+            222,
+            463
+          ],
+          "details": "Matched"
+        },
+        {
+          "id": "state_district",
+          "label": "State / District / City",
+          "check_type": "field",
+          "required": true,
+          "passed": true,
+          "confidence": 1.0,
+          "matched_text": "State Name:",
+          "bbox": [
+            99,
+            492,
+            175,
+            508
+          ],
+          "details": "Matched"
+        },
+        {
+          "id": "centre_code",
+          "label": "Centre Code",
+          "check_type": "field",
+          "required": true,
+          "passed": true,
+          "confidence": 1.0,
+          "matched_text": "Centre Code:",
+          "bbox": [
+            516,
+            485,
+            594,
+            503
+          ],
+          "details": "Matched"
+        },
+        {
+          "id": "exam_date",
+          "label": "Date of Exam",
+          "check_type": "field",
+          "required": true,
+          "passed": true,
+          "confidence": 1.0,
+          "matched_text": "&Date of Exam",
+          "bbox": [
+            515,
+            503,
+            610,
+            520
+          ],
+          "details": "Matched"
+        },
+        {
+          "id": "installation_date",
+          "label": "Installation / Service Delivery Date",
+          "check_type": "field",
+          "required": true,
+          "passed": true,
+          "confidence": 1.0,
+          "matched_text": "Installation/",
+          "bbox": [
+            98,
+            547,
+            179,
+            563
+          ],
+          "details": "Matched"
+        },
+        {
+          "id": "shift",
+          "label": "Shift",
+          "check_type": "field",
+          "required": true,
+          "passed": true,
+          "confidence": 1.0,
+          "matched_text": "Shifts",
+          "bbox": [
+            134,
+            647,
+            169,
+            665
+          ],
+          "details": "Matched"
+        },
+        {
+          "id": "candidates_allotted",
+          "label": "Candidates Allotted",
+          "check_type": "field",
+          "required": true,
+          "passed": true,
+          "confidence": 1.0,
+          "matched_text": "Total no.of Candidates",
+          "bbox": [
+            230,
+            643,
+            366,
+            660
+          ],
+          "details": "Matched"
+        },
+        {
+          "id": "candidates_present",
+          "label": "Candidates Present",
+          "check_type": "field",
+          "required": true,
+          "passed": true,
+          "confidence": 1.0,
+          "matched_text": "Total no.of Candidates",
+          "bbox": [
+            230,
+            643,
+            366,
+            660
+          ],
+          "details": "Matched"
+        },
+        {
+          "id": "remarks",
+          "label": "Remarks",
+          "check_type": "field",
+          "required": true,
+          "passed": true,
+          "confidence": 1.0,
+          "matched_text": "Remarks",
+          "bbox": [
+            86,
+            767,
+            137,
+            783
+          ],
+          "details": "Matched"
+        },
+        {
+          "id": "satisfactory",
+          "label": "Satisfactory / Unsatisfactory",
+          "check_type": "field",
+          "required": true,
+          "passed": true,
+          "confidence": 1.0,
+          "matched_text": "The work has been found Satisfactory/Unsatisfactory (Please tick mark).",
+          "bbox": [
+            53,
+            877,
+            480,
+            897
+          ],
+          "details": "Matched"
+        },
+        {
+          "id": "superintendent_name",
+          "label": "Centre Superintendent/Rep Name & Number",
+          "check_type": "field",
+          "required": true,
+          "passed": true,
+          "confidence": 1.0,
+          "matched_text": "Centre Superintendent",
+          "bbox": [
+            572,
+            761,
+            765,
+            792
+          ],
+          "details": "Matched"
+        },
+        {
+          "id": "agency_name",
+          "label": "Name of Agency Rep",
+          "check_type": "field",
+          "required": true,
+          "passed": true,
+          "confidence": 1.0,
+          "matched_text": "Name of Agency Rep.",
+          "bbox": [
+            41,
+            1060,
+            180,
+            1085
+          ],
+          "details": "Matched"
+        },
+        {
+          "id": "venue_rep_signature_stamp",
+          "label": "Venue Representative signature & stamp",
+          "check_type": "signature_and_stamp_region",
+          "required": true,
+          "passed": true,
+          "confidence": 1.0,
+          "matched_text": null,
+          "bbox": [
+            576,
+            480,
+            882,
+            704
+          ],
+          "details": "Ink coverage: 14.79%"
+        },
+        {
+          "id": "superintendent_signature_seal",
+          "label": "Centre Superintendent signature & seal",
+          "check_type": "signature_and_seal_region",
+          "required": true,
+          "passed": true,
+          "confidence": 1.0,
+          "matched_text": null,
+          "bbox": [
+            360,
+            800,
+            873,
+            992
+          ],
+          "details": "Ink coverage: 11.50%"
+        },
+        {
+          "id": "agency_signature",
+          "label": "Agency Representative signature",
+          "check_type": "signature",
+          "required": false,
+          "passed": true,
+          "confidence": 1.0,
+          "matched_text": null,
+          "bbox": [
+            135,
+            1072,
+            837,
+            1200
+          ],
+          "details": "Ink coverage: 3.97%"
+        }
+      ],
+      "format_score": 100.0,
+      "required_checks_passed": 19,
+      "required_checks_total": 19,
+      "missing_items": [],
+      "warnings": [
+        "Reference layout similarity: 65.6% (2301105.jpg)."
+      ],
+      "template_match": {
+        "matched": true,
+        "similarity": 0.6562,
+        "reference_name": "2301105.jpg",
+        "good_matches": 256,
+        "inlier_ratio": 0.375
+      }
+    }
+  },
+  {
+    "filename": "2316108.jpg",
+    "overall_status": "PASS",
+    "score": 100.0,
+    "max_score": 100.0,
+    "pages": 1,
+    "document_type": "CSR Form - Centre Sign-Off Report Biometric",
+    "document_confidence": 100.0,
+    "format_status": "PASS",
+    "format_score": 100.0,
+    "required_fields_passed": 17,
+    "required_fields_total": 17,
+    "signatures_status": "PASS",
+    "stamps_status": "PASS",
+    "missing_headings": [],
+    "missing_elements": [],
+    "low_confidence_items": [],
+    "detected_photo": false,
+    "detected_stamp": true,
+    "detected_signature": true,
+    "detected_checkboxes": 0,
+    "ocr_text": "Centre Sign-Off Report\ngsfetes\nBiometric\nEdCIL\n(NEET-21/JUNE/2026)\nTESTING AGENCY\nPM SHRI JAWAHAR NAVOPYA IDALAYAUPO\nName&Address ofthe\nGHUSKANI ROHTAK\nExamination Center:\n2316108&\nHARYANA\nCentre Code:\nState Name:\n&Date of Exam\n21.06.2026\n&District/City Name\n&POHTAY\nInstallation/\n21/JUNE/2026\nService Delivery Date\nThis is to Certify that below is the physical attendance of the candidates at our examination center.\nTotal no.of Candidates\nTotal no.of Candidates\nVenue Representative\nShifts\nAllotted\nPresent\nSignature &Stamp\n217\n240\nShift1\nCenure\nNM\nRemarks:\nCustomer Statement\n2026 Examination.\nThe work has been found Satisfaetory/Unsatisfactory (Please tick mark).\nFIROKHAN\nCentre Superintendent/Rep Name & Number:\ntrochan\nCentre Superintendent/Rep Signature & Seal:\nRAVI\nName of Agency Rep.\nRari\nSignature of Agency Rep.:",
+    "warnings": [
+      "Reference layout similarity: 62.6% (2301105.jpg)."
+    ],
+    "checks": [
+      {
+        "id": "centre_information",
+        "label": "Centre information",
+        "check_type": "field",
+        "required": true,
+        "passed": true,
+        "confidence": 1.0,
+        "matched_text": "Examination Center:",
+        "bbox": [
+          78,
+          410,
+          247,
+          437
+        ],
+        "details": "Matched"
+      },
+      {
+        "id": "attendance",
+        "label": "Attendance table",
+        "check_type": "field",
+        "required": true,
+        "passed": true,
+        "confidence": 1.0,
+        "matched_text": "Shifts",
+        "bbox": [
+          153,
+          702,
+          206,
+          725
+        ],
+        "details": "Matched"
+      },
+      {
+        "id": "customer_statement",
+        "label": "Customer Statement",
+        "check_type": "field",
+        "required": true,
+        "passed": true,
+        "confidence": 1.0,
+        "matched_text": "Customer Statement",
+        "bbox": [
+          70,
+          903,
+          237,
+          930
+        ],
+        "details": "Matched"
+      },
+      {
+        "id": "superintendent",
+        "label": "Centre Superintendent section",
+        "check_type": "field",
+        "required": true,
+        "passed": true,
+        "confidence": 1.0,
+        "matched_text": "Centre Superintendent/Rep Name & Number:",
+        "bbox": [
+          61,
+          1101,
+          433,
+          1147
+        ],
+        "details": "Matched"
+      },
+      {
+        "id": "agency",
+        "label": "Agency Representative section",
+        "check_type": "field",
+        "required": true,
+        "passed": true,
+        "confidence": 1.0,
+        "matched_text": "Name of Agency Rep.",
+        "bbox": [
+          51,
+          1261,
+          239,
+          1299
+        ],
+        "details": "Matched"
+      },
+      {
+        "id": "centre_name",
+        "label": "Examination Centre name/address",
+        "check_type": "field",
+        "required": true,
+        "passed": true,
+        "confidence": 1.0,
+        "matched_text": "Examination Center:",
+        "bbox": [
+          78,
+          410,
+          247,
+          437
+        ],
+        "details": "Matched"
+      },
+      {
+        "id": "state_district",
+        "label": "State / District / City",
+        "check_type": "field",
+        "required": true,
+        "passed": true,
+        "confidence": 1.0,
+        "matched_text": "State Name:",
+        "bbox": [
+          83,
+          478,
+          190,
+          505
+        ],
+        "details": "Matched"
+      },
+      {
+        "id": "centre_code",
+        "label": "Centre Code",
+        "check_type": "field",
+        "required": true,
+        "passed": true,
+        "confidence": 1.0,
+        "matched_text": "Centre Code:",
+        "bbox": [
+          668,
+          460,
+          783,
+          489
+        ],
+        "details": "Matched"
+      },
+      {
+        "id": "exam_date",
+        "label": "Date of Exam",
+        "check_type": "field",
+        "required": true,
+        "passed": true,
+        "confidence": 1.0,
+        "matched_text": "&Date of Exam",
+        "bbox": [
+          670,
+          490,
+          805,
+          512
+        ],
+        "details": "Matched"
+      },
+      {
+        "id": "installation_date",
+        "label": "Installation / Service Delivery Date",
+        "check_type": "field",
+        "required": true,
+        "passed": true,
+        "confidence": 1.0,
+        "matched_text": "Installation/",
+        "bbox": [
+          92,
+          558,
+          201,
+          582
+        ],
+        "details": "Matched"
+      },
+      {
+        "id": "shift",
+        "label": "Shift",
+        "check_type": "field",
+        "required": true,
+        "passed": true,
+        "confidence": 1.0,
+        "matched_text": "Shifts",
+        "bbox": [
+          153,
+          702,
+          206,
+          725
+        ],
+        "details": "Matched"
+      },
+      {
+        "id": "candidates_allotted",
+        "label": "Candidates Allotted",
+        "check_type": "field",
+        "required": true,
+        "passed": true,
+        "confidence": 1.0,
+        "matched_text": "Total no.of Candidates",
+        "bbox": [
+          290,
+          697,
+          470,
+          718
+        ],
+        "details": "Matched"
+      },
+      {
+        "id": "candidates_present",
+        "label": "Candidates Present",
+        "check_type": "field",
+        "required": true,
+        "passed": true,
+        "confidence": 1.0,
+        "matched_text": "Total no.of Candidates",
+        "bbox": [
+          290,
+          697,
+          470,
+          718
+        ],
+        "details": "Matched"
+      },
+      {
+        "id": "remarks",
+        "label": "Remarks",
+        "check_type": "field",
+        "required": true,
+        "passed": true,
+        "confidence": 1.0,
+        "matched_text": "Remarks:",
+        "bbox": [
+          107,
+          863,
+          183,
+          890
+        ],
+        "details": "Matched"
+      },
+      {
+        "id": "satisfactory",
+        "label": "Satisfactory / Unsatisfactory",
+        "check_type": "field",
+        "required": true,
+        "passed": true,
+        "confidence": 1.0,
+        "matched_text": "The work has been found Satisfaetory/Unsatisfactory (Please tick mark).",
+        "bbox": [
+          66,
+          985,
+          631,
+          1035
+        ],
+        "details": "Matched"
+      },
+      {
+        "id": "superintendent_name",
+        "label": "Centre Superintendent/Rep Name & Number",
+        "check_type": "field",
+        "required": true,
+        "passed": true,
+        "confidence": 1.0,
+        "matched_text": "Centre Superintendent/Rep Name & Number:",
+        "bbox": [
+          61,
+          1101,
+          433,
+          1147
+        ],
+        "details": "Matched"
+      },
+      {
+        "id": "agency_name",
+        "label": "Name of Agency Rep",
+        "check_type": "field",
+        "required": true,
+        "passed": true,
+        "confidence": 1.0,
+        "matched_text": "Name of Agency Rep.",
+        "bbox": [
+          51,
+          1261,
+          239,
+          1299
+        ],
+        "details": "Matched"
+      },
+      {
+        "id": "venue_rep_signature_stamp",
+        "label": "Venue Representative signature & stamp",
+        "check_type": "signature_and_stamp_region",
+        "required": true,
+        "passed": true,
+        "confidence": 1.0,
+        "matched_text": null,
+        "bbox": [
+          768,
+          480,
+          1176,
+          704
+        ],
+        "details": "Ink coverage: 15.22%"
+      },
+      {
+        "id": "superintendent_signature_seal",
+        "label": "Centre Superintendent signature & seal",
+        "check_type": "signature_and_seal_region",
+        "required": true,
+        "passed": true,
+        "confidence": 1.0,
+        "matched_text": null,
+        "bbox": [
+          480,
+          800,
+          1164,
+          992
+        ],
+        "details": "Ink coverage: 6.40%"
+      },
+      {
+        "id": "agency_signature",
+        "label": "Agency Representative signature",
+        "check_type": "signature",
+        "required": false,
+        "passed": true,
+        "confidence": 1.0,
+        "matched_text": null,
+        "bbox": [
+          180,
+          1072,
+          1116,
+          1200
+        ],
+        "details": "Ink coverage: 8.01%"
+      }
+    ],
+    "heading_details": [],
+    "checkbox_details": [],
+    "processing_duration_seconds": 4.35,
+    "validation_details": {
+      "classification": {
+        "document_type": "CSR Form - Centre Sign-Off Report Biometric",
+        "confidence": 1.0,
+        "passed": true,
+        "matched_markers": [
+          "Centre Sign-Off Report",
+          "Biometric",
+          "NEET",
+          "Name & Address of Examination Center",
+          "State / District / City",
+          "Centre Code",
+          "Installation / Service Delivery Date",
+          "Attendance table",
+          "Customer Statement",
+          "Centre Superintendent",
+          "Agency Representative"
+        ],
+        "missing_markers": [],
+        "details": "Matched 11/11 configured document markers."
+      },
+      "checks": [
+        {
+          "id": "centre_information",
+          "label": "Centre information",
+          "check_type": "field",
+          "required": true,
+          "passed": true,
+          "confidence": 1.0,
+          "matched_text": "Examination Center:",
+          "bbox": [
+            78,
+            410,
+            247,
+            437
+          ],
+          "details": "Matched"
+        },
+        {
+          "id": "attendance",
+          "label": "Attendance table",
+          "check_type": "field",
+          "required": true,
+          "passed": true,
+          "confidence": 1.0,
+          "matched_text": "Shifts",
+          "bbox": [
+            153,
+            702,
+            206,
+            725
+          ],
+          "details": "Matched"
+        },
+        {
+          "id": "customer_statement",
+          "label": "Customer Statement",
+          "check_type": "field",
+          "required": true,
+          "passed": true,
+          "confidence": 1.0,
+          "matched_text": "Customer Statement",
+          "bbox": [
+            70,
+            903,
+            237,
+            930
+          ],
+          "details": "Matched"
+        },
+        {
+          "id": "superintendent",
+          "label": "Centre Superintendent section",
+          "check_type": "field",
+          "required": true,
+          "passed": true,
+          "confidence": 1.0,
+          "matched_text": "Centre Superintendent/Rep Name & Number:",
+          "bbox": [
+            61,
+            1101,
+            433,
+            1147
+          ],
+          "details": "Matched"
+        },
+        {
+          "id": "agency",
+          "label": "Agency Representative section",
+          "check_type": "field",
+          "required": true,
+          "passed": true,
+          "confidence": 1.0,
+          "matched_text": "Name of Agency Rep.",
+          "bbox": [
+            51,
+            1261,
+            239,
+            1299
+          ],
+          "details": "Matched"
+        },
+        {
+          "id": "centre_name",
+          "label": "Examination Centre name/address",
+          "check_type": "field",
+          "required": true,
+          "passed": true,
+          "confidence": 1.0,
+          "matched_text": "Examination Center:",
+          "bbox": [
+            78,
+            410,
+            247,
+            437
+          ],
+          "details": "Matched"
+        },
+        {
+          "id": "state_district",
+          "label": "State / District / City",
+          "check_type": "field",
+          "required": true,
+          "passed": true,
+          "confidence": 1.0,
+          "matched_text": "State Name:",
+          "bbox": [
+            83,
+            478,
+            190,
+            505
+          ],
+          "details": "Matched"
+        },
+        {
+          "id": "centre_code",
+          "label": "Centre Code",
+          "check_type": "field",
+          "required": true,
+          "passed": true,
+          "confidence": 1.0,
+          "matched_text": "Centre Code:",
+          "bbox": [
+            668,
+            460,
+            783,
+            489
+          ],
+          "details": "Matched"
+        },
+        {
+          "id": "exam_date",
+          "label": "Date of Exam",
+          "check_type": "field",
+          "required": true,
+          "passed": true,
+          "confidence": 1.0,
+          "matched_text": "&Date of Exam",
+          "bbox": [
+            670,
+            490,
+            805,
+            512
+          ],
+          "details": "Matched"
+        },
+        {
+          "id": "installation_date",
+          "label": "Installation / Service Delivery Date",
+          "check_type": "field",
+          "required": true,
+          "passed": true,
+          "confidence": 1.0,
+          "matched_text": "Installation/",
+          "bbox": [
+            92,
+            558,
+            201,
+            582
+          ],
+          "details": "Matched"
+        },
+        {
+          "id": "shift",
+          "label": "Shift",
+          "check_type": "field",
+          "required": true,
+          "passed": true,
+          "confidence": 1.0,
+          "matched_text": "Shifts",
+          "bbox": [
+            153,
+            702,
+            206,
+            725
+          ],
+          "details": "Matched"
+        },
+        {
+          "id": "candidates_allotted",
+          "label": "Candidates Allotted",
+          "check_type": "field",
+          "required": true,
+          "passed": true,
+          "confidence": 1.0,
+          "matched_text": "Total no.of Candidates",
+          "bbox": [
+            290,
+            697,
+            470,
+            718
+          ],
+          "details": "Matched"
+        },
+        {
+          "id": "candidates_present",
+          "label": "Candidates Present",
+          "check_type": "field",
+          "required": true,
+          "passed": true,
+          "confidence": 1.0,
+          "matched_text": "Total no.of Candidates",
+          "bbox": [
+            290,
+            697,
+            470,
+            718
+          ],
+          "details": "Matched"
+        },
+        {
+          "id": "remarks",
+          "label": "Remarks",
+          "check_type": "field",
+          "required": true,
+          "passed": true,
+          "confidence": 1.0,
+          "matched_text": "Remarks:",
+          "bbox": [
+            107,
+            863,
+            183,
+            890
+          ],
+          "details": "Matched"
+        },
+        {
+          "id": "satisfactory",
+          "label": "Satisfactory / Unsatisfactory",
+          "check_type": "field",
+          "required": true,
+          "passed": true,
+          "confidence": 1.0,
+          "matched_text": "The work has been found Satisfaetory/Unsatisfactory (Please tick mark).",
+          "bbox": [
+            66,
+            985,
+            631,
+            1035
+          ],
+          "details": "Matched"
+        },
+        {
+          "id": "superintendent_name",
+          "label": "Centre Superintendent/Rep Name & Number",
+          "check_type": "field",
+          "required": true,
+          "passed": true,
+          "confidence": 1.0,
+          "matched_text": "Centre Superintendent/Rep Name & Number:",
+          "bbox": [
+            61,
+            1101,
+            433,
+            1147
+          ],
+          "details": "Matched"
+        },
+        {
+          "id": "agency_name",
+          "label": "Name of Agency Rep",
+          "check_type": "field",
+          "required": true,
+          "passed": true,
+          "confidence": 1.0,
+          "matched_text": "Name of Agency Rep.",
+          "bbox": [
+            51,
+            1261,
+            239,
+            1299
+          ],
+          "details": "Matched"
+        },
+        {
+          "id": "venue_rep_signature_stamp",
+          "label": "Venue Representative signature & stamp",
+          "check_type": "signature_and_stamp_region",
+          "required": true,
+          "passed": true,
+          "confidence": 1.0,
+          "matched_text": null,
+          "bbox": [
+            768,
+            480,
+            1176,
+            704
+          ],
+          "details": "Ink coverage: 15.22%"
+        },
+        {
+          "id": "superintendent_signature_seal",
+          "label": "Centre Superintendent signature & seal",
+          "check_type": "signature_and_seal_region",
+          "required": true,
+          "passed": true,
+          "confidence": 1.0,
+          "matched_text": null,
+          "bbox": [
+            480,
+            800,
+            1164,
+            992
+          ],
+          "details": "Ink coverage: 6.40%"
+        },
+        {
+          "id": "agency_signature",
+          "label": "Agency Representative signature",
+          "check_type": "signature",
+          "required": false,
+          "passed": true,
+          "confidence": 1.0,
+          "matched_text": null,
+          "bbox": [
+            180,
+            1072,
+            1116,
+            1200
+          ],
+          "details": "Ink coverage: 8.01%"
+        }
+      ],
+      "format_score": 100.0,
+      "required_checks_passed": 19,
+      "required_checks_total": 19,
+      "missing_items": [],
+      "warnings": [
+        "Reference layout similarity: 62.6% (2301105.jpg)."
+      ],
+      "template_match": {
+        "matched": true,
+        "similarity": 0.6261,
+        "reference_name": "2301105.jpg",
+        "good_matches": 278,
+        "inlier_ratio": 0.3201
+      }
+    }
+  },
+  {
+    "filename": "2316201.jpg",
+    "overall_status": "PASS",
+    "score": 100.0,
+    "max_score": 100.0,
+    "pages": 1,
+    "document_type": "CSR Form - Centre Sign-Off Report Biometric",
+    "document_confidence": 100.0,
+    "format_status": "PASS",
+    "format_score": 100.0,
+    "required_fields_passed": 17,
+    "required_fields_total": 17,
+    "signatures_status": "PASS",
+    "stamps_status": "PASS",
+    "missing_headings": [],
+    "missing_elements": [],
+    "low_confidence_items": [],
+    "detected_photo": false,
+    "detected_stamp": true,
+    "detected_signature": true,
+    "detected_checkboxes": 0,
+    "ocr_text": "Centre Sign-Off Report\nBiometric\nIESTINGADENCY\n(NEET-21/JUNE/2026\nEd\nName&Address ofthe\n9t.N.R.s.Gavt.GolleRohtak\nExamination Center:\n2316201\nState Name\nHARYANA\n&District/City Name:\n231620&\n&Rohk/Rohak\nCentre Code:\n&Date of Exam\n21.06.2026\nInstallation/\nService Delivery Date\n21/1UNE/206\nThis is to Certify that below is the physical attendance of the cand\ndidates at our examination center\nShifts\nTotal no.of Candidates\nTotal no.of Candidates\nVenue Representative\nAllotted\nPresent\nSignature&Stamp\nShift 1\n480\n431\nPrincipal\nRemarks:\nPt.NRS Govt. College\nCustomer Statement\nRohtak\nI hereby certify that M/s Edcil has implemented the Impersonation Control through Biometric Authentication and Attendance\n2026 Examinatlon\nThe work has been found Satisfactory/Unsatisfactory (Please tick mark).\nBof SuxinclexSangaanFo56t19\nCentre Superintendent/Rep Name & Number:\nCentre Superintendent/Rep Signature & Seal\nPrincipal\nPt.NRS Govt.College\nRohtak\nName of Agency Rep.\nSignature of Agency Rep.",
+    "warnings": [
+      "Reference layout similarity: 62.9% (2301105.jpg)."
+    ],
+    "checks": [
+      {
+        "id": "centre_information",
+        "label": "Centre information",
+        "check_type": "field",
+        "required": true,
+        "passed": true,
+        "confidence": 1.0,
+        "matched_text": "Examination Center:",
+        "bbox": [
+          133,
+          358,
+          270,
+          389
+        ],
+        "details": "Matched"
+      },
+      {
+        "id": "attendance",
+        "label": "Attendance table",
+        "check_type": "field",
+        "required": true,
+        "passed": true,
+        "confidence": 1.0,
+        "matched_text": "Shifts",
+        "bbox": [
+          168,
+          582,
+          212,
+          607
+        ],
+        "details": "Matched"
+      },
+      {
+        "id": "customer_statement",
+        "label": "Customer Statement",
+        "check_type": "field",
+        "required": true,
+        "passed": true,
+        "confidence": 1.0,
+        "matched_text": "Customer Statement",
+        "bbox": [
+          79,
+          751,
+          217,
+          773
+        ],
+        "details": "Matched"
+      },
+      {
+        "id": "superintendent",
+        "label": "Centre Superintendent section",
+        "check_type": "field",
+        "required": true,
+        "passed": true,
+        "confidence": 1.0,
+        "matched_text": "Centre Superintendent/Rep Name & Number:",
+        "bbox": [
+          73,
+          928,
+          377,
+          949
+        ],
+        "details": "Matched"
+      },
+      {
+        "id": "agency",
+        "label": "Agency Representative section",
+        "check_type": "field",
+        "required": true,
+        "passed": true,
+        "confidence": 1.0,
+        "matched_text": "Name of Agency Rep.",
+        "bbox": [
+          68,
+          1051,
+          215,
+          1068
+        ],
+        "details": "Matched"
+      },
+      {
+        "id": "centre_name",
+        "label": "Examination Centre name/address",
+        "check_type": "field",
+        "required": true,
+        "passed": true,
+        "confidence": 1.0,
+        "matched_text": "Examination Center:",
+        "bbox": [
+          133,
+          358,
+          270,
+          389
+        ],
+        "details": "Matched"
+      },
+      {
+        "id": "state_district",
+        "label": "State / District / City",
+        "check_type": "field",
+        "required": true,
+        "passed": true,
+        "confidence": 1.0,
+        "matched_text": "State Name",
+        "bbox": [
+          130,
+          406,
+          216,
+          437
+        ],
+        "details": "Matched"
+      },
+      {
+        "id": "centre_code",
+        "label": "Centre Code",
+        "check_type": "field",
+        "required": true,
+        "passed": true,
+        "confidence": 1.0,
+        "matched_text": "Centre Code:",
+        "bbox": [
+          585,
+          440,
+          668,
+          458
+        ],
+        "details": "Matched"
+      },
+      {
+        "id": "exam_date",
+        "label": "Date of Exam",
+        "check_type": "field",
+        "required": true,
+        "passed": true,
+        "confidence": 1.0,
+        "matched_text": "&Date of Exam",
+        "bbox": [
+          583,
+          456,
+          680,
+          480
+        ],
+        "details": "Matched"
+      },
+      {
+        "id": "installation_date",
+        "label": "Installation / Service Delivery Date",
+        "check_type": "field",
+        "required": true,
+        "passed": true,
+        "confidence": 1.0,
+        "matched_text": "Installation/",
+        "bbox": [
+          128,
+          467,
+          222,
+          495
+        ],
+        "details": "Matched"
+      },
+      {
+        "id": "shift",
+        "label": "Shift",
+        "check_type": "field",
+        "required": true,
+        "passed": true,
+        "confidence": 1.0,
+        "matched_text": "Shifts",
+        "bbox": [
+          168,
+          582,
+          212,
+          607
+        ],
+        "details": "Matched"
+      },
+      {
+        "id": "candidates_allotted",
+        "label": "Candidates Allotted",
+        "check_type": "field",
+        "required": true,
+        "passed": true,
+        "confidence": 1.0,
+        "matched_text": "Total no.of Candidates",
+        "bbox": [
+          278,
+          586,
+          428,
+          611
+        ],
+        "details": "Matched"
+      },
+      {
+        "id": "candidates_present",
+        "label": "Candidates Present",
+        "check_type": "field",
+        "required": true,
+        "passed": true,
+        "confidence": 1.0,
+        "matched_text": "Total no.of Candidates",
+        "bbox": [
+          278,
+          586,
+          428,
+          611
+        ],
+        "details": "Matched"
+      },
+      {
+        "id": "remarks",
+        "label": "Remarks",
+        "check_type": "field",
+        "required": true,
+        "passed": true,
+        "confidence": 1.0,
+        "matched_text": "Remarks:",
+        "bbox": [
+          114,
+          718,
+          177,
+          736
+        ],
+        "details": "Matched"
+      },
+      {
+        "id": "satisfactory",
+        "label": "Satisfactory / Unsatisfactory",
+        "check_type": "field",
+        "required": true,
+        "passed": true,
+        "confidence": 1.0,
+        "matched_text": "The work has been found Satisfactory/Unsatisfactory (Please tick mark).",
+        "bbox": [
+          74,
+          838,
+          547,
+          861
+        ],
+        "details": "Matched"
+      },
+      {
+        "id": "superintendent_name",
+        "label": "Centre Superintendent/Rep Name & Number",
+        "check_type": "field",
+        "required": true,
+        "passed": true,
+        "confidence": 1.0,
+        "matched_text": "Centre Superintendent/Rep Name & Number:",
+        "bbox": [
+          73,
+          928,
+          377,
+          949
+        ],
+        "details": "Matched"
+      },
+      {
+        "id": "agency_name",
+        "label": "Name of Agency Rep",
+        "check_type": "field",
+        "required": true,
+        "passed": true,
+        "confidence": 1.0,
+        "matched_text": "Name of Agency Rep.",
+        "bbox": [
+          68,
+          1051,
+          215,
+          1068
+        ],
+        "details": "Matched"
+      },
+      {
+        "id": "venue_rep_signature_stamp",
+        "label": "Venue Representative signature & stamp",
+        "check_type": "signature_and_stamp_region",
+        "required": true,
+        "passed": true,
+        "confidence": 1.0,
+        "matched_text": null,
+        "bbox": [
+          575,
+          479,
+          881,
+          703
+        ],
+        "details": "Ink coverage: 18.97%"
+      },
+      {
+        "id": "superintendent_signature_seal",
+        "label": "Centre Superintendent signature & seal",
+        "check_type": "signature_and_seal_region",
+        "required": true,
+        "passed": true,
+        "confidence": 1.0,
+        "matched_text": null,
+        "bbox": [
+          359,
+          799,
+          872,
+          991
+        ],
+        "details": "Ink coverage: 7.21%"
+      },
+      {
+        "id": "agency_signature",
+        "label": "Agency Representative signature",
+        "check_type": "signature",
+        "required": false,
+        "passed": true,
+        "confidence": 1.0,
+        "matched_text": null,
+        "bbox": [
+          134,
+          1071,
+          836,
+          1199
+        ],
+        "details": "Ink coverage: 74.54%"
+      }
+    ],
+    "heading_details": [],
+    "checkbox_details": [],
+    "processing_duration_seconds": 4.1,
+    "validation_details": {
+      "classification": {
+        "document_type": "CSR Form - Centre Sign-Off Report Biometric",
+        "confidence": 1.0,
+        "passed": true,
+        "matched_markers": [
+          "Centre Sign-Off Report",
+          "Biometric",
+          "NEET",
+          "Name & Address of Examination Center",
+          "State / District / City",
+          "Centre Code",
+          "Installation / Service Delivery Date",
+          "Attendance table",
+          "Customer Statement",
+          "Centre Superintendent",
+          "Agency Representative"
+        ],
+        "missing_markers": [],
+        "details": "Matched 11/11 configured document markers."
+      },
+      "checks": [
+        {
+          "id": "centre_information",
+          "label": "Centre information",
+          "check_type": "field",
+          "required": true,
+          "passed": true,
+          "confidence": 1.0,
+          "matched_text": "Examination Center:",
+          "bbox": [
+            133,
+            358,
+            270,
+            389
+          ],
+          "details": "Matched"
+        },
+        {
+          "id": "attendance",
+          "label": "Attendance table",
+          "check_type": "field",
+          "required": true,
+          "passed": true,
+          "confidence": 1.0,
+          "matched_text": "Shifts",
+          "bbox": [
+            168,
+            582,
+            212,
+            607
+          ],
+          "details": "Matched"
+        },
+        {
+          "id": "customer_statement",
+          "label": "Customer Statement",
+          "check_type": "field",
+          "required": true,
+          "passed": true,
+          "confidence": 1.0,
+          "matched_text": "Customer Statement",
+          "bbox": [
+            79,
+            751,
+            217,
+            773
+          ],
+          "details": "Matched"
+        },
+        {
+          "id": "superintendent",
+          "label": "Centre Superintendent section",
+          "check_type": "field",
+          "required": true,
+          "passed": true,
+          "confidence": 1.0,
+          "matched_text": "Centre Superintendent/Rep Name & Number:",
+          "bbox": [
+            73,
+            928,
+            377,
+            949
+          ],
+          "details": "Matched"
+        },
+        {
+          "id": "agency",
+          "label": "Agency Representative section",
+          "check_type": "field",
+          "required": true,
+          "passed": true,
+          "confidence": 1.0,
+          "matched_text": "Name of Agency Rep.",
+          "bbox": [
+            68,
+            1051,
+            215,
+            1068
+          ],
+          "details": "Matched"
+        },
+        {
+          "id": "centre_name",
+          "label": "Examination Centre name/address",
+          "check_type": "field",
+          "required": true,
+          "passed": true,
+          "confidence": 1.0,
+          "matched_text": "Examination Center:",
+          "bbox": [
+            133,
+            358,
+            270,
+            389
+          ],
+          "details": "Matched"
+        },
+        {
+          "id": "state_district",
+          "label": "State / District / City",
+          "check_type": "field",
+          "required": true,
+          "passed": true,
+          "confidence": 1.0,
+          "matched_text": "State Name",
+          "bbox": [
+            130,
+            406,
+            216,
+            437
+          ],
+          "details": "Matched"
+        },
+        {
+          "id": "centre_code",
+          "label": "Centre Code",
+          "check_type": "field",
+          "required": true,
+          "passed": true,
+          "confidence": 1.0,
+          "matched_text": "Centre Code:",
+          "bbox": [
+            585,
+            440,
+            668,
+            458
+          ],
+          "details": "Matched"
+        },
+        {
+          "id": "exam_date",
+          "label": "Date of Exam",
+          "check_type": "field",
+          "required": true,
+          "passed": true,
+          "confidence": 1.0,
+          "matched_text": "&Date of Exam",
+          "bbox": [
+            583,
+            456,
+            680,
+            480
+          ],
+          "details": "Matched"
+        },
+        {
+          "id": "installation_date",
+          "label": "Installation / Service Delivery Date",
+          "check_type": "field",
+          "required": true,
+          "passed": true,
+          "confidence": 1.0,
+          "matched_text": "Installation/",
+          "bbox": [
+            128,
+            467,
+            222,
+            495
+          ],
+          "details": "Matched"
+        },
+        {
+          "id": "shift",
+          "label": "Shift",
+          "check_type": "field",
+          "required": true,
+          "passed": true,
+          "confidence": 1.0,
+          "matched_text": "Shifts",
+          "bbox": [
+            168,
+            582,
+            212,
+            607
+          ],
+          "details": "Matched"
+        },
+        {
+          "id": "candidates_allotted",
+          "label": "Candidates Allotted",
+          "check_type": "field",
+          "required": true,
+          "passed": true,
+          "confidence": 1.0,
+          "matched_text": "Total no.of Candidates",
+          "bbox": [
+            278,
+            586,
+            428,
+            611
+          ],
+          "details": "Matched"
+        },
+        {
+          "id": "candidates_present",
+          "label": "Candidates Present",
+          "check_type": "field",
+          "required": true,
+          "passed": true,
+          "confidence": 1.0,
+          "matched_text": "Total no.of Candidates",
+          "bbox": [
+            278,
+            586,
+            428,
+            611
+          ],
+          "details": "Matched"
+        },
+        {
+          "id": "remarks",
+          "label": "Remarks",
+          "check_type": "field",
+          "required": true,
+          "passed": true,
+          "confidence": 1.0,
+          "matched_text": "Remarks:",
+          "bbox": [
+            114,
+            718,
+            177,
+            736
+          ],
+          "details": "Matched"
+        },
+        {
+          "id": "satisfactory",
+          "label": "Satisfactory / Unsatisfactory",
+          "check_type": "field",
+          "required": true,
+          "passed": true,
+          "confidence": 1.0,
+          "matched_text": "The work has been found Satisfactory/Unsatisfactory (Please tick mark).",
+          "bbox": [
+            74,
+            838,
+            547,
+            861
+          ],
+          "details": "Matched"
+        },
+        {
+          "id": "superintendent_name",
+          "label": "Centre Superintendent/Rep Name & Number",
+          "check_type": "field",
+          "required": true,
+          "passed": true,
+          "confidence": 1.0,
+          "matched_text": "Centre Superintendent/Rep Name & Number:",
+          "bbox": [
+            73,
+            928,
+            377,
+            949
+          ],
+          "details": "Matched"
+        },
+        {
+          "id": "agency_name",
+          "label": "Name of Agency Rep",
+          "check_type": "field",
+          "required": true,
+          "passed": true,
+          "confidence": 1.0,
+          "matched_text": "Name of Agency Rep.",
+          "bbox": [
+            68,
+            1051,
+            215,
+            1068
+          ],
+          "details": "Matched"
+        },
+        {
+          "id": "venue_rep_signature_stamp",
+          "label": "Venue Representative signature & stamp",
+          "check_type": "signature_and_stamp_region",
+          "required": true,
+          "passed": true,
+          "confidence": 1.0,
+          "matched_text": null,
+          "bbox": [
+            575,
+            479,
+            881,
+            703
+          ],
+          "details": "Ink coverage: 18.97%"
+        },
+        {
+          "id": "superintendent_signature_seal",
+          "label": "Centre Superintendent signature & seal",
+          "check_type": "signature_and_seal_region",
+          "required": true,
+          "passed": true,
+          "confidence": 1.0,
+          "matched_text": null,
+          "bbox": [
+            359,
+            799,
+            872,
+            991
+          ],
+          "details": "Ink coverage: 7.21%"
+        },
+        {
+          "id": "agency_signature",
+          "label": "Agency Representative signature",
+          "check_type": "signature",
+          "required": false,
+          "passed": true,
+          "confidence": 1.0,
+          "matched_text": null,
+          "bbox": [
+            134,
+            1071,
+            836,
+            1199
+          ],
+          "details": "Ink coverage: 74.54%"
+        }
+      ],
+      "format_score": 100.0,
+      "required_checks_passed": 19,
+      "required_checks_total": 19,
+      "missing_items": [],
+      "warnings": [
+        "Reference layout similarity: 62.9% (2301105.jpg)."
+      ],
+      "template_match": {
+        "matched": true,
+        "similarity": 0.6292,
+        "reference_name": "2301105.jpg",
+        "good_matches": 267,
+        "inlier_ratio": 0.3258
+      }
+    }
+  }
+]
