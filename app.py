@@ -24,11 +24,12 @@ from pathlib import Path
 from typing import Any, Dict, List, Optional
 
 import cv2
-st.write("OpenCV version:", cv2.__version__)
-st.write("OpenCV location:", cv2.__file__)
 import pandas as pd
 import streamlit as st
 from PIL import Image
+
+st.write("OpenCV version:", cv2.__version__)
+st.write("OpenCV location:", cv2.__file__)
 
 from modules.csr_validator import CSRValidation, validate_csr_page
 from modules.database import FormDatabase
